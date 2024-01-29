@@ -1,0 +1,139 @@
+\documentclass{homework}
+\author{Joseph Siu}
+\class{CSC240}
+\date{\today}
+\title{Cheat Sheet}
+
+%CSC240 Commands
+%%% Logic
+\newcommand{\nnot}{\mathrm{NOT}}
+\newcommand{\aand}{\,\,\mathrm{AND}\,\,}
+\newcommand{\oor}{\,\,\mathrm{OR}\,\,}
+\newcommand{\iimplies}{\,\,\mathrm{IMPLIES}\,\,}
+\newcommand{\xor}{\,\,\mathrm{XOR}\,\,}
+\newcommand{\iif}{\,\,\mathrm{IFF}\,\,}
+\newcommand{\nand}{\,\,\mathrm{NAND}\,\,}
+%%% Sets
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\ints}{\mathbb{Z}}
+
+%Other Commands
+\newcommand{\Set}[1]{\{#1\}}
+\newcommand{\T}[1]{\text{#1}}
+\newcommand{\Al}[3]{#1 &=#2 &\text{#3}&&\\}
+\newcommand*{\eg}{\leavevmode\unskip , e. g., \ignorespaces} % for example
+\newcommand*{\ie}{\leavevmode\unskip, i. e., \ignorespaces} % that is
+\newcommand{\nil}{\varnothing}
+\AtBeginDocument{\def\O{\cal{O}}} % Big Oh
+\AtBeginDocument{\def\C{\bb{C}}} % Complex
+\newcommand{\R}{\bb{R}} % Reals
+\newcommand{\Q}{\bb{Q}} % Rationals
+\newcommand{\Z}{\bb{Z}} % Integers
+\newcommand{\N}{\bb{N}} % Naturals
+\renewcommand{\P}{\bb{P}} % Primes
+\newcommand{\Pset}[1]{\mathcal{P}(#1)} %power set
+\newcommand{\Relate}[2]{#1\mathcal{R}#2} %relation
+\newcommand{\relate}{\mathcal{R}}
+\newcommand{\F}{\bb{F}} 
+\newcommand{\GF}[1][2]{\bb{F}_{#1}} 
+\newcommand{\modulo}[1][n]{\Z/#1\Z} 
+\newcommand{\ra}{\rightarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\?}{\stackrel{?}{=}}
+\newcommand{\is}{\equiv}
+\newcommand{\al}{\alpha}
+\newcommand{\ep}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\newcommand{\p}{\partial}
+\newcommand{\injective}{\hookrightarrow}
+\newcommand{\surjective}{\twoheadrightarrow}
+\newcommand{\bijective}{\hookrightarrow\mathrel{\mspace{-15mu}}\rightarrow}
+\newcommand{\derivative}[2][x]{\frac{\D #2}{\D #1}}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\near}[1]{\left\lfloor#1\right\rceil}
+\newcommand{\arr}[1]{\left\langle#1\right\rangle}
+\newcommand{\paren}[1]{\left(#1\right)} %pair / ()
+\newcommand{\brk}[1]{\left[#1\right]} %[]
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\curl}[1]{\left\{#1\right\}} %set {}
+\newcommand{\func}[3]{#1: #2 \rightarrow #3}
+
+%Environments
+\theoremstyle{definition}
+\newtheorem*{claim}{Claim}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+%Sorted List
+\usepackage{datatool}% http://ctan.org/pkg/datatool
+\newcommand{\sortitem}[1]{%
+  \DTLnewrow{list}% Create a new entry
+  \DTLnewdbentry{list}{description}{#1}% Add entry as description
+}
+\newenvironment{sortedlist}{%
+  \DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}% Create new/discard old list
+}{%
+  \DTLsort{description}{list}% Sort list
+  \begin{itemize}%
+    \DTLforeach*{list}{\theDesc=description}{%
+      \item \theDesc}% Print each item
+  \end{itemize}%
+}
+
+\begin{document} %\maketitle
+
+\section{Predicate and propositional logic}
+
+\subsection{Terminologies}
+
+\begin{sortedlist}
+    \sortitem{\textbf{Proposition} = statement either \textit{true} or \textit{false}}
+    \sortitem{\textbf{Predicate} = \textit{proposition} whose truth depends on \textit{variables} / function with range \textit{\{T,F\}}}
+    \sortitem{\textbf{Propositional Formula} = expression built from \textit{Boolean variables} using \textit{connectives} with \textbf{no} \textit{predicates} or \textit{quantifiers}}
+    \sortitem{\textbf{Truth Assignment} = function from a set of \textit{propositional variables} to \textit{\{T,F\}}; a row of the truth table}
+    \sortitem{\textbf{Satisfiability Problem (SAT)} = output \textit{YES} if the \textit{propositional formula} is \textit{satisfiable}, vice versa}
+    \sortitem{\textbf{Disjunctive Normal Form (DNF)} = a \textit{disjunction} of \textit{conjunctions} of \textit{literals}}
+    \sortitem{\textbf{Conjunctive Normal Form (CNF)} = a \textit{conjunction} of \textit{disjunctions} of \textit{literals}}
+    \sortitem{\textbf{Predicate Logic Formula} = \textit{predicates} (fixed number of arguments) + \textit{connectives} + \textit{quantifiers}}
+    \sortitem{\textbf{Interpretation} = a case with non-empty domain; free variables with assigned domain elements; function from relevant domain to range}
+    \sortitem{\textbf{Prenex Normal Form} = [some quantifications]+[formula without quantifiers]}
+\end{sortedlist}
+
+Trivial Terms:
+
+\begin{itemize}
+    \item Connectives = negation, conjunction, disjunction, exclusive-or, implication, equivalence
+    \item Universal / Existential quantification 
+    \item Boolean variable = variables that are either True of False (does not depend on other variables like predicate does)
+    \item Truth table = $n$ variables truth table has $2^n$ rows\\
+    \item Tautology / Valid = \textbf{propositional formula} which all entries are \textit{True} / \textbf{predicate logic formula} which all \textit{interpretations} are true
+    \item Unsatisfiable / Contradiction = \textbf{propositional formula} which all entries are \textit{False} / \textbf{predicate logic formula} is false for all \textit{interpretation}
+    \item Satisfiable = \textit{propositional formula} which at least one entry is \textit{True} / \textbf{predicate logic formula} is true for some \textit{interpretation}\\
+    \item \textbf{P} = all decision problems can be solved in polynomial time
+    \item \textbf{NP} = all decision problems can be verified in polynomial time; SAT $\in$ NP
+    \item Literal = variable or the negation of it
+    \item Clause = disjunction of literals
+    \item CNF-SAT = \textit{SAT} but \textit{propositional formula} in \textit{CNF}\\
+    \item Constant = a particular element in a domain
+    \item Variable = any element in a domain
+    \item quantified = variable with quantifier
+    \item unquantified / free = variables that are not quantified
+    \item valuation = maps free variable to domain element
+    \item logically implies (equivalent) = P's interpretation is True => Q is also True
+\end{itemize}
+
+\subsection{Subtle details}
+
+\begin{enumerate}
+    \item Quantifiers are flipped with Negation / Hypothesis of implication
+    \item Order of quantifiers does matter
+    \item Every propositional formula is equivalent to a \textit{DNF / CNF}
+    \item To construct a DNF form, for each line with output T, conjuct the variables with appropriate negations, then disjunct the lines.
+    \item To construct a CNF form, for each line with output F, conjuct the variables with appropriate negations, disjunt them, negate the entire statement. 
+    \item Do not repeat symbols for variables and constants.
+\end{enumerate}
+
+
+\end{document}

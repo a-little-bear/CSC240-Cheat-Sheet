@@ -1,0 +1,128 @@
+\documentclass{alittlebear}
+
+%CSC240 Commands
+%%% Logic
+\newcommand{\nnot}{\mathrm{NOT}}
+\newcommand{\aand}{\,\,\mathrm{AND}\,\,}
+\newcommand{\oor}{\,\,\mathrm{OR}\,\,}
+\newcommand{\iimplies}{\,\,\mathrm{IMPLIES}\,\,}
+\newcommand{\xor}{\,\,\mathrm{XOR}\,\,}
+\newcommand{\iif}{\,\,\mathrm{IFF}\,\,}
+\newcommand{\nand}{\,\,\mathrm{NAND}\,\,}
+%%% Sets
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\ints}{\mathbb{Z}}
+
+%Sorted List
+\usepackage{datatool}% http://ctan.org/pkg/datatool
+\newcommand{\sortitem}[1]{%
+  \DTLnewrow{list}% Create a new entry
+  \DTLnewdbentry{list}{description}{#1}% Add entry as description
+}
+\newenvironment{sortedlist}{%
+  \DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}% Create new/discard old list
+}{%
+  \DTLsort{description}{list}% Sort list
+  \begin{itemize}%
+    \DTLforeach*{list}{\theDesc=description}{%
+      \item \theDesc}% Print each item
+  \end{itemize}%
+}
+
+\begin{document} 
+
+\begin{unit}{Predicate and propositional logic}{}
+    \begin{mathnote}{Terminologies}
+        \begin{sortedlist}
+            \sortitem{\textbf{Proposition} = statement either \textit{true} or \textit{false}}
+            \sortitem{\textbf{Predicate} = \textit{proposition} whose truth depends on \textit{variables} / function with range \textit{\{T,F\}}}
+            \sortitem{\textbf{Propositional Formula} = expression built from \textit{Boolean variables} using \textit{connectives} with \textbf{no} \textit{predicates} or \textit{quantifiers}}
+            \sortitem{\textbf{Truth Assignment} = function from a set of \textit{propositional variables} to \textit{\{T,F\}}; a row of the truth table}
+            \sortitem{\textbf{Satisfiability Problem (SAT)} = output \textit{YES} if the \textit{propositional formula} is \textit{satisfiable}, vice versa}
+            \sortitem{\textbf{Disjunctive Normal Form (DNF)} = a \textit{disjunction} of \textit{conjunctions} of \textit{literals}}
+            \sortitem{\textbf{Conjunctive Normal Form (CNF)} = a \textit{conjunction} of \textit{disjunctions} of \textit{literals}}
+            \sortitem{\textbf{Predicate Logic Formula} = \textit{predicates} (fixed number of arguments) + \textit{connectives} + \textit{quantifiers}}
+            \sortitem{\textbf{Interpretation} = a case with non-empty domain; free variables with assigned domain elements; function from relevant domain to range}
+            \sortitem{\textbf{Prenex Normal Form} = [some quantifications]+[formula without quantifiers]}
+        \end{sortedlist}
+    \end{mathnote}
+    \begin{note}{Trivial terms}
+        \begin{itemize}
+            \item Connectives = negation, conjunction, disjunction, exclusive-or, implication, equivalence
+            \item Universal / Existential quantification 
+            \item Boolean variable = variables that are either True of False (does not depend on other variables like predicate does)
+            \item Truth table = $n$ variables truth table has $2^n$ rows\\
+            \item Tautology / Valid = \textbf{propositional formula} which all entries are \textit{True} / \textbf{predicate logic formula} which all \textit{interpretations} are true
+            \item Unsatisfiable / Contradiction = \textbf{propositional formula} which all entries are \textit{False} / \textbf{predicate logic formula} is false for all \textit{interpretation}
+            \item Satisfiable = \textit{propositional formula} which at least one entry is \textit{True} / \textbf{predicate logic formula} is true for some \textit{interpretation}\\
+            \item \textbf{P} = all decision problems can be solved in polynomial time
+            \item \textbf{NP} = all decision problems can be verified in polynomial time; SAT $\in$ NP
+            \item Literal = variable or the negation of it
+            \item Clause = disjunction of literals
+            \item CNF-SAT = \textit{SAT} but \textit{propositional formula} in \textit{CNF}\\
+            \item Constant = a particular element in a domain
+            \item Variable = any element in a domain
+            \item quantified = variable with quantifier
+            \item unquantified / free = variables that are not quantified
+            \item valuation = maps free variable to domain element
+            \item logically implies (equivalent) = P's interpretation is True => Q is also True
+        \end{itemize}
+    \end{note}
+    \begin{hint}{\hfill}
+        \begin{enumerate}
+            \item Quantifiers are flipped with Negation / Hypothesis of implication
+            \item Order of quantifiers does matter
+            \item Every propositional formula is equivalent to a \textit{DNF / CNF}
+            \item To construct a DNF form, for each line with output T, conjuct the variables with appropriate negations, then disjunct the lines.
+            \item To construct a CNF form, for each line with output F, conjuct the variables with appropriate negations, disjunt them, negate the entire statement. 
+            \item Do not repeat symbols for variables and constants.
+        \end{enumerate}
+    \end{hint}
+\end{unit}
+
+\begin{unit}{Proof}{}
+    \begin{mathnote}{Terminologies}
+    \begin{itemize}
+        \item \textbf{Proposition} = statement either true or false
+        \item \textbf{Axiom} = \textit{proposition} that we agree is true
+        \item \textbf{Proof} = convincing argument that a \textit{proposition} is true. [Sequence of axioms] + [Proved propositions] + [logical deductions]
+        \item \textbf{Logical Deduction} = use inference rules to prove new propositions from \textit{axioms} and \textit{proved propositions}.
+    \end{itemize}
+    \qbreak
+        \begin{mathnote}{Substitution}
+            \begin{enumerate}
+                \item R is a tautology containing variable P
+
+                        R' := replace \textbf{every} P in R by (Q)
+            
+                        Then, R' is a tautology.
+                \item S' is a formula logically equivalent to S
+
+                S is a subformula of R
+
+                R' := replace \textbf{some} occurences of S in R by S'
+
+                Then, R' is still a tautology.
+            \end{enumerate}
+        \end{mathnote}
+
+        \begin{mathnote}
+            \hyperlink{https://q.utoronto.ca/courses/337079/files/29579125?wrap=1}{[Insert Proof Outline here]}
+        \end{mathnote}
+        
+    \end{mathnote}
+    \begin{note}
+        To write a formal proof:
+        \begin{enumerate}
+            \item number each line
+            \item  Write one proposition each line
+            \item  justify each line
+        \end{enumerate}
+    \end{note}
+    \begin{hint}{\hfill}
+        
+    \end{hint}
+\end{unit}
+
+
+\end{document}
