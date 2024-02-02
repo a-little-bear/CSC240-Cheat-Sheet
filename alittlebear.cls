@@ -1,7 +1,49 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{alittlebear}[2024/01/23 alittlebear]
-\setlength\parindent{0pt}
+\ProvidesClass{alittlebear}[2024/02/01 alittlebear]
 
+%settings
+\def\filename{\headername \headernum} %name of file
+\setlength\parindent{0pt} %paragraph indent
+\def\maincolor{brown} %main color for footer header and hyperlinks
+
+
+
+%Header and footer
+\RequirePackage{xcolor, fancyhdr, lastpage, fourier-orns, pgfornament}
+\def\headerfootercolor{\color{\maincolor!80!black}} %header & footer color
+%header line
+\renewcommand{\headrule}{
+    \headerfootercolor\hrulefill
+    \raisebox{-2.1pt}{\footnotesize\quad\floweroneleft\quad \filename\quad\floweroneright\quad}\hrulefill}%{\color{brown}\begin{center}\pgfornament[width=7cm]{88}\end{center}}
+%footer line
+\renewcommand{\footrule}{
+    \headerfootercolor\hrulefill
+    \raisebox{-2.1pt}{\quad\decofourleft\leafSE\quad\footnotesize Page \thepage\ of \pageref{LastPage}\quad\leafSW\decofourright\quad}\hrulefill}
+%first page style
+\fancypagestyle{firstpagestyle}{
+    \fancyhf{}
+    \chead{\headerfootercolor\course}
+    \lhead{\headerfootercolor\today}
+    \rhead{\headerfootercolor\name}
+    \setlength{\headheight}{20pt}}
+%later page style
+\fancypagestyle{style}{
+    \fancyhf{}
+    \lhead{\headerfootercolor\course}
+    \rhead{\headerfootercolor\name}
+    %\chead{\today}
+    \setlength{\headheight}{20pt}}
+%declare first page style
+\AtBeginDocument{\thispagestyle{firstpagestyle}}
+
+
+
+
+%indent and format
+\newcommand{\ind}[1][5]{\hspace*{#1mm}}
+\newcommand{\unind}[1][5]{\hspace*{-#1mm}}
+\newcommand{\explain}[2][20]{\\\ind[#1] {#2}}
+\newcommand{\tbf}[1]{\textbf{#1}}
 
 
 %Define options of DocumentClass
@@ -22,12 +64,30 @@
 \RequirePackage[margin=0.5in]{geometry} %Default margin is 0.5inch / 1inch
 \RequirePackage{lmodern, enumitem, needspace} % dynamic line breaking
 \RequirePackage{hyperref} % for pdf bookmarks, other information and org-mode
-\hypersetup {pdfstartview=FitH, colorlinks=true}
+\hypersetup {pdfstartview=FitH, colorlinks=true, linkcolor=\maincolor}
 \RequirePackage{ifthen}
 \RequirePackage{amsmath, amssymb, amsthm, amscd, graphicx}
+%multlined environment inside align
+\RequirePackage{mathtools}
 
 
 
+\RequirePackage{breqn}
+
+\RequirePackage{changepage} % for adjustwidth environment
+\newcommand{\indenv}[2][1]{
+    \begin{adjustwidth}{#1cm}{}
+        #2
+    \end{adjustwidth}
+}
+
+\DeclareMathOperator{\vspan}{text{span}}
+
+
+
+
+%number line in * environment, add \lebel{} and refer as \eqref{}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 % change text spacing, margin etc
 \RequirePackage{microtype}
 % \lstinputlisting[language=Python, firstline=37, lastline=45]{source_filename.py}
@@ -38,6 +98,16 @@
 %use {Title}{Ref} lemma:Ref for reference, e.g. nameref, pageref, ref
 \theoremstyle{definition}
 \newcommand{\qbreak}{\tcblower}
+\newcommand{\envbreak}{%
+  \begin{tikzpicture}
+  \path[use as bounding box] (0,0) -- (\linewidth,0);
+  \draw[color=\maincolor!75!black,dashed,dash phase=2pt]
+        (0-\kvtcb@leftlower-\kvtcb@boxsep,0)--
+        (\linewidth+\kvtcb@rightlower+\kvtcb@boxsep,0);
+  \end{tikzpicture}%
+}
+\newcommand{\retcbcnt}[1]{\setcounter{tcb@cnt@#1}{0}}
+\newcommand{\tcbcnt}[2]{\setcounter{tcb@cnt@#1}{#2}}
 \newtcolorbox{note}{
     notitle,
     enforce breakable, left=5mm,
@@ -45,15 +115,21 @@
     before skip=10pt, after skip=10pt,
     colback=gray!3!white, colframe=gray!30!white
 }
+\RequirePackage{wasysym} %\smiley
 \newtcolorbox{mathnote}{
     notitle,
     opacityback=0.8, opacityframe=0.8,
     before skip=10pt, after skip=10pt,
     enforce breakable, left=5mm,
     colback=yellow!3!white, colframe=orange!20!white,
-    after upper={\hfill$\lozenge$}
+    after upper={\hfill$\smiley$}
 }
-\newtheorem*{hint}{Subtle Details}
+\newtcolorbox{tbox}[2][]{
+    colbacktitle=orange!10!white,
+colback=orange!10!white,coltitle=orange!70!black,
+title={\centering#2},fonttitle=\bfseries,#1
+}
+\newtheorem*{hint}{Hint}
 \tcolorboxenvironment{hint}{
     enforce breakable, enhanced,
     opacityback=0.8, opacityframe=0.8,
@@ -91,7 +167,8 @@
     colframe=pink!40!white, colback=pink!30!white,
     colbacktitle=pink!40!white, coltitle=pink!30!black, 
     arc=1mm, fonttitle=\bfseries,
-    separator sign dash
+    separator sign dash,
+    after upper={\hfill$\lozenge$}
 }{claim}
 \newtcbtheorem{definition}{Definition}{
     enforce breakable, enhanced, 
@@ -102,12 +179,30 @@
     arc=1mm, fonttitle=\bfseries,
     separator sign dash
 }{definition}
+\newtcbtheorem{corollary}{Corollary}{
+    enforce breakable, enhanced, 
+    opacityback=0.8, opacityframe=0.8,
+    attach boxed title to top text left = {yshift=-2.50mm},
+    colframe=green!50!white, colback=green!2!white,
+    colbacktitle=green!10!white, coltitle=green!30!black, 
+    arc=1mm, fonttitle=\bfseries,
+    separator sign dash
+}{corollary}
+\newtcbtheorem{theorem}{Theorem}{
+    enforce breakable, enhanced, 
+    opacityback=0.8, opacityframe=0.8,
+    attach boxed title to top text left = {yshift=-2.50mm},
+    colframe=cyan!50!white, colback=cyan!2!white,
+    colbacktitle=cyan!10!white, coltitle=cyan!30!black, 
+    arc=1mm, fonttitle=\bfseries,
+    separator sign dash
+}{theorem}
 \newtcbtheorem{lemma}{Lemma}{
     enforce breakable, enhanced, 
     opacityback=0.8, opacityframe=0.8,
     attach boxed title to top text left = {yshift=-2.50mm},
-    colframe=teal!30!white, colback=teal!3!white,
-    colbacktitle=teal!10!white, coltitle=teal!30!black, 
+    colframe=teal!40!white, colback=teal!4!white,
+    colbacktitle=teal!10!white, coltitle=teal!40!black, 
     arc=1mm, fonttitle=\bfseries,
     separator sign dash
 }{lemma}
@@ -158,6 +253,48 @@
     },
     fonttitle=\bfseries,
 }{unit}
+\newtcbtheorem{chapter}{Chapter}{
+    enforce breakable, enhanced, 
+    before skip=2mm, after skip=2mm,
+    colback=black!5, colframe=black!50, boxrule=0.2mm,
+    attach boxed title to top={},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+        \path[fill=tcbcolback!30!black]
+        ([yshift=-1mm,xshift=-1mm]frame.north west)
+        arc[start angle=0,end angle=180,radius=1mm]
+        ([yshift=-1mm,xshift=1mm]frame.north east)
+        arc[start angle=180,end angle=0,radius=1mm];
+        \path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+        middle color=tcbcolback!80!black]
+        ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+        [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+        -- (frame.south east) -- (frame.south west)
+        -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+        [sharp corners]-- cycle;
+    },interior engine=empty,
+    },
+    fonttitle=\bfseries,
+}{chapter}
+
+
+\newcommand{\newq}[3][]{\begin{question}{#1}{q#2}#3\end{question}}
+\newcommand{\newe}[3][]{\begin{exercise}{#1}{e#2}#3\end{exercise}}
+\newcommand{\newu}[3][]{\begin{unit}{#1}{#2}#3\end{unit}}
+\newcommand{\newch}[3][]{\begin{chapter}{#1}{ch#2}#3\end{chapter}}
+\newcommand{\newd}[3][]{\begin{definition}{#1}{d#2}#3\end{definition}}
+\newcommand{\newl}[3][]{\begin{lemma}{#1}{#2}#3\end{lemma}}
+\newcommand{\newcl}[3][]{\begin{claim}{#1}{#2}#3\end{claim}}
+\newcommand{\newco}[3][]{\begin{corollary}{#1}{#2}#3\end{corollary}}
+\newcommand{\newt}[3][]{\begin{theorem}{#1}{#2}#3\end{theorem}}
+
+\newcommand{\newr}[1]{\begin{remark}#1\end{remark}}
+\newcommand{\newn}[1]{\begin{note}#1\end{note}}
+\newcommand{\newm}[1]{\begin{mathnote}#1\end{mathnote}}
+\newcommand{\newh}[1]{\begin{hint}#1\end{hint}}
+\newcommand{\newp}[1]{\begin{proof}#1\end{proof}}
+
+
 
 
 
@@ -166,6 +303,7 @@
 \newcommand{\T}[1]{\text{#1}}
 \newcommand{\Al}[3]{#1 &=#2 &\text{#3}&&\\}
 \newcommand{\cd}{\cdot}
+\newcommand{\alt}[1]{\intertext{#1}}
 % new and renewed commands
 \DeclareRobustCommand{\bb}[1]{\mathbb{#1}}
 \DeclareRobustCommand{\cal}[1]{\mathcal{#1}}
@@ -201,7 +339,7 @@
 \newcommand{\is}{\equiv}
 \newcommand{\al}{\alpha}
 \newcommand{\ep}{\varepsilon}
-\renewcommand{\phi}{\varphi}
+%\renewcommand{\phi}{\varphi}
 \newcommand{\p}{\partial}
 \newcommand{\injective}{\hookrightarrow}
 \newcommand{\surjective}{\twoheadrightarrow}
@@ -239,15 +377,6 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{codeyellow}{rgb}{0.51, 0.37, 0.012}
-\lstdefinelanguage{js} {
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  sensitive=false,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]"
-}
 \lstset {
   aboveskip=\baselineskip,
   commentstyle=\color{codegreen},
@@ -268,6 +397,10 @@
   tabsize=2,
   frame=tb
 }
+\lstnewenvironment{Cl}
+  {\lstset{language=C}}
+  {}
+\lstnewenvironment{CPP}{\lstset{language=C++}}{}
 
 
 
@@ -317,3 +450,24 @@
 %     \caption{#3}\IfValueT{#1}{\label{#1}}%
 %   \end{figure}%
 % }
+
+\RequirePackage{tikz}
+\usetikzlibrary{
+    intersections, arrows.meta,
+    automata,er,calc,
+    backgrounds,
+    mindmap,folding,
+    patterns,
+    decorations.markings,
+    fit,snakes,
+    shapes,matrix,
+    positioning,
+    shapes.geometric,
+    arrows,through,
+    angles, quotes
+}
+
+
+
+%idk why putting before does not work, anyway
+\pagestyle{style}

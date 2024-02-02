@@ -1,0 +1,397 @@
+\documentclass[12pt]{alittlebear}
+
+\def\name{Joseph Siu}
+\def\course{CSC240}
+\def\headername{Lecture }
+\def\headernum{7}
+\usepackage{changepage}   
+
+%CSC240 Commands
+%%% Logic
+\newcommand{\nnot}{\mathrm{NOT}}
+\newcommand{\aand}{\,\,\mathrm{AND}\,\,}
+\newcommand{\oor}{\,\,\mathrm{OR}\,\,}
+\newcommand{\iimplies}{\,\,\mathrm{IMPLIES}\,\,}
+\newcommand{\xor}{\,\,\mathrm{XOR}\,\,}
+\newcommand{\iif}{\,\,\mathrm{IFF}\,\,}
+\newcommand{\nand}{\,\,\mathrm{NAND}\,\,}
+%%% Sets
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\ints}{\mathbb{Z}}
+
+\begin{document} 
+
+\section{Induction}
+
+\newd[Induction]{def1}{    
+    Let $p:\N\ra\{T,F\}$ be a predicate, to prove $\forall n\in\N, p(n)$:
+
+    L1: $p(0)$
+
+    \quad L2: Let $n\in\N$ be arbitrary
+
+    \quad\quad L3: Assume $p(n)$
+
+    \quad\quad $\vdots$
+
+    \quad\quad L4: $p(n+1)$
+
+
+    \quad L5: $p(n)\iimplies P(n+1)$; direct proof L3, L4
+
+    L6: $\forall n\in\N. [p(n)\iimplies p(n+1)]$; generalization L5
+
+    L7: $\forall n\in\N p(n)$; by induction L1, L6
+}
+
+\newt{thm1}{
+    Consider any square chessboard whose side have length a poewr of 2. If any one square is removed, then the resulting shape can be tiled using 3 square L-shape tiles. 
+    \newm{
+        For any $n\in\N$, let $p(n)$ be the predicate: for any $2^n\times 2^n$ chessboard with one square removed can be tiled using L-tiles.
+
+        Let $C_n$= the set of all $2^n\times 2^n$ chess boards with 1 square removed.
+
+        $|C_n|=2^{2n}=2^n\times 2^n$
+
+        $p(n)=\forall c\in C_n. c$ can be tiled using L-tiles.
+    }
+
+    \newp{
+        Base Case: $P(0)$ is true, becasue a $2^0\times 2^0$ chessboard with 1 tile remove has no squares. Hence can be tiled with $0$ L-tiles.
+
+        Let $n\in\N$ be arbitrary.
+
+        Suppose $p(n)$ is true. (We want to show $\forall n\in\N. P(n)$ by induction, that is, $p(n+1)=\forall c\in C_{n+1}.$ c can be tiled using L-tiles, which is by generalization).
+
+        Now, let $c\in C_{n+1}$ be arbitrary. 
+
+        % Draw the chessboard with one square removed. We split the board into 4 same size squares, then add a L-tile to the full sub-squares, hence, becasue all 4 sub-squares are covered by our induction hypothesis (they all can be covered fully by the tiles), add them up this implies the whole square is covered by the L-tiles.
+
+        Divide $c$ into 4 equal $2^n\times 2^n$ chessboards, one has a square removed, so it is in $C_n$. By the induction hypothesis (and specialization) it can be tiled with L-tiles. The other 3 chessboards, each has 1 tile in the middle of c. With that tile removed the induction hypothesis says it can be tiled using L-tiles. The 3 squares we removed from the center can be tiled with 1 L-tile
+    }
+
+}
+
+
+\newpage
+\newt{thm2}{
+    All square chessboards whose sides have length $a$ power of 2 and has 1 square removed from the middle can be tiled using L-tiles.
+    \newm{
+        Let $C_n'$= set of all $2^n\times 2^n$ chessboards with 1 square removed from the middle.
+
+        $P_n'=\forall c\in C_n'. c$ can be tiled using nay L-tiles
+    }
+    \newr{
+        We can't use $P'(n)$ to prove $P'(n+1)$. Sometimes using a more general result is easier to do (when doing a proof by induction) because strengthening the induction hypothesis makes the induction step easier. 
+    }
+}
+
+\newpage
+\newt{thm3}{
+    If $M=\{m\in\N \mid m\geq 3\}$, then 
+    $$\forall m\in M. (2m+1\leq 2^m).$$
+
+    \newr{
+        We can prove this using 3 ways: 
+        \begin{enumerate}
+            \item $\forall n\in\N. [p(n)\iimplies P(n+1)], p(n):=q(n+3)$
+            \item $\forall m\in M. [q(m)\iimplies q(m+1)], q(n):=2n+1\leq 2^n$
+            \item $\forall n\in\N. [r(n)], r(n):=\forall n\in\N. (n\geq 3 \iimplies q(n))$
+        \end{enumerate}
+    }
+
+    \newp{[Proof of 2]
+        For all $n\in M$, let $q(n)=2n+1\leq 2^n$. 
+
+        \begin{adjustwidth}{1cm}{}
+            $q(3)$ is true (trivial).
+
+            Let $m\in M$ be arbitrary.
+
+            \begin{adjustwidth}{1.5cm}{}
+                Assume $q(m)$
+
+                $\vdots$
+
+                $q(m+1)$
+
+                $\forall m\in M. q(m)$
+            \end{adjustwidth}
+        \end{adjustwidth}
+    }
+
+    \newp{[Proof of 3]
+        $r(0)$ is true vacuously since $n\geq 3$ is false when $n=0$. 
+
+        Let $n\in\N$ be arbitrary.
+
+        \begin{adjustwidth}{1cm}{}
+            
+            Assume $r(n)$
+
+            $n\geq 3\iimplies q(n)$; by Definition
+
+            \begin{adjustwidth}{1.5cm}{}
+
+                Assume $n+1\geq 3$
+
+                $\vdots$
+
+                $q(n+1)$
+
+            \end{adjustwidth}
+
+            $(n+1)\geq 3\iimplies q(n+1)$
+
+            $r(n+1)$
+
+        \end{adjustwidth}
+
+        $\forall n\in\N. r(n)$; by induction.
+
+        To do this, we consider 2 cases:
+
+        Case 1: $n+1=3 (n=2)$
+
+        \begin{adjustwidth}{1cm}{}
+
+            $2(n+1)+1=2\times 3+1=6\leq 2^3=2^{n+1}$
+
+            So $q(n+1)$ is true.
+
+        \end{adjustwidth}
+
+        Case 2: $n+1>3 (n\geq 3)$
+
+        \begin{adjustwidth}{1cm}{}
+
+            $q(n)$; by modus ponens
+
+            Then $2n+1\leq 2^n$; by definition of $q$
+
+            $2\leq 8 =2^3\leq 2^n$
+
+            $2(n+1)+1=2n+2+1=(2n+1)+2\leq 2^n+2^n=2^{n+1}$; arithematic + Substitution
+
+            $q(n+1)$ is true.
+
+        \end{adjustwidth}
+    }
+}
+
+\newm{
+    Suppose we want to prove $q(n)$ is true for all even natural numbers. $\forall n\in \N. (\T{even}) \iimplies q(n)$.
+
+    To this end, let $p(k)=q(2k)$.
+
+    $\forall k\in\N. p(k)$
+
+    Base case $p(0)$
+
+    Let $k\in\N$ be arbitrary
+
+    \begin{adjustwidth}{1cm}{}
+        Assume $p(k)$
+
+        $\vdots$
+
+        $p(k+1)$
+    \end{adjustwidth}
+
+    It is not sufficient to prove $q(0)$ and $\forall n\in\N. (q(n)\iimplies q(n+2))$, since this can be false but $p(n)$ cna be true.
+
+    However, we can write it as $\forall n\in\N. (\T{n is even}\aand q(n))\iimplies q(n+2)$
+
+    \newm{
+        Prove $\forall i\in M, p(i)$ where $M=\{i\in\N | 0 \leq i \leq n\}$
+    
+        $\vdots$
+
+        $p(0)$
+
+        Let $i\in M-\{ n\}$ be arbitrary
+
+        \begin{adjustwidth}{1cm}{}
+            Assume $p(i)$
+
+            $\vdots$
+
+            $p(i+1)$
+        \end{adjustwidth}
+
+        $p(i)\iimplies p(i+1)$
+
+        $\forall i\in M.p(i)$
+    }
+}
+
+\newpage
+\newm{
+    Arithmetic Mean $(\sum_{i=1}^{n}a_i)/n$
+
+    Geometric Mean $(\prod_{i=1}^{n}a_i)^{1/n}$
+}
+
+
+\newt{thm4}{
+    (Cauchy 1821) For all positiv eintegers, the geometric mean of $n$ positive real numbers is less than or euqal to their arithemetic mean,
+
+    $\forall n\in\Z^+,$ let $P(n)=\forall a\in\R. (\sum_{i=1} a_i)/n\leq (\prod_{i=1} a_i)^{1/n}$.
+
+    \newp{
+        Base case $n=2$.
+
+        Induction steps:
+
+        \begin{adjustwidth}{1cm}{}
+            Let $n$ be arbitrary integer $\geq 2$,
+
+            \begin{adjustwidth}{1.5cm}{}
+                Assume $P(n)$
+
+                $\vdots$
+
+                $P(n-1)$
+
+                $P(n)\iimplies P(n-1)$
+
+                Assume $p(i)$
+
+                $\vdots$
+
+                $P(2i)$
+
+                $P(i)\iimplies P(2i)$
+            \end{adjustwidth}
+            $\forall n\in\Z^+. P(n)$ by induction
+        \end{adjustwidth}
+
+
+        $P(m)$
+
+        Consider the smallest power of 2 that is at least $m$.
+
+        $2^{k-1}<m\leq 2^k$
+
+        $P(2) P(4)... P(k)$\\
+
+        With the template above, we now consider the base case $n=2$.
+
+        $\forall a_1\in \R^+.\forall a_2\in\R^+. \bra{\sqrt{a_1a_2}\leq (a_1+a_2)/2}$.
+
+        \begin{adjustwidth}{1cm}{}
+            Let $a_1,a_2\in\R^+$ be arbitrary
+            
+            Then $a_1^2-2a_1a_2+a_2^2=(a_1-a_2)^2\geq 0$
+
+            so $a_1^2+a_2^2\geq 2a_1a_2$
+
+            Hence $\bra{\frac{a_1+a_2}{2}}^2=\frac{a_1^2+2a_1a_2+a_2^2}{4}\geq\frac{2a_1a_2+2a_1a_2}{4}=a_1a_2$
+        \end{adjustwidth}
+
+        hence $(a_1a_2)^{1/2}\leq\frac{a_1+a_2}{2}$
+
+        Now, assume $P(n)$
+
+        \begin{adjustwidth}{1cm}{}
+
+            $\forall a\in (\R^+)^n, (\sum_{i=1} a_i)/n\leq (\prod_{i=1}^n a_i)^{1/n}$
+
+            For $1\leq i\leq n-1,$ let $a_i\in\R^+$ be arbitrary 
+
+            Let $b_i=a_i$ for $1\leq i\leq n-1$
+
+            and let $b_n=(\sum_{i=1}^{n-1}a_i)/(n-1)$, then $\sum_{i=1}^n a_i = b_n(n-1)$
+
+            By specialization of $P(n)$, we have 
+            
+            \begin{align*}
+                (\prod_{i=1}^n b_i)^{1/n}&\leq(\sum_{i=1}^n b_1)/n\\
+                &=(b_n+\sum_{i=1}^{n-1}a_i)/n\\
+                &=(b+(n-1)b_n)/n\\
+                &=(nb_n)/n\\
+                &=b_n\\
+            \end{align*}
+
+            Then, ...
+        \end{adjustwidth}
+
+        \newpage
+        
+        \begin{adjustwidth}{1cm}{}
+            
+            We first show $P(n)\iimplies P(n-1)$, that is,
+
+            $$
+            \begin{aligned}
+            \left(\prod_{i=1}^{n-1} a_i\right)^{1 / n-1}=\left(\prod_{i=1}^{n-1} b_i\right)^{1 / n-1} & =\left(\frac{\prod_{i=1}^n b_i}{b_n}\right)^{1 / n-1} \\
+            & \leq\left(\frac{\left(b_n\right)^n}{b_n}\right)^{1 / n-1} \\
+            & =\left(b_n{ }^{n-1}\right)^{1 / n-1} \\
+            & =b_n \\
+            & =\left(\sum_{i=1}^{n-1} a_i\right) /(n-1)
+            \end{aligned}
+            $$
+
+            Now we show $P(n)\iimplies P(2n)$.
+
+            To this end, assume $P(n)$;
+
+            $\displaystyle \forall a \in\left(\mathbb{R}^{+}\right)^n, \quad\left(\prod_{i=1}^n a i\right)^{1 / n} \leq\left(\sum_{i=1}^n a_i\right) / n$;
+
+            for $1 \leq i \leq 2 n$ let $a_i \in \mathbb{R}^{+}$ be arbitrary;
+
+            let $\displaystyle b_1=\left(\sum_{i=1}^n a_i\right) / h$ and $\displaystyle b_2=\left(\sum_{i=n+1}^{2 n} a_i\right) / n$
+
+            By specialization of $P(n)$
+
+            $\displaystyle 
+            \left(\prod_{i=1}^n a_i\right)^{1 / n} \leq\left(\sum_{i=1}^n a_i\right) / n
+            $
+
+            and $\displaystyle\left(\prod_{i=n+1}^n a_i\right)^{1 / n} \leq\left(\sum_{i=n+1}^{2 n} a_i\right) / n$
+
+            $P(2 n)$; generalization\\
+
+            By speciclization of $P(n)$
+            $$
+            \begin{aligned}
+            & \left(b_1 b_2\right)^n=\left(b_1 b_2\right)^{2 n / 2} \leq\left(\left(b_1+b_2\right) / 2\right)^{2 n} \\
+            & \prod_{i=1}^{2 n} a_i=\left(\prod_{i=1}^n a_i\right)\left(\prod_{i=n+1}^{2 n} a_i\right) \\
+            & \leq\left(\frac{\displaystyle\sum_{i=1}^n a_i}{n}\right)^n\left(\frac{\displaystyle\sum_{i=n+1}^{2 n} a_i}{n}\right)^n \\
+            & =\left(b_1 b_2\right)^n \leq\left(\frac{b_1 b_2}{2}\right)^{2 n} \\
+            & =\left(\frac{\displaystyle\sum_{i=1}^n a_i}{2 n}+\frac{\displaystyle\sum_{i=n+1}^{2 n} a_i}{2 n}\right)^{2 n} \\
+            & =\left(\frac{\displaystyle\sum_{i=1}^{2 n} a_i}{2 n}\right)^{2 n} \\
+            &
+            \end{aligned}
+            $$
+
+            Hence
+            $$
+            \left(\prod_{i=1}^{2 n} a_i\right)^{1 / 2 n} \leq \frac{\displaystyle\sum_{i=1}^{2 n} a_i}{2 n}
+            $$
+        \end{adjustwidth}
+
+    }
+}
+
+
+\newd[Strong / Complete Induction]{def2}{
+        To prove $\forall i\in\N. P(i).$
+
+        %It suffices to prove $\forall i\in\N.[\underbrace{[\forall j\in\N. (j<i)\iimplies p(j)]}_{assume $p(j)$ is true for $0\leq j\leq i$}\iimplies p(i)]$
+
+        $p(0)$
+
+        Assume $p(0)$, prove $p(1)$
+
+        Asusme $p(0),p(1)$, prove $p(2)$
+
+        Assume $p(0),p(1),p(2)$, prove $p(3)$
+
+        $\vdots$
+
+        $\forall i\in\N. p(i)$
+}
+
+
+\end{document}  
