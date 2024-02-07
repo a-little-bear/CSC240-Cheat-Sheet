@@ -1,0 +1,431 @@
+\documentclass[12pt]{alittlebear}
+
+\def\name{Joseph Siu}
+\def\course{CSC240}
+\def\headername{Lecture }
+\def\headernum{8}
+%CSC240 Commands
+%%% Logic
+\newcommand{\nnot}{\mathrm{NOT}}
+\newcommand{\aand}{\,\,\mathrm{AND}\,\,}
+\newcommand{\oor}{\,\,\mathrm{OR}\,\,}
+\newcommand{\iimplies}{\,\,\mathrm{IMPLIES}\,\,}
+\newcommand{\xor}{\,\,\mathrm{XOR}\,\,}
+\newcommand{\iif}{\,\,\mathrm{IFF}\,\,}
+\newcommand{\nand}{\,\,\mathrm{NAND}\,\,}
+%%% Sets
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\ints}{\mathbb{Z}}
+
+
+\usepackage{changepage}
+
+\begin{document} 
+
+\newd[Strong Induction]{def1}{
+
+    Let $i\in\N$ be arbitrary;
+
+    \begin{adjustwidth}{1cm}{}
+
+        Assume $\forall j\in\N.[(j<i)\iimplies P(j)]$
+
+        ...
+
+        $P(i)$
+    \end{adjustwidth}
+
+    $\forall i\in\N. P(i)$ by strong induction
+
+    \newn{
+        Base Case:
+
+        ... 
+
+        P(0)
+
+        Induction Step:
+
+        \begin{adjustwidth}{1cm}{}
+            Let $i\in\Z^+$ be arbitrary
+
+            \begin{adjustwidth}{1.5cm}{}
+                Assume $\forall j\in\N.[(j<i)\iimplies P(j)]$
+
+                ...
+
+                $P(i)$
+            \end{adjustwidth}
+        \end{adjustwidth}
+
+    }
+}
+
+\newt{t1}{
+    For all $n\geq 4$, $n$ can be made using only $2$ and $5$.
+
+    \newp{
+        For all $n\in\N$, let $P(n)="n\geq 4 \iimplies \exists k_1\in\N. \exists k_2\in\N. (n=2k_1+5k_2)"$
+
+        Let $i\in\N$ be arbitraru
+
+        \begin{adjustwidth}{1cm}{}
+            Assume $\forall j\in\N.[(j<i)\iimplies P(j)]$
+
+            If $i=4$ then $i=2(2)+5(0), k_1=2, k_2=0$
+            \begin{adjustwidth}{1cm}{}
+                So $i\geq4\iimplies \exists k_1\in\N. \exists k_2\in\N. (i=2k_1+5k_2)$
+            \end{adjustwidth}
+
+            If $i=5$ then $i=2(0)+5(1), k_1=0, k_2=1$
+            \begin{adjustwidth}{1cm}{}
+                So $P(5)$.
+            \end{adjustwidth}
+
+            If $i\geq 6$ then $4\leq i-2\leq i$
+
+            $\forall j\in\N. (j\leq i)\iimplies P(j)$ ($i-2<i\iimplies P(i-2)$)
+
+            $P(i-2)$ is true (modus ponens)
+
+            thus $\exists k_1'\in\N. \exists k_2'\in\N. (i-2=2k_1'+5k_2')$
+
+            Let $k_1=k_1'+1, k_2=k_2'$, then $i=2k_1+5k_2$
+            
+            $i\geq4\iimplies\exists k_1\in\N. \exists k_2\in\N. (i=2k_1+5k_2)$
+        \end{adjustwidth}
+
+        $\forall i\in\N. i\geq4\iimplies P(i)$ proof by strong induction.
+    }
+}
+
+
+\newpage
+\newt{t2}{
+    Every integer greater than 1 is a product of prime.
+
+    \envbreak
+
+    \newp{\hfill
+
+        For all $n\in M=\{n\in\N \mid n>1\}$, 
+        
+        let $P(n)$="$n$ is a product of primes.
+
+        \indenv{
+            Let $n\in M$ be arbitrary
+
+            \indenv{
+                Assume $\forall j\in M.[(j<n)\iimplies P(j)]$
+
+                If $n$ is prime, then $P(n)$ (already a product of 1 prime).
+
+                Otherwise, $n$ is compose so there exist $k\in M$ and  $m\in M$ such that $n=k\times m$. 
+
+                Since $k<n$ and $m<n$, $P(k)$ and $P(m)$, it follows by the induction hypothesis that $K$ is a product of primes and $m$ is a product of primes,
+
+                Hence $n=k\times m$ is a product of primes.
+
+                $P(n)$
+            }
+        }
+        By strong induction $\forall n\in M. P(n)$
+    }
+}
+
+
+\newd[Recursively Defined Sets]{d2}{
+    2 parts to the Definition
+
+    \begin{enumerate}
+        \item A base case that does not depend on anything else
+        \item a constructor case, that depends on previous cases.
+    \end{enumerate}
+ 
+
+    
+}
+
+
+\newm{
+    Example: 
+    
+    1. $\{0,1\}^\star$ = set of all fiinte strings of bits
+
+    Base case: $\lambda\in\{0,1\}^\star$, $\lambda$ is the empty string which contains no bits.
+
+    Constructor Case: If $s\in\{0,1\}^\star$, then $s0=s\cdot 0$ and $s1=s\cdot 1$ are in $\{0,1\}^\star$
+
+    \newr{
+        More generally if $\Sigma$ is any finite set of letters, then $\Sigma^\star$ is the set of all finite strings of letters from $\Sigma$
+
+        \newn{
+            Example: $\Sigma = \{[,]\}$
+        }   
+    }
+}
+
+\newm{
+    2. Let Bkts = set of finite strings of matched brackets
+
+    Base case: $\lambda\in $Bkts.
+
+    Constructor Case(s): If $a,t\in$ Bkts, then 
+    \begin{enumerate}
+        \item $[a]\in$ Bkts
+        \item $at\in$ Bkts
+    \end{enumerate}
+
+    Alternate constructor case: If $a,t\in$ Bkts, then $[a]t\in$ Bkts
+}
+
+\newm{
+    3. Syntactically correct formulas of propositional logic $S$.
+
+    Base Case: the set of all propositional variables $\subseteq S$.
+
+    Constructor Cases: If $f,f'\in S$ then 
+    \indenv{
+        $(f\aand f')\in S$
+
+        $(f\oor f')\in S$
+
+        $(f\iimplies f')\in S$
+
+        $(f \iif f')\in S$
+
+        $\nnot f\in S$
+
+        $(f\xor f')\in S$
+    }
+}
+
+
+\newm{
+    4. $M$ = Syntactically correct monotone formulas of propositional formulas
+
+    Base Case: Set of all propositional variables $\subseteq$ M.
+
+    Constructor Case: If $f,f'\in M$, then $(f\oor f')\in M$ and $(f\aand f')\in M$
+    
+    \newr{
+        We mean, but may not say explicitely that we are defining the smallest such set.
+    }
+}
+
+\newm{
+    5. Arthmetic expressions involving natural numbers
+
+    Base Case $\N\subseteq A$
+
+    Constructor Case: If $e,f\in A$, then $e+f\in A$ and $e\times f\in A$. 
+
+    \newr{$2\times3+1$ is ambiguous. When a recursive definition allows an element to be constructed in more than one way, the definition os \underline{ambiguous}}
+}
+
+\newpage
+\newd[Structural Induction]{d3}{
+    A form of induction used to prove properties about recursively defined set.
+
+    \newm{
+        Let $S$ be a recursively defined set, consider the monotone formulas of propositional logic $M$.
+
+        To prove $\forall x\in S. P(x)$ where $p: S\to\{T,F\}$ is a predicate.
+
+        prove $p(x)$ for all base cases of the definition of $S$, $p(x)$ for the constructor cases of the definition of $S$.
+
+        For all $f\in M$, let 
+        
+        \indenv{
+            $\N_v(f)$= \# of occurences of propositional variables in $f$
+
+            $\N_c(f)$= \# of occurences of connectives in $f$
+
+            $p(f)$ = "$\N_v(f)=1+\N_c(f)$"
+        }
+
+        Base Case: if $f$ is a propositional variable, then $\N_v(f)=1=1+0=1+\N_c(f)$, $p(f)$ is True.
+
+        Constructor Case: 
+        \indenv{
+            let $f',f''\in M$ be arbitrary
+
+            \indenv{
+                Assume $p(f')$ and $p(f''))$ are True, 
+                
+                Consider $f=(f'\star f'')$ where $\star\in\{\aand ,\oor \}$, then $\N_v(f)=\N_v(f')+\N_v(f'')=(1+\N_c(f'))+(1+\N_c(f''))=1+(\N_c(f')+\N_c(f'')+1)=1+\N_c(f)$
+            }
+        }
+    }
+    \newr{
+        $\N$ can be defined recursively
+
+        Base case: $0\in\N$
+
+        Constructor case: if $n\in\N,$ then $n+1\in\N$
+
+        So weak induction cna be viewed as stuctural induction.
+    }
+}
+
+\newm{
+    To prove $\forall m\in\N. \forall n\in\N. p(m,n)$, which is equivalent to $\forall (m,n)\in\N\times\N. p(m,n)$ where $\N\times\N$ can be defined recursively:
+
+    \indenv{
+        Base case $(0,0)\in\N\times\N$
+
+        Constructor Case: if $(m,n)\in\N\times\N$, then $(m+1,n)\in\N\times\N$ and $(m,n+1)\in\N\times\N$.
+    }
+
+    To prove $\forall (m,n)\in\N\times\N. p(m,n)$ using Structural induction:
+    
+    Base Case: $p(0,0)$
+
+    Constructor Case: let $(m,n)\in\N\times\N$ be arbitrary, 
+
+    Assume $p(m,n)$, then prove $p(m,n+1)$ and $p(m+1,n)$, after that we can conclude $\forall (m,n)\in\N\times\N. p(m,n)$
+
+    \newr{
+        Here we are only assuming "one block" and need to prove 2.
+    }
+
+}
+
+\newpage
+\newd[Strong Induction alternative]{d4}{
+    \indenv{
+        Let $(m,n)\in\N\times\N$ be arbitrary.
+        \indenv{
+            Assume $\forall (i,j)\in\N\times\N. [(i<m\aand j\leq n )\oor(i\leq m\aand j<m)]\iimplies p(i,j)$
+
+            ...
+
+            $p(m,n)$
+
+
+        }
+    } 
+
+    \newr{
+        Here we are assuming all blocks except the bottom right one, and want to prove this one.
+    }
+}
+
+\newd[Double Indunction (one induction inside another induction)]{d5}{
+    Define $Q(m)=\forall n\in\N. p(m,n)$,
+
+    To prove $\forall m\in\N. \forall n\in\N. p(m,n)$ is same as proving $\forall m\in\N. Q(m)$.
+
+    \indenv{
+        Let $m\in\N$ be arbitrary;
+
+        Assume $\forall i\in\N. (i<m)\iimplies Q(i)$.
+
+        \indenv{
+            Let $n\in\N$ be arbitrary;
+
+            \indenv{
+                Assume $\forall j\in\N.(j<n)\iimplies p(m,j)$
+
+                ...
+
+                $p(m,n)$
+            }
+
+            $\forall n\in\N. p(m,n)$
+        }
+
+        $\forall m\in\N. Q(m)$
+    }
+
+    $\forall m\in\N.\forall n\in\N. p(m,n)$
+
+    \newr{
+        Here we are assuming all the blocks above the line of the current block, and all blocks at the left of the current block, and want to prove the current block. (better than the previous 2..?)
+    }
+}
+
+\newm{
+    Defining functions on recursively defined sets.
+
+    Exmaple 1. 
+
+    $\N_v: M\to \N$, 
+    
+    $\N_v$ = 1 for any propositional variables
+
+    $\N_v$ = $\N_v(f')+\N_v(f'')$ for $f\in f'\star f''$ where $\star\in\{\aand, \oor\}$
+
+    Example 2.
+
+    value:$A\to\N$
+
+    for $f\in A$, let value($f$) be the natural number represented by $f$
+
+    Base case: value($a$)= $a$ for all $a\in\N$
+
+    Constructor cases: 
+    
+    value($f+g$)=value($f$)+value($g$)
+
+    value($f\times g$)=value($f$)$\times$value($g$)
+
+    \newr{
+        Consider $2\times 3+1$, the value is undefined, thus this example is ambiguous. Be careful when defining functions on recursively defined sets that are ambiguous. 
+    }
+
+    Example 3.
+
+    Let $B$ be the set of all binary trees,
+
+    Base case: empty tree $\in B$.
+
+    Constructor case: if $t_1,t_2\in B$, and $r$ is a node, then $r(t_1,t_2)\in B$ (node $r$ with $t_1$ left child and $t_2$ right child), and $t_1=$left($t$) and $t_2=$right($t$).
+
+    Example 4.
+
+    N:$B\to\N$ (number of nodes)
+    
+    Base case: $N$(empty tree)=0
+
+    Constructor case: $N$(t) = 1 + $N$(left($t$)) + $N$(right($t$))
+
+    Then $N(t)$= \# of nodes in $t$.
+
+    \tbf{Example 5. }
+
+    $L:B\to \N$
+
+    Base Case $L$(empty tree)=0
+
+    Constructor Case $L(t)=L$(left($t$)) + $L$(right($t$)) 
+    
+    $L(t)$ = \# of leaves in $t$.
+
+    Note $L(t)=0$ for all $t\in B$.
+
+    \tbf{this is a false example}
+
+    thus we need another base case $L$(one node tree)=1
+}
+
+
+\newt{t3}{
+    A binary tree with $n$ node has at most $\ceil{\frac{n}2}$ leaves
+
+    Let $q:B\to\{T,F\}$ ($B$ is the set of binary trees)
+
+    be $q(t)$="$L(t)\leq\ceil{\frac{N(t)}{2}}$"
+
+    $\forall t\in B. q(t)$
+
+    \envbreak
+
+    \newp{
+        For $t\in B$ and $n\in\N$, let $S(t,n)=$"$t$ has $n$ nodes" and $Al(t,n)=$"$t$ has at most $n$ leaves".
+
+        Let $p(n)=\forall t\in B.[S(t,n)\iimplies Al(t,\ceil{\frac{n}{2}})]$.
+    }
+}
+
+\end{document}  
