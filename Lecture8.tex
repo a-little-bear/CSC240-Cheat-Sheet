@@ -232,19 +232,19 @@
 
         To prove $\forall x\in S. P(x)$ where $p: S\to\{T,F\}$ is a predicate.
 
-        prove $p(x)$ for all base cases of the definition of $S$, $p(x)$ for the constructor cases of the definition of $S$.
+        prove $p(x)$ for all base cases of the definition, $p(x)$ for the constructor cases of the definition, assuming $P$ is true for the components of $x$.
 
         For all $f\in M$, let 
         
         \indenv{
-            $\N_v(f)$= \# of occurences of propositional variables in $f$
+            $N_v(f)$= \# of occurences of propositional variables in $f$
 
-            $\N_c(f)$= \# of occurences of connectives in $f$
+            $N_c(f)$= \# of occurences of connectives in $f$
 
-            $p(f)$ = "$\N_v(f)=1+\N_c(f)$"
+            $p(f)$ = "$N_v(f)=1+N_c(f)$"
         }
 
-        Base Case: if $f$ is a propositional variable, then $\N_v(f)=1=1+0=1+\N_c(f)$, $p(f)$ is True.
+        Base Case: if $f$ is a propositional variable, then $N_v(f)=1=1+0=1+N_c(f)$, $p(f)$ is True.
 
         Constructor Case: 
         \indenv{
@@ -253,7 +253,7 @@
             \indenv{
                 Assume $p(f')$ and $p(f''))$ are True, 
                 
-                Consider $f=(f'\star f'')$ where $\star\in\{\aand ,\oor \}$, then $\N_v(f)=\N_v(f')+\N_v(f'')=(1+\N_c(f'))+(1+\N_c(f''))=1+(\N_c(f')+\N_c(f'')+1)=1+\N_c(f)$
+                Consider $f=(f'\star f'')$ where $\star\in\{\aand ,\oor \}$, then $N_v(f)=N_v(f')+N_v(f'')=(1N_c(f'))+(1+N_c(f''))=1+(N_c(f')+N_c(f'')+1)=1+N_c(f)$
             }
         }
     }
@@ -350,11 +350,11 @@
 
     Exmaple 1. 
 
-    $\N_v: M\to \N$, 
+    $N_v: M\to \N$, 
     
-    $\N_v$ = 1 for any propositional variables
+    $N_v$ = 1 for any propositional variables
 
-    $\N_v$ = $\N_v(f')+\N_v(f'')$ for $f\in f'\star f''$ where $\star\in\{\aand, \oor\}$
+    $N_v$ = $N_v(f')+N_v(f'')$ for $f\in f'\star f''$ where $\star\in\{\aand, \oor\}$
 
     Example 2.
 

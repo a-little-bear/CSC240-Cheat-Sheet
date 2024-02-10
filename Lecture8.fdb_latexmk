@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1707343124 "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture8.tex" "Lecture8.pdf" "Lecture8" 1707343129 0
-  "Lecture8.aux" 1707343128 1000 349fbe68d22e3acf8d09e380ab3b4617 "pdflatex"
-  "Lecture8.out" 1707343127 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Lecture8.tex" 1707343123 11179 3cb0d01d2391e9faa7e8627efcc83a55 ""
+["pdflatex"] 1707553231 "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture8.tex" "Lecture8.pdf" "Lecture8" 1707553234 0
+  "Lecture8.aux" 1707553234 1000 349fbe68d22e3acf8d09e380ab3b4617 "pdflatex"
+  "Lecture8.out" 1707553233 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Lecture8.tex" 1707553231 11194 ed94381a9b93f8a5767eac8558376553 ""
   "alittlebear.cls" 1706845060 17000 54323b3ebad7c474041196fe60e49c84 ""
   "c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1699475139 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1699475139 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -280,7 +280,7 @@
   "c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1699479960 4753631 ce11096d3ddebebb488d7abe23a051aa ""
   "c:/Program Files/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1699480103 8213025 3bd61feff7b9dff35f8a668730b4a750 ""
   "c:/Program Files/texlive/2023/texmf.cnf" 1699479938 713 e69b156964470283e0530f5060668171 ""
-  "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture8.tex" 1707343123 11179 3cb0d01d2391e9faa7e8627efcc83a55 ""
+  "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture8.tex" 1707553231 11194 ed94381a9b93f8a5767eac8558376553 ""
   (generated)
   "Lecture8.aux"
   "Lecture8.log"
