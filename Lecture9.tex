@@ -1,0 +1,354 @@
+\documentclass[12pt]{alittlebear}
+
+\def\name{Joseph Siu}
+\def\course{CSC240}
+\def\headername{Lecture }
+\def\headernum{9}
+
+%CSC240 Commands
+%%% Logic
+\newcommand{\nnot}{\mathrm{NOT}}
+\newcommand{\aand}{\,\,\mathrm{AND}\,\,}
+\newcommand{\oor}{\,\,\mathrm{OR}\,\,}
+\newcommand{\iimplies}{\,\,\mathrm{IMPLIES}\,\,}
+\newcommand{\xor}{\,\,\mathrm{XOR}\,\,}
+\newcommand{\iif}{\,\,\mathrm{IFF}\,\,}
+\newcommand{\nand}{\,\,\mathrm{NAND}\,\,}
+%%% Sets
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\ints}{\mathbb{Z}}
+
+
+
+\begin{document} 
+
+One way of formulating last lecture's theorem
+
+\newm{
+    $N(t)$ = number of nodes in binary tree $t$.
+
+    $L(t)$ = number of leaves in binary tree.
+
+    \newt{thm1}{
+        A binary tree with $n$ nodes has at most $\ceil{\frac{n}2}$ leaves.
+    }
+
+    For all $t\in B$ and all $N\in\N$, let $S(t,n)$ = "that $n$ nodes" and let $AL(t,n)$ = "$t$ has at most $n$ leaves". Denote $P(n)=\forall t\in B. [S(t,n)\iimplies AL(t,\ceil{\frac{n}{2}})]$"\\
+
+    Prove $\forall n\in\N. p(n)$ using strong induction on $n$. 
+}
+
+Another way of formulating the theorem
+
+\newm{
+    Recursive Definition of $B$
+
+    Base Case: the empty tree is in $B$
+
+    Constructor Case: If $t_1,t_2\in B$ and $r$ is a node, then $t:=t_1-r-t_2\in B$ where left($t$)=$t_1$, right($t$)=$t_2$
+    
+    Let $g: B\to\{T,F\}$ be such that $g(t)="L(t)\leq\ceil{\frac{N(t)}{2}}"$\\
+
+    \indenv{
+        $N: B\to \N$
+
+        Base Case    
+
+        \ind{$N$(empty tree)=0}
+
+        Constructor Case 
+
+        \ind{N(t)=1+N(left($t$))+N(right($t$))}
+
+        $L:B\to \N$
+
+        Base Cases
+
+        \indenv{
+            $L$(empty tree) = 0
+
+            $L$(one node tree) = 1
+        }
+
+        Constructor Case: 
+
+        \ind{$L$(t)=$L$(left($t$))+$L$(right($t$))}
+    }
+
+    
+    To prove $\forall t\in B. q(t)$, we use structural induction. 
+
+    \indenv{
+        Let $t\in B$ be arbitrary
+
+        Case 1: $t$ is the empty tree
+
+        \indenv{
+            $N(t)$ = 0, $L(t)$ = 0
+
+            so $L(t)=0=\ceil{\frac{0}{2}}=\ceil{\frac{N(t)}{2}}$
+        }
+
+        Case 2: $t:=t_1-r-t_2$:
+        \indenv{
+            Assume $q(t_1)$ and $q(t_2)$, by definition $L(t_1)\leq\ceil{\frac{N(t_1)}{2}}$ and $L(t_2)\leq\ceil{\frac{N(t_2)}{2}}$
+
+            Then $L(t)=L(t_1)+L(t_2)$, $N(t)=N(t_1)+N(t_2)+1$
+
+            So $L(t)\leq\ceil{\frac{N(t_1)}{2}}+\ceil{\frac{N(t_2)}{2}}\leq\ldots\leq\frac{N(t)+1}{2}$
+
+            Since $N(t)$ is an integer, we have $L(t)\leq\floor{\frac{N(t)+1}{2}}\leq \ceil{\frac{N(t)}{2}}$
+
+        } 
+    }
+}
+
+\newpage
+\newn{
+    structural induction $\forall t\in S. p(t).$ can be proved using strong induction. 
+
+    Let $E_0$ = set of elements of $S$ due to base case
+
+    $E_1$ = set of elelments of $S$ obtained from elemnets of $E_0$ by applying constructor case once.
+
+    $\vdots$
+
+    $E_i$ = set of elements of $S$ obtained from elements of $E_{i-1}$ by applying constructor case $i$ times.
+
+    We can see $S=\bigcup_{i\geq0}E_i$
+
+    Let $q(i) = \forall t\in E_i. p(t)$, then we can prove $\forall i\in\N. q(i)$ using strong induction on $i$ instead of structural induction.
+}
+
+
+
+\newt{thm2}{
+    Every integer greater than $n=1$ can be written as a product of primes
+
+    \newp{
+        Suppose the claim is false. Let $n$ be the smallest integer greater than 1 that cannot be written as a product of prime.
+
+        If $n$ is prime, then $n$ is a product of $1$ prime, thus $n$ is composite.
+
+        So there exist integers $m,k >1$ such that $n=m\times k$
+
+        But $m$ and $k$ are both less than $n$, so they can both be written as a product of primes.
+
+        Hence $n=m \times k$ can br written as a product of primes. 
+
+        This contradicts the definition of $n$, hence the claim is true. 
+    }
+}
+
+
+\newd{def1}{
+    A set $S$ is \underline{partially ordered} if there exist $R:S\times S\to\{T,F\}$ such that $\forall x\in S.\forall y\in S.\forall z\in S$. 
+    \begin{align*}
+        \Al{R(x,x)}{T}{(reflexive)}
+        R(x,y)\aand R(y,x)\iimplies &x=y & \T{(antisymmetry)}\\
+        R(x,y)\aand R(y,z)\iimplies &R(x,z) & \T{(transitivity)}
+    \end{align*}
+
+    In this case $R$ is called a partial order. 
+
+    \newm{
+        Examples: ($\Z,\preceq $), $(\R,\preceq)$, $(P(\{1,2,3\}),\subseteq)$
+
+        Not example: 
+        
+        \indenv{
+            $R(x,y)= \C \T{ with } ``|x|\leq |y|''$; we can see $|i|\leq|1|$ and $|1|\leq|i|$ but $|i|\neq|1|$ thus not antisymmetry.
+
+            $H$=hockey teams, $R(t,t')$ if $t$ has beaten by $t'$, we can see it is not transitive. 
+        }
+    }
+}
+
+\newd{def2}{
+    A set $S$ is \underline{totally ordered} if there exists a partial order $R:S\times S\to\{T,F\}$ such that $\forall x,y\in S$, $R(x,y)\oor R(y,x)$ (comparability), $R$ is a total order.
+
+    \newm{
+        Examples: $\R,\Z,\leq$
+        Not example:
+        \indenv{
+            $P(\{1,2,3\}),\subseteq$: since $\{1,2\}\not\subseteq\{2,3\}$ and $\{2,3\}\not\subseteq\{1,2\}$, thus not totally ordered.
+        }
+    }
+}
+
+\newpage
+\newd{def3}{
+    A totally ordered set $S$ is \underline{well-ordered} if every non-empty subset $S'\subseteq S$ has a smallest element $m$,
+    That is, $R(m,x)=T$ for all $x\in S'$
+
+    \newm{
+        $\leq$ is a well ordering for $\N$
+
+        $\leq$ is $\nnot$ a well ordering for $\Z$ (negatives) or $\Q^+$ (archimedean)
+
+        This is an example for $\Z$: $x\preceq y\iif [(|x|<|y|)\oor(|x|=|y|\aand x\leq y)]$
+
+        \indenv{
+            $0\preceq -1\preceq 1\preceq -2 \preceq 2\cdots$ is a well ordering for $\Z$
+        }
+
+        This is an example for $\Q^+$: 
+        
+        \indenv{
+            Consider ordering based on $\max\{\T{numerator, denominator}\}$ when written in reduced form i.e. $\gcd(\T{numerator, denominator})=1$ and then by value
+
+            \[\frac11\preceq\frac12\preceq\frac21\preceq\frac23\preceq\frac32\preceq\frac31\]
+        }
+    }
+}
+
+\newd{def4}{
+    If $\preceq$ is a well ordering, then $x\prec y$ means ``$x\preceq y$ and $x\neq y$''.
+}
+
+\newm{
+    Suppose $\preceq$ is a well ordering of the set $S$. Then to prove $\forall e\in S.p(e)$:
+
+    \indenv{
+        To obtain a contradiction, suppose $\forall e\in S$.P(e) is false. 
+
+        Let $C=\{e\in S\mid P(e)=F\}$ be the set of counterexamples to $P$.
+
+        $C\neq\nil$; by definition of the previous 2 lines
+
+        \indenv{
+            Let $e$ be the smallest element of $C$; (since $S$ is well ordered and $C$ is non-empty)
+
+            Let $e'$ = \dots;
+
+            \dots
+
+            $e'\in C$;
+
+            $e'\prec e$;
+
+            This is a contradiction (contradicting $e$ is the smallest such element in $C$)            
+        }
+
+        Thus using contradition, we show that $\forall e\in S.p(e)$ is true.
+    }
+}
+
+\newpage
+\newt{thm3}{
+    Every positive rational number $\frac{m}n$ can be expressed in reduced form.
+
+    \newp{\hfill
+
+        Suppose there exist $m,n\in\Z^+$ such that $\frac{m}n$ cannot be expressed in reduced form;
+
+        Let $C=\{m\in\Z^+\mid\exists n\in\Z^+ \T{ such that $\frac{m}n$ cannot be expressed in reduced form}\}$;
+
+        Then $C\neq\nil$.
+
+        Since $Z^+$ is well ordered, and $\nil\neq C\subseteq \Z^+$, $C$ has a smallest element $m_0$. 
+        
+        By definition of $C$ there exists $n_0\in\Z^+$ such that $\frac{m_0}{n_0}$ cannot be expressed in reduced form.
+
+        In particular, $\gcd(m_0,n_0)>1$ (otherwise it is in reduced form).
+        
+        \indenv{
+            Let $p$ e a prime factor of $\gcd(m_0,n_0)$;
+
+            Let $m_0'=\frac{m_0}{p}\in\Z^+$;
+
+            Let $n_0'=\frac{n_0}{p}\in\Z^+$;
+
+            Since $\frac{m_0'}{n_0'}=\frac{m_0}{n_0}$, it cannot be expressed in reduced form. 
+
+            Hence $m_0'\in C$ such that $m_0'<m_0$; 
+            
+            The above line is a contradiction.
+        }
+
+        Therefore, every positive rational number $\frac{m}{n}$ can be expressed in reduced form.
+    }
+}
+
+\newt{thm4}{
+    
+    For every positive integer $i$, let $E(i)$ = ``The subset of $[i]=\{j\in\Z^+\mid j\leq i\}$ that contain an even number of elements''. Let $U(i)$=``subsets of $[i]$ that contain an odd number of elements''
+
+    For all $i\in\Z^+$. $|E(i)|=|U(i)|=2^{i-1}$
+
+    \newp{\hfill
+
+        For every $i\in\Z^+$, let $P(i)$ = ``$|E(i)|=|U(i)|=2^{i-1}$.''
+
+        \indenv{
+            Suppose $\forall i\in\Z^+. P(i)$ is false;
+            
+            Let $C=\{i\in\Z^+\mid \nnot(P(i))\}$;
+
+            Then $C\neq\nil$;
+
+            Since $C$ is well ordered, it has a smallest element $x$;
+
+            $x\neq 1$ since $\{1\}$ has $1=2^{x-1}$ subset which contains an even number of elmeents, $\nil$; 1 subset which contains an odd number of elements, $\{1\}$. 
+
+            Let $E'(x)$ = $\{S\in E(x)\mid x\in S\}$;
+
+            Then $E(x)=E'(x)\dot\cup E(x-1)$;
+
+            $|E(x)| = |E'(x)|+|E(x-1)|$;
+
+            There is a 1 to 1 correspondence etween $E'(x)$ and $U(x-1)$ (we can add $x$ from one in $U(x-1)$ or remove $x$ from one in $E'(x)$);
+
+            Hence $|E'(x)|=|U(x-1)|$;
+
+            Hence $|E(x)|=|U(x-1)|+|E(x-1)|$
+
+            $x-1\notin C$ so = $2^{x-2}+2^{x-2}=2^{x-1}$
+
+            $|U(x)|=2^{x-1}$ by symmetry or $|U(x)|=2^x-|E(x)|=2^{x-1}$ (alternating);
+
+            Thus $x\notin C$, this is a contradiction. 
+
+        }
+    }
+}
+
+
+\newpage
+\newd[Countable + Uncountable Sets]{def5}{
+    A function $f:A\to B$ is \underline{suejective} or \underline{onto} means \[\forall y\in B. \exists x\in A. (f(x)=y),\] when $A$ and $B$ are finite sets, we can conclude $|B|\leq |A|$.
+
+    A non-empty set $C$ is \underline{countable} if there is a surjective function from $\N$ to $C$. 
+
+    \newm{
+        Every non-empty finite set is conutable. 
+
+        \newp{
+            Suppose the elements of $C$ are $c_0,c_1,\ldots,c_{n-1}$
+
+            define $f:\N\to C$ by $f(i)=c_i$ for $i\in\{0,1,\ldots,n-1\}, f(i)=c_{n-1}$ for $i\geq n$.
+
+            Then $f$ is surjective, thus $C$ is countable.
+        }
+    }
+
+    The empty set is also considered to be countable.
+
+    Any well ordered set is countable.
+
+    Suppose $A$ and $B$ are countable, then $A\cup B$ is countable, $A\times B=\{(a,b)\mid a\in A\aand b\in B\}$ is also countable.
+
+    For $\Z$: $f(0)=0$, $f(2i-1)=-i$ for $i>0$, $f(2i)=i$ for $i<0$, so $\Z$ is countable. 
+
+    For $\N\times\N$: we use the diagonal argument, from top left to bottom right, we can list all the elements of $\N\times\N$ (insdert the 2D table here, where the row is $\N$ and with $i$; column is $\N$ and with j, then there is a mapping of (i,j) to (i,j)$\in\N\times\N$).
+
+    If $A$ is countable and $B\subseteq A$, then $B$ is also countable. 
+}
+
+
+\newl{l1}{
+    If $A$ is nonempty and conutable, then there exists a surjective function $f:A\to B$ then $B$ is countable.
+}
+
+
+\end{document}  

@@ -1,12 +1,13 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{alittlebear}[2024/02/01 alittlebear]
+\ProvidesClass{alittlebear}[2024/02/14 alittlebear]
 
 %settings
 \def\filename{\headername \headernum} %name of file
-\setlength\parindent{0pt} %paragraph indent
+\def\skippar{5pt} %skip between paragraphs
+\def\indentpar{0pt} %indent of paragraph
 \def\maincolor{brown} %main color for footer header and hyperlinks
-
-
+\def\marginsize{0.5in} %margin of the page, 1in 0.5in etc
+\def\thmstyle{definition} %asmthm theorme style
 
 %Header and footer
 \RequirePackage{xcolor, fancyhdr, lastpage, fourier-orns, pgfornament}
@@ -43,7 +44,7 @@
 \newcommand{\ind}[1][5]{\hspace*{#1mm}}
 \newcommand{\unind}[1][5]{\hspace*{-#1mm}}
 \newcommand{\explain}[2][20]{\\\ind[#1] {#2}}
-\newcommand{\tbf}[1]{\textbf{#1}}
+
 
 
 %Define options of DocumentClass
@@ -61,7 +62,7 @@
 
 
 %Required Packages and settings
-\RequirePackage[margin=0.5in]{geometry} %Default margin is 0.5inch / 1inch
+\RequirePackage[margin=\marginsize]{geometry} %Default margin is 0.5inch / 1inch
 \RequirePackage{lmodern, enumitem, needspace} % dynamic line breaking
 \RequirePackage{hyperref} % for pdf bookmarks, other information and org-mode
 \hypersetup {pdfstartview=FitH, colorlinks=true, linkcolor=\maincolor}
@@ -81,9 +82,13 @@
     \end{adjustwidth}
 }
 
-\DeclareMathOperator{\vspan}{text{span}}
+\newcommand{\np}{\newpage}
+\newcommand{\ds}{\displaystyle}
 
-
+\RequirePackage{mathrsfs}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\im}{im}
 
 
 %number line in * environment, add \lebel{} and refer as \eqref{}
@@ -96,7 +101,7 @@
 \RequirePackage[breakable, skins, theorems]{tcolorbox}
 %use \tcblower for break
 %use {Title}{Ref} lemma:Ref for reference, e.g. nameref, pageref, ref
-\theoremstyle{definition}
+\theoremstyle{\thmstyle}
 \newcommand{\qbreak}{\tcblower}
 \newcommand{\envbreak}{%
   \begin{tikzpicture}
@@ -122,7 +127,7 @@
     before skip=10pt, after skip=10pt,
     enforce breakable, left=5mm,
     colback=yellow!3!white, colframe=orange!20!white,
-    after upper={\hfill$\smiley$}
+    after upper={\hfill$\smiley$},
 }
 \newtcolorbox{tbox}[2][]{
     colbacktitle=orange!10!white,
@@ -229,6 +234,7 @@ title={\centering#2},fonttitle=\bfseries,#1
     },interior engine=empty,
     },
     fonttitle=\bfseries,
+    after = {\tcbcnt{question}{0}}
 }{exercise}
 \newtcbtheorem{unit}{Unit}{
     enforce breakable, enhanced, 
@@ -252,6 +258,7 @@ title={\centering#2},fonttitle=\bfseries,#1
     },interior engine=empty,
     },
     fonttitle=\bfseries,
+    after = {\tcbcnt{question}{0}}
 }{unit}
 \newtcbtheorem{chapter}{Chapter}{
     enforce breakable, enhanced, 
@@ -275,27 +282,52 @@ title={\centering#2},fonttitle=\bfseries,#1
     },interior engine=empty,
     },
     fonttitle=\bfseries,
+    after = {\tcbcnt{question}{0}}
 }{chapter}
 
 
-\newcommand{\newq}[3][]{\begin{question}{#1}{q#2}#3\end{question}}
-\newcommand{\newe}[3][]{\begin{exercise}{#1}{e#2}#3\end{exercise}}
+\newcommand{\newq}[3][]{\begin{question}{#1}{#2}#3\end{question}}
+\newcommand{\newe}[3][]{\begin{exercise}{#1}{#2}#3\end{exercise}}
 \newcommand{\newu}[3][]{\begin{unit}{#1}{#2}#3\end{unit}}
-\newcommand{\newch}[3][]{\begin{chapter}{#1}{ch#2}#3\end{chapter}}
-\newcommand{\newd}[3][]{\begin{definition}{#1}{d#2}#3\end{definition}}
+\newcommand{\newch}[3][]{\begin{chapter}{#1}{#2}#3\end{chapter}}
+\newcommand{\newd}[3][]{\begin{definition}{#1}{#2}#3\end{definition}}
 \newcommand{\newl}[3][]{\begin{lemma}{#1}{#2}#3\end{lemma}}
 \newcommand{\newcl}[3][]{\begin{claim}{#1}{#2}#3\end{claim}}
 \newcommand{\newco}[3][]{\begin{corollary}{#1}{#2}#3\end{corollary}}
 \newcommand{\newt}[3][]{\begin{theorem}{#1}{#2}#3\end{theorem}}
 
 \newcommand{\newr}[1]{\begin{remark}#1\end{remark}}
-\newcommand{\newn}[1]{\begin{note}#1\end{note}}
-\newcommand{\newm}[1]{\begin{mathnote}#1\end{mathnote}}
+\newcommand{\newn}[1]{\begin{note}
+    \parskip=\skippar\parindent=\indentpar#1\end{note}}
+\newcommand{\newm}[1]{\begin{mathnote}
+    \parskip=\skippar\parindent=\indentpar#1\end{mathnote}}
 \newcommand{\newh}[1]{\begin{hint}#1\end{hint}}
-\newcommand{\newp}[1]{\begin{proof}#1\end{proof}}
+\newcommand{\newp}[1]{\begin{proof}
+    \parskip=\skippar\parindent=\indentpar#1\end{proof}}
 
 
 
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+    language=Python,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=3
+}
 
 
 
@@ -307,7 +339,20 @@ title={\centering#2},fonttitle=\bfseries,#1
 % new and renewed commands
 \DeclareRobustCommand{\bb}[1]{\mathbb{#1}}
 \DeclareRobustCommand{\cal}[1]{\mathcal{#1}}
-\DeclareRobustCommand{\sc}[1]{\textsc{#1}}
+\DeclareRobustCommand{\scr}[1]{\mathscr{#1}}
+\DeclareRobustCommand{\frak}[1]{\mathfrak{#1}}
+\DeclareRobustCommand{\bf}[1]{\mathbf{#1}}
+
+\DeclareRobustCommand{\tit}[1]{\textit{#1}}
+\DeclareRobustCommand{\trm}[1]{\textrm{#1}}
+\DeclareRobustCommand{\tsf}[1]{\textsf{#1}}
+\DeclareRobustCommand{\ttt}[1]{\texttt{#1}}
+\DeclareRobustCommand{\tsc}[1]{\textsc{#1}}
+\DeclareRobustCommand{\tbf}[1]{\textbf{#1}}
+
+\newcommand{\st}{\text{ s.t. }}
+\newcommand{\ie}{\text{ i.e. }}
+
 
 \newcommand\D{\mathop{}\!\mathrm{d}}
 % Derivartive in Leibniz notation d{#1}/d{#2}
@@ -338,8 +383,13 @@ title={\centering#2},fonttitle=\bfseries,#1
 \newcommand{\?}{\stackrel{?}{=}}
 \newcommand{\is}{\equiv}
 \newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\Ga}{\Gamma}
 \newcommand{\ep}{\varepsilon}
-%\renewcommand{\phi}{\varphi}
+\newcommand{\de}{\delta}
+\newcommand{\sig}{\sigma}
+\newcommand{\Sig}{\Sigma}
 \newcommand{\p}{\partial}
 \newcommand{\injective}{\hookrightarrow}
 \newcommand{\surjective}{\twoheadrightarrow}
@@ -353,6 +403,8 @@ title={\centering#2},fonttitle=\bfseries,#1
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\curbra}[1]{\left\{#1\right\}} %set {}
 \newcommand{\func}[3]{#1: #2 \rightarrow #3}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\DeclareMathOperator{\sgn}{sgn}
 
 
 
@@ -471,3 +523,4 @@ title={\centering#2},fonttitle=\bfseries,#1
 
 %idk why putting before does not work, anyway
 \pagestyle{style}
+\RequirePackage[skip=\skippar, indent=\indentpar]{parskip}
