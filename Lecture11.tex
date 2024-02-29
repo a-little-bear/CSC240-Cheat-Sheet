@@ -1,0 +1,273 @@
+\documentclass[11pt, cyan, night, 0.5in]{hw}
+
+\def\course{CSC240}
+\def\headername{Lecture 11}
+\def\name{Joseph Siu}
+\def\email{joseph.siu@mail.utoronto.ca}
+\def\logo{clsfiles/qunwang}
+
+\usepackage{clsfiles/csc240}
+
+\begin{document}
+
+\coverpage[clsfiles/stars]
+
+\newn{
+    Midterm EX310 Wednesday Mar. 6.
+
+    Friday Mar 8 lecture instead of tutorial.
+
+    Offices hours will start $\approx$ 6pm today. 
+}
+
+\newtbox[Asymptotic Notation]{
+    Let $\cal{F}$ denote the set of all fractions from $\N$ to $\R^+\cup\{0\}$.
+
+    For all $f\in\cal{F}$, let \[O(f)=\{g\in\cal{F}\mid \exists c\in\R^+.
+    \exists b\in\N.\forall n\in\N.\sqrbra{(n\geq b)\iimplies (g(n)\bf{\leq} c f(n))}\}\]
+
+    For all $n$ sufficiently large, $g(n)$ is \underline{at most} a constant factor times $f(n)$.
+
+    \[\Om(f)=\{g\in\cal{F}\mid \exists c\in\R^+.\exists b\in\N. \forall n\in\N\sqrbra{(n\geq b)\iimplies (g(n)\bf{\geq} c f(n))}\}\]
+
+    For all $n$ sufficiently large, $g(n)$ is \underline{at least} a constant factor times $f(n)$.
+
+    \neweg{
+        $6n+4\in O(3n)$ Since $6n+4\leq 3\times 3n$ for all $n\geq 2$. 
+    }
+
+    \newr{
+        We use $O(n^2)$ instead of $O(f(n))$ where $f(n)=n^2$ for all $n\in\N$. 
+    }
+
+    \[(g\in\Om(f))\iif (f\in O(g))\]
+
+    \[\Th(f)=\{g\in\cal{F}\mid\exists c\in\R^+.\exists c'\in\R^+.\exists b\in\N.\forall n\in\N. (n\geq b)\iimplies (c f(n)\leq g(n)\leq c' f(n))\]
+}
+
+\section{Analysis of Algorithms}
+
+For a particular algorithm $A$,
+
+let $t_A(I)$ be the number of steps the algorithm $A$ performs on input $I$. 
+
+\neweg{
+    Linear Search $(L,x)$: 
+}
+\begin{code}
+i <- 1
+while i <= length(L) do 
+    if L[i] = x then return i
+    i <- i+1
+return 0
+\end{code}
+
+Steps:
+\begin{itemize}
+    \item +1
+    \item comparison with $x$ \tbf{(we will focus on this one)}
+    \item array access $L(i)$
+    \item return \tbf{(this is a bad one)}
+    \item omparison of $i$ and length$(L)$
+\end{itemize}
+
+on input $L=[2,4,6,8]$, 
+
+
+\begin{align*}
+    & && \T{\underline{\# of steps}}\\
+    x&=2 && 1\\
+    x&=4 && 2\\
+    x&=8 && 4\\
+    x&=1 && 4\\
+\end{align*}
+
+Want $b$ express running time as a function of input size. 
+
+\subsection{Worst case time complexity}
+
+Let $S_n$ denote the set of all input of size $n$ to the algorithm $A$. 
+
+Then $T_A:\N\to\N$ is the worst case time complexity where $T_A(n)=\max\{t_A(I)\mid I\in S_n\}$.
+
+$T_{\T{linear search}}(n)=n$
+
+\subsection{Average case time complexity}
+
+$T'_A:\N\to\R^+\cup\{0\}$ where $T'_A(n)=\T{E}[t_a]$ where the expectation is taken over propability space on $S_n$. 
+
+\[T'_A(n)=\frac{\ds\sum_{I\in S_n} t_A(I)}{|S_n|}\] \tbf{if all elements in $S_n$ are equally likely. }
+
+
+\section{Wost Case Time Complexity}
+
+Let $u\in\N\to\N$
+
+Algorithm $A$ has worst case time complexity at most $u$ means $T_A\leq u$.
+
+That is, \[\forall n\in\N. \max\{t_A(I)\mid I\in S_n\}\leq u(n)\]
+
+Or, \[\forall n\in\N.\bf{\forall} I\in S_n. \sqrbra{t_A(I)\leq u(n)}\]
+
+To prove $T_A\leq u$, you must show for all $n\in\N$ and \tbf{for all inputs $I\in S_n$}, algorithm $A$ on input $I$ takes at most $u(n)$ steps. 
+
+\fig[width=0.75\textwidth]{img/2024-02-28-15-55-45.png}
+
+$\ell:\N\to\N$
+
+Algorithm $A$ has worst case time complexity at least $\ell$ means $I_A\geq \ell$
+
+\[\forall n\in\N.\sqrbra{\max\{t_A(I)\mid I\in S_n\}\geq \ell(n)}\]
+
+Or, \[\forall n\in\N. \bf{\exists} I\in S_n. \sqrbra{t_A(I)\geq \ell(n)}\]
+
+\newr{
+    This is wrong: In other words, there exists an input $I$ such that $t_A(I)\geq \ell(\T{size}(I))$. 
+
+    We have to show for all $n$. 
+}
+
+To prove $T_A\geq l$ for all $n\in\N$, you must \tbf{find an input} $I\in S_n$ such that $A$ takes at least $\ell(n)$ steps on input $I$. 
+
+\np
+
+$T_A\in O(u)$:
+
+\[\exists c\in\R^+. \exists b\in\N.\forall n\in\N. \sqrbra{(n\geq b)\iimplies (T_A(n)\leq c\cd u(n))}\]
+
+Or, \[\exists c\in\R^+.\exists b\in\N.\forall n\in\N.\sqrbra{(n\geq b)\iimplies \forall I\in S_n. t_A(I)\leq c\cd u(n)}\]
+
+$T_A\in\Om(\ell)$:
+
+\[\exists c\in\R^+.\exists b\in\N.\forall n\in\N. (n\geq b)\iimplies (T_A(n)\geq c\cd \ell(n))\]
+
+Or, \[\exists c\in\R^+. \exists b\in\N. \forall n\in\N. (n\geq b)\iimplies \sqrbra{\exists I\in S_n. (t_A(I)\geq c\cd ell(n))}\]
+
+\np
+
+\section{Recursion}
+
+\begin{code}
+function square(n)
+if n=1
+then return n
+else return 2*n - 1 + square(n-1)
+\end{code}
+
+input size: $n$
+
+step: \# of recursive calls $\times4$= \# of arithmetic operations.
+
+Let $T_{\T{SQ}}(n):\Z^+\to\N$ denote the \# of arithmetic operations performed by square($n$).
+
+\[T_{\T{SQ}}(n)=\begin{cases}
+    0 & \T{if } n=1\\
+    4+T_{\T{SQ}}(n-1) & \T{if } n>1
+\end{cases}.\]
+
+\newd{1}{
+    A \underline{recurrence} is a recursively defined function. \underline{Solving a recurrence} means finding a non-recursive description for the function.  
+}
+
+\underline{Methods}
+\begin{enumerate}[start=0]
+    \item Look it up online or in a book.
+    \item Guess and Verify.
+    \begin{itemize}
+        \item Generate a table of values
+        \item Look for a pattern
+        \item Guess a solution
+        \item Check solution for small values of $n$
+        \item Prove it is correct using induction 
+        \fig{img/2024-02-28-16-33-29.png}
+    \end{itemize}
+    \item Homogeneous Linear Recurrences using Characteristic Polynomials
+    \indenv{
+        \begin{align*}
+            F(0)&=0\\
+            F(1)&=1\\
+            F(n)&=F(n-1)+F(n-2), \T{ for } n\geq 2
+        \end{align*}
+
+        Constructor Case is a linear combination of a fixed number of preceding terms. 
+
+        \[f(n)=\sum_{i=1}^d a_i f(n-i)\]
+
+        guess $f(n)=c\cd x^n$ where $c,x$ are parameters whose values are chosen letter.
+
+        In this case, \begin{align*}
+            cx^n&=cx^{n-1}+cx^{n-2}\\
+            x^2&= x+1 \quad\T{This is called the characteristic equation}\\
+            x^2-x-1&=0\\
+            x&=\frac{1\pm\sqrt{5}}{2}\\
+            F(n)=c\cd\bra{\frac{1+\sqrt5}{2}}^n &\T{ or } F(n)=c\cd\bra{\frac{1-\sqrt5}{2}}^n
+        \end{align*}
+
+        If $f(n)=y^n$ and $f(n)=x^n$ are two solutions for the self-referential part, then $f(n)=cy^n+c'x^n$ is also a solution.
+
+        Since $0=F(0)=c+c'$ and $1=F(1)=c\bra{\frac{1+\sqrt5}{2}}+c'\bra{\frac{1-\sqrt5}{2}}$. We can solve for $c$ and $c'$, it turns out that $c=\frac1{\sqrt5}$ and $c'=-\frac1{\sqrt5}$.
+
+        Hence, \[F(n)=\frac{\bra{\frac{1+\sqrt5}{2}}^n}{\sqrt5}-\frac{\bra{\frac{1-\sqrt5}{2}}^n}{\sqrt5}\]
+
+        This can br proved by induction. 
+
+        \newr{
+            $x^d-\ds\sum_{i=1}^d a_i x^{d-i}=0$ is the characteristic equation.
+
+            If this equation has $d$ distinct roots $r_1,\ldots,r_d$
+
+            $f(n)=\sum_{i=1}^d c_i r_i^n$
+        }
+    }
+    \item Repeated Substitution and Verify (Plug and Chug)
+    \indenv{
+    
+        Example.
+        
+        For $n\in\Z^+$, let \[M(n)=\begin{cases}
+            c & \T{if } n=1\\
+            M\bra{\ceil{\frac{n}{2}}}+M\bra{\floor{\frac{n}{2}}}+dn & \T{if } n>1
+        \end{cases}.\]
+
+        Consider the special case when $n$ is a power of 2: \[M(n)=\begin{cases}
+            c & \T{if } n=1\\
+            2M\bra{\frac{n}{2}}+dn & \T{if } n>1
+        \end{cases}.\]
+
+        \begin{align*}
+            M(n)&=2M\bra{\frac{n}{2}}+dn\\
+            &=2\sqrbra{2M(\frac{n}{4})+d\frac{n}{2}}+dn\\
+            &=4M(\frac{n}{4})+2dn\\
+            &=4\sqrbra{2M(\frac{n}{4})+d\frac{n}{4}}+2dn\\
+            &=8M(\frac{n}{8})+3dn\\
+            &\vdots\\
+            &=2^i M(\frac{n}{2^i})+i dn
+        \end{align*}
+
+        When $i=\log_2 n$, we get \begin{align*}
+            M(n)&= n\cd M(1) + dn\cd\log_2 n\\
+            &= cn + dn \cd \log_2 n
+        \end{align*}
+
+        Let $Q(i)=$``$M(2^i)=c2^i+di 2^i$''
+        
+        We prove $\forall i\in\N. Q(i)$ by induction using the thoerem $M(n)\in\Th(n\log n)$. 
+    }
+\end{enumerate}
+
+\newt[Master Theorem]{1}{
+    Suppose that for $n\in\Z^+$, \[T(c)=\begin{cases}
+        c & \T{if } n< B\\
+        a_1 T(\ceil{\frac{n}{b}})+ a_2 T(\floor(\frac{n}{b})) + dn^i & \T{if } n\geq B
+    \end{cases},\] where $a_1,a_2,B,b\in\N$, $a=a_1+a_2\geq1$, $b>1$, $c,d,i\in\R^+\cup\{0\}$. 
+
+    Then, \[T(n)\in\begin{cases}
+        \Th(n^i\log n) & \T{if } a=b^i\\
+        \Th(n^i) & \T{if } a<b^i\\
+        \Th(n^{\log_b a}) & \T{if } a>b^i
+    \end{cases}\]
+
+}
+
+
+\end{document}
