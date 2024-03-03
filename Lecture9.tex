@@ -1,4 +1,4 @@
-\documentclass[12pt]{alittlebear}
+\documentclass[11pt, night]{hw}
 
 \def\name{Joseph Siu}
 \def\course{CSC240}
@@ -144,7 +144,7 @@ Another way of formulating the theorem
 \newd{def1}{
     A set $S$ is \underline{partially ordered} if there exist $R:S\times S\to\{T,F\}$ such that $\forall x\in S.\forall y\in S.\forall z\in S$. 
     \begin{align*}
-        \Al{R(x,x)}{T}{(reflexive)}
+        \Aleq{R(x,x)}{T}{(reflexive)}
         R(x,y)\aand R(y,x)\iimplies &x=y & \T{(antisymmetry)}\\
         R(x,y)\aand R(y,z)\iimplies &R(x,z) & \T{(transitivity)}
     \end{align*}

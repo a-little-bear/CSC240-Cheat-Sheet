@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1709194052 "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture11.tex" "Lecture11.pdf" "Lecture11" 1709194056 0
-  "Lecture11.aux" 1709194056 1641 325febf184f70489bd152b28e2900f28 "pdflatex"
-  "Lecture11.out" 1709194056 826 74ab33d5fd5a01d60200f1cdd688f500 "pdflatex"
-  "Lecture11.tex" 1709194047 8506 5bc856e73547c32bb7e1086b5544ba2b ""
+["pdflatex"] 1709236212 "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture11.tex" "Lecture11.pdf" "Lecture11" 1709236216 0
+  "Lecture11.aux" 1709236216 1641 325febf184f70489bd152b28e2900f28 "pdflatex"
+  "Lecture11.out" 1709236216 826 74ab33d5fd5a01d60200f1cdd688f500 "pdflatex"
+  "Lecture11.tex" 1709236211 8507 89bec57f0124041a6b6adfff3057a498 ""
   "c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1699475139 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1699475139 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1699475139 2840 216e6e45ad352e2456e1149f28885bee ""
@@ -279,7 +279,7 @@
   "c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1699479960 4753631 ce11096d3ddebebb488d7abe23a051aa ""
   "c:/Program Files/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1699480103 8213025 3bd61feff7b9dff35f8a668730b4a750 ""
   "c:/Program Files/texlive/2023/texmf.cnf" 1699479938 713 e69b156964470283e0530f5060668171 ""
-  "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture11.tex" 1709194047 8506 5bc856e73547c32bb7e1086b5544ba2b ""
+  "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture11.tex" 1709236211 8507 89bec57f0124041a6b6adfff3057a498 ""
   "clsfiles/csc240.sty" 1708415645 2785 7f034110346dec2215ce415c3d21d361 ""
   "clsfiles/nightsky.png" 1708338107 1039263 2371673c7b9f68538b3dd8cc08568785 ""
   "clsfiles/qunwang.png" 1708319861 338142 3e89f57b64238d0f62e84df556289001 ""
