@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  29 FEB 2024 14:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  11 MAR 2024 04:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -781,9 +781,9 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box122
 ) (./clsfiles/shortcuts.sty
 Package: shortcuts 
-LaTeX Info: Redefining \cal on input line 124.
-LaTeX Info: Redefining \frak on input line 126.
-LaTeX Info: Redefining \bf on input line 127.
+LaTeX Info: Redefining \cal on input line 126.
+LaTeX Info: Redefining \frak on input line 128.
+LaTeX Info: Redefining \bf on input line 129.
 \c@cases=\count350
 \c@subcases=\count351
  (c:/Program Files/texlive/2023/texmf-dist/tex/generic/xint/xintexpr.sty (c:/Program Files/texlive/2023/texmf-dist/tex/generic/xint/xintfrac.sty (c:/Program Files/texlive/2023/texmf-dist/tex/generic/xint/xint.sty (c:/Program Files/texlive/2023/texmf-dist/tex/generic/xint/xintcore.sty (c:/Program Files/texlive/2023/texmf-dist/tex/generic/xint/xintkernel.sty
@@ -1081,10 +1081,10 @@ Package rerunfilecheck Info: File `Lecture9.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 37877 strings out of 474272
- 717408 string characters out of 5744472
+ 37879 strings out of 474272
+ 717418 string characters out of 5744472
  1954533 words of memory out of 5000000
- 59382 multiletter control sequences out of 15000+600000
+ 59384 multiletter control sequences out of 15000+600000
  596996 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  118i,15n,121p,2898b,1908s stack positions out of 10000i,1000n,20000p,200000b,200000s

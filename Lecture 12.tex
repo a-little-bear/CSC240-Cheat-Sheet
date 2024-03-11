@@ -1,0 +1,249 @@
+\documentclass[11pt, cyan, night, 0.5in]{hw}
+
+\def\course{CSC240}
+\def\headername{Lecture 11 Week 8}
+\def\name{Joseph Siu}
+\def\email{joseph.siu@mail.utoronto.ca}
+\def\logo{clsfiles/qunwang}
+
+\usepackage{clsfiles/csc240}
+
+\begin{document}
+
+\coverpage[clsfiles/stars]
+
+For $n\in\Z^+$, let $M(n)=\begin{cases}
+    c & \text{if } n=1\\
+    M(\ceil{\frac{n}{2}}) + M(\floor{\frac{n}{2}}) + dn & \text{if } n>1
+\end{cases}.$
+
+For all $i\in\N$, let $Q(i)=``M(2^i)=c2^i+di2^i"$.
+
+\newcl{1}{
+    $\forall i\in\N. Q(i)$.
+}
+
+\newt{1}{
+    $M(n)\in\Th(n\log n)$.
+}
+
+\newl{1}{
+    $\forall n\in\Z^+. \forall m\in\Z^+. (m\leq n) \iimplies (M(m)\le qM(n)).$
+
+    That is, $M$ is a non-decreasing function.
+}
+
+\newp{[Proof of Lemma \ref{lemma:l1} by induction on $n$]\hfill
+
+    \indenv{
+        For $n\in\Z^+$. Let $R(n)=``\forall m\in\Z. (m\leq n)\iimplies (M(m)\leq M(n))$''
+
+        Let $n\in\Z^+$ be arbitrary, suppose $R(n')$ is true for all $n'\in\Z^+$ such that $n'<n$;
+        \indenv{
+            $M(1)\le M(1)$, $M(2)\le M(2)$, and $M(1)=c\le 2c+2d=M(2)$ since $c,d\ge 0$.
+        }
+        So $R(1)$ and $R(2)$ are true.
+        \indenv{
+            Consider $n\ge 2$
+
+            Then $1\le \floor{\frac{n}{2}}\le \ceil{\frac{n}{2}}\le n-1 < n$
+        }
+
+        So $R(\floor{\frac{n}{2}})$, $R(\ceil{\frac{n}{2}})$, and $R(n-1)$ all hold
+        \indenv{
+            Let $m\in\Z^+$ be arbitrary and suppose $m\le n$.
+
+            \begin{proofcases}
+                \case $m=n$.
+                \indenv{
+                    $M(m)=M(n)$ by substitution
+                }
+                \case $m=n-1$. 
+                \indenv{
+                    \begin{align*}
+                        \Aleq{M(n-1)}{M(\ceil{\frac{n-1}{2}})+M(\floor{\frac{n-1}{2}}+d(n-1))}{since $n-1>1$}
+                        \Alleq{}{M(\ceil{\frac{n}{2}})}{since $\ceil{\frac{n-1}{2}}\le\ceil{\frac{n}{2}}\le n$}
+                        &+M(\floor{\frac{n}{2}}) & \T{since $\floor{\frac{n-1}{2}}\le\floor{\frac{n}{2}}\le n$} &&\\
+                        &+dn & \T{since $d\ge 0$} &&\\
+                        &= M(n)
+                    \end{align*}
+                }
+                \case $m< n-1$.
+                \indenv{
+                    Then $M(m)\le M(n-1) \le M(n)$ by induction hypothesis
+                }
+
+                In all cases $M(m)\leq M(n)$
+
+                So $(m\le n)\iimplies (M(m)\le M(n))$.
+            \end{proofcases}
+        }
+        Since $m$ was arbitrary, $R(n)$ holds.
+    }
+    By strong induction, $\forall n\in\Z^+. R(n)$.
+}
+
+\newp{[Proof of Theorem \ref{theorem:t1}]\hfill
+    
+    \indenv{
+        Let $n\in\Z^+$ be arbitrary, assume $n\geq 2$.
+
+        Let $2^i$ be the smallest power of $2$ that is greater or equalt to $n$
+
+        Then, $n\le 2^i<2n$ which implies $i<\log_2(2n)$ and so \begin{align*}
+            M(n)\leq M(2^i) &=c2^i+di2^i\\
+            &<2cn+2dn\log_2(2n)\\
+            &=2cn+2dn(1+log_2(n))\\
+            &<(2c+4d)n\log_2 n
+        \end{align*}
+    }
+
+    By generalization, we have $\forall n\in\N. \sqrbra{(n\geq2)\iimplies M(n)\leq (2c+4d)n\log_2 n}$, so $M(n)\in O(n\log n)$.
+
+    \indenv{
+        Let $2^j$ be the largest power of 2 that is less than or equal to $n$.
+
+        Then, we have $n\geq 2^j> \frac{n}{2}$ and so \begin{align*}
+            M(n)&\geq M(2^j) \\
+            &=c2^j+dj2^j\\
+            &>c\frac{n}{2}+\frac{dn}{2}\log_2 (\frac{n}{2})\\
+            &\ge \frac{dn}{4} \log_2 n \quad \T{for $n\ge 4$}
+        \end{align*}
+    }
+
+    Thus, $M(n)\in\Om(n\log n)$
+
+    Therefore, we conclude $M(n)\in\Th(n\log n)$.
+}
+
+\section*{Analyzing the Worst Case Time Complexity of Iterative Algorithms}
+
+\begin{itemize}
+    \item Code without loops or procedure calls - $O(1)$ step
+    \item Loops: if a loop is executed $O(f(n))$ times and each iteration takes $O(g(n))$ steps, then the entire loop takes $O(f(n)\cd g(n))$ steps.
+    \item If statements: Suppose $A,B,C$ are blocks of code that take $O(f(n)), O(g(n)), O(h(n))$ steps respectively. Then 
+
+    \begin{algorithm}
+        \begin{algorithmic}
+            \aif{$A$}
+                \as $B$
+            \aelse
+                \as $C$
+            \aeif
+        \end{algorithmic}
+    \end{algorithm}
+
+    takes $O(f(n) + \max\{g(n),h(n)\})$ steps.
+    \item Procedure + function calls: Suppose that the worst case step complexity of a procedure (or function) $\cal{P}$ with input of size $r$ is $T(r)\in O(f(r))$, then a call to $\cal{P}$ with an input of size $g(n)$ takes $O(f(g(n)))$ steps.
+\end{itemize}
+
+
+\begin{algorithm}
+Consider the following Merge code:
+
+    \begin{algorithmic}
+        \afunc{Merge}{$A[1..m],m,B[1..n],n$}
+
+        \as $i\gets 1$
+        \as $j\gets 1$
+        \as $h\gets 1$\\
+    
+        \awh{$i\leq m$ and $j\leq n$}
+            \aif{$A[i]<B[j]$}
+                \as $C[h]\gets A[i]$
+                \as $i\gets i+1$
+            \aelse
+                \as $C[h]\gets B[j]$
+                \as $j\gets j+1$
+            \aeif
+            \as $h\gets h+1$
+        \aewh\\
+    
+        \aif{$i>m$}
+            \awh{$j\leq n$}
+                \as $C[h]\gets B[j]$
+                \as $j\gets j+1$
+                \as $h\gets h+1$
+            \aewh
+        \aelse 
+            \awh{$i\leq m$}
+                \as $C[h]\gets A[i]$
+                \as $i\gets i+1$
+                \as $h\gets h+1$
+            \aewh
+        \aeif
+        \aefunc
+    \end{algorithmic}
+
+    \tbf{Input size}: $m,n$ (better than $\max\{m,n\}, m+n$)
+
+    \tbf{Step}: ``increasement of $i+j$'' counting steps the exact same way as ``assignment to $C$ ($m+n)$''. We can also do ``comparison between elements of $A$ and elements of $B$'' (not as good as the previous 2).
+
+    \tbf{Time Complexity}: $m+n-1$.
+\end{algorithm}
+
+\np
+
+Step = ``\# of iterations of 1st while loop.''
+
+1st while loop terminates as soon as $i>m$ or $j>n$, so either $i$ has been increased $m$ times or $j$ has been increased $n$ times.
+
+Exactly one of $i$ and $j$ is increased each iteration, so both conditions can't be true.
+
+In the first case $j$ is increased at most $n-1$ times.
+
+In the second case $i$ is increased at most $m-1$ times.
+
+In both cases $\le m+n-1$ comparisions are performed.
+
+If $T_{M\in\T{RUR}}(m,n)$ to the worst case number of comparisions \underline{between elements of $A[1..m]$ and $B[1..n]$} then $T_{M\in\T{RUR}}(m,n)\le m+n-1$.
+
+\tit{Why is $m+n-1$ a lower bound?}
+
+For each $m.n$ what are the examples of $A[1..m]$ and $B[1..n]$ for which $n+m-1$ comparisions are performed?
+
+If all elements in $A$ and $B$ are less than $A[m]$ and except for $A[m]$ are less than $B[n]$.
+
+\[A=\underbrace{[0\;\cdots\;0\;2]}_{n}\]
+\[B=\underbrace{[0\;\cdots\;0\;1]}_{n}\]
+\[T_{\T{Merge}}(m,n)\geq m+n-1.\]
+
+\begin{algorithm}
+    \begin{algorithmic}
+        \afunc{MergeSort}{$A[1..n],n$} \Comment{$n$ = input size}
+        \aif{$n\le 1$} \Comment{step = comparision between elements of $A$}
+            \as return
+        \aeif
+        \as $m\gets \ceil{\frac{n}{2}}$
+        \as $A'\gets A[1..m]$
+        \as $A''\gets A[m+1..n]$
+        \as $M\in \T{RURSORT}(A', m)$
+        \as $M\in \T{RURSORT}(A'', n-m)$
+        \as $A\gets \T{Merge}(A[1..m],m,A[m+1..n],n-m)$
+        \aefunc
+    \end{algorithmic}
+\end{algorithm}
+
+\indenv{
+    Let $M:\Z^+\to\N$ denote the worst case time complexity of MergeSort
+
+    \indenv{
+        $M(n)=0\quad$ if $n\le 1$
+
+        $M(n)\leq M(\ceil{\frac{n}{2}})+M(\floor{\frac{n}{2}})+n-1\quad$ if $n>1$ 
+
+        \footnote{\tbf{Note:} We also need to show the linear bound is achievable}Let $M':\Z^+\to\N$ be $M'(n)=\begin{cases}
+            0 & \T{if } n\le 1\\
+            M'(\ceil{\frac{n}{2}})+M'(\floor{\frac{n}{2}})+n-1 & \T{if } n>1
+        \end{cases}$
+
+        Then $M'(n)\in O(n\log n)$ as proven at the start.       
+        
+        It is very easy to prove by induction $\forall n\in\Z^+. M(n)\le M'(n)$.
+    }
+
+    Hence $M(n)\in O(n\log n)$.
+
+}
+
+\end{document}
