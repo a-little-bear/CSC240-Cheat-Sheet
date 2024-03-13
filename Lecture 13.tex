@@ -1,0 +1,363 @@
+\documentclass[11pt, cyan, night, 1in]{hw}
+
+\def\course{CSC240}
+\def\headername{Lecture 13 week 9}
+\def\name{Joseph Siu}
+\def\email{joseph.siu@mail.utoronto.ca}
+\def\logo{clsfiles/faith}
+
+\usepackage{clsfiles/csc240}
+\usepackage[noend]{clsfiles/alg}
+
+\newop{\A}{A}
+\newop{\B}{B}
+\newop{\M}{M}
+\newop{\CC}{C}
+\newop{\MERGESORT}{MERGESORT}
+\newop{\MERGE}{MERGE}
+\newop{\Precondition}{\tbf{Precondition}}
+\newop{\Postcondition}{\tbf{Postcondition}}
+\newop{\Termination}{\tbf{Termination}}
+
+\begin{document}
+
+\coverpage[clsfiles/night]
+
+\newfunc{\MERGESORT($\A[1..n],n$)}{
+    \aif{$n>1$ then}{
+        \as \ag{m}{\floor{\frac{n}{2}}}
+        \as \ag{\A'}{\A[1..m]}
+        \as \ag{\A''}{\A[m+1..n]}
+        \as \MERGESORT($A',m$)
+        \as \MERGESORT($A'',n-m$)
+        \as \ag{\A}{\MERGE($A',m,A'',n-m$)}
+    }
+}
+
+\section{Correctness of Algorithms}
+
+An algorithm is correct if it satisfies its specifications
+
+Specifications are often written using 
+\begin{enumerate}
+    \item \Precondition
+    \begin{itemize}
+        \item certain facts must be true before an execution of the algorithm begins
+        \item it can describe what inputs are allowed
+    \end{itemize}
+    \item \Postcondition
+    \begin{itemize}
+        \item certain facts must be true when an execution of the algorithm ends
+        \item often it describes the correct ouput or possible correct outputs for a given input
+    \end{itemize}
+    \item \Termination
+    \begin{itemize}
+        \item the algorithm halts when the preconditions are true
+    \end{itemize}
+\end{enumerate}
+
+
+\neweg{
+    Search array $\A$ for value $k$.
+
+    \Precondition: The elements of $\A[1..n]$ and $k$ are from the same domain (so we can compare them) (\ie we can't compare int with str)
+
+    \Postcondition: Return an integer $i$ such that $1\le i\le n$ and $\A[i]=k$ or $0$ if no such index $i$ exists. 
+
+    Specification does not say anything about the algorithm just tells us the relation between the inputs and the outputs.\\
+
+    For this example, consider the algorithm:
+    
+    \indenv{
+        $\A[1]\gets k$
+    
+        return 1
+    }
+    
+    or
+    
+    \indenv{
+        $k\gets \A[1]$
+    
+        return 1
+    }
+    
+    This works but it is not what we intended.
+
+    So,
+    
+    \Postcondition: $\A$ is not changed, $k$ is not changed.
+}
+
+
+\neweg{
+    Specifications for Binary Search Algorithm
+
+    \Precondition: $A[1..nn]$ is sorted in non decreasing order \[\forall i\in\Z^+. \forall j\in\Z^+. [(i<j\leq n)\iimplies (A[i]\leq A[j])]\]\footnote{elements of $A[1..n]$ and $k$ must be from a totally ordered domain.}
+
+    \Postcondition: same as for searching an array
+}
+
+\section{Sorting an array}
+
+\Precondition: the elements in $\A[1..n]$ are from a totally ordered domain
+
+\Postcondition: 
+
+\begin{itemize}
+    \item The multiset of elements in $\A[1..n]$ is not changed
+    \item The elements in $\A[1..n]$ afterwrads are a permutation of the elements in $\A[1..n]$ before the algorithm was in $\A[1..n]$ before the algorithm has executed 
+    \item The elements of $\A$ are in nondecreasing order.  
+\end{itemize}
+
+\section{Merging two arrays}
+
+\Precondition: $\A[1..m]$ and $\B[1..n]$ are sorted in nondecreasing order. The elements in $\A[1..m]$ and $\B[1..n]$ are from the same totally ordered domain.
+
+\Postcondition: 
+\begin{itemize}
+    \item Outputs an array $\CC[1..m+n]$ such that the multiset of elements in $\CC[1..m+n]$ is the union of the multisets of elements in $\A[1..m]$ and $\B[1..n]$.
+    \item $\A$ and $\B$ are not changed. 
+    \item $\CC$ is sorted in nondecreasing order. 
+\end{itemize} 
+
+\section{Proving Correctness of Recursive Algorithms}
+
+Usually use induction
+
+\neweg{
+    Correctness of \MERGESORT. 
+    
+    Assuming the correctness of \MERGE.
+
+    For $n\in\N$, let $P(n)=``$for all array $\A[1..n]$ with elements from a totaly ordered set. 
+    
+    If \MERGESORT($\A[1..n]$) is performed, then it eventually halts / returns, at which time $\A$ is sorted in nondecreasing order and the multiset of element $\A$ is unchanged.''
+}
+
+\newp{\hfill
+
+    \indenv{
+        Let $n\in\N$ be arbitrary.
+
+        Let $\A[1..n]$ be an arbitrary array with elements from a totally ordered set.
+
+        Consider \MERGESORT($\A[1..n]$).
+
+        Base Case $n=0$ and $n=1$
+        \indenv{
+            the test on line 1 fails, algorithm terminates immediately, so $\A$ is unchanged. Trivially $\A$ is sorted in nondecreasing order.
+        }
+
+        Induction Case $n>1$:
+        \indenv{
+            test on line 1 is true and $m=\floor{\frac{n}{2}}$ from line 2. 
+
+            $m, n-m<n$.
+
+            $\A=\A'\cup \A''$.
+
+            By the induction hypothesis after lines $5+6$, $\A'$ and $\A''$ are sorted in nondecreasing order and the multisets of elements in $\A'$ and $\A''$ are unchanged.
+
+            Preconditions of \MERGE are satisfied, so after line 7, $\A$ is sorted in nondecreasing after, and the multiset of elements in $\A$ is the union of the multiset of elements in $\A'\cup\A''$, which is the original multiset of elements in $\A$. 
+
+            So, by generalization, $P(n)$ is true. 
+        }
+
+        Since $n$ was arbitrary, by induction $\forall n\in\N. P(n)$.
+    }
+
+    Hence \MERGESORT is correct.
+    
+}
+
+\section{Correctness of Iterative Algorithms}
+
+Partial Correctness: \underline{if} the preconditions hold, the algorithm is executed, and it terminates, \underline{then} the postconditions hold.
+
+\underline{\Termination}: if the preconditions hold, and the algorithm is executed, then it eventually terminates. 
+
+\tbf{Total correctness} = partial correctness and termination.
+
+For iterative algorithms, they are typically proved separately.
+
+\newfunc{M($m,n$)}{
+    \as \ag{z}{0}
+    \as \ag{w}{m}
+    \awh{$w\neq0$ do}{
+        \as \ag{z}{z+n}
+        \as \ag{w}{w-1}
+    }
+    \as return $z$
+}
+
+It performs multiplication by repeated addition
+
+\Precondition: $m\in\N, n\in\C$
+
+\Postcondition: $z=m\times n$, $m$ and $n$ are unchanged. \footnote{we can see there are no assert to $m$ or $n$, thus they are trivially unchanged.}
+
+\crossout{Immediately after the $i^{\T{th}}$ iteration of the while loop, $w=m-i$ and $z=n\times i$.}
+
+Correction: immediately after the $0^{\T{th}}$ iteration means immediately before the $1^{\T{st}}$ iteration
+
+Let $P(i)=``$ if the loop is executed at least $i$ times, the immediately after the $i^{\T{th}}$ iteration $w=m-i$ and $z=n\times i$.''
+
+\newl{1}{
+    Let $M\in\Z, n\in\C$, \[\forall i\in\N. P(i)\]
+}
+
+\newp{[proof of Lemma \ref{lemma:l1}]\hfill
+
+    Let $w_i$ and $z_i$ denote the values of $w$ and $z$ immediately after the $i^{\T{th}}$ iteration
+
+    Base Case:
+    \indenv{
+        Initially $w_0=m=m-0$ by line 2,
+
+        $z_0=0=n\times 0$ by line 1,
+
+        so $P(0)$ is true.
+    }
+
+    Induction Case:
+    \indenv{
+        Let $i\in\N$ be arbitrary and assume $P(i)$ is true.
+
+        Assume the loop is executed at least $i+1$ times. Then $w_i=m-i$ and $z_i=n\times i$.
+
+        From lines 4 and 5, we have $z_{i+1}=z_i+n=n\times i+n = n\times (i+1)$ and $w_{i+1}=w_i-1=m-i-1=m-(i+1)$.
+
+        Hence $P(i+1)$ is true.
+    }
+
+    Hence by induction $\forall n\in\N. P(n)$.
+}
+
+\tbf{To show total correctness, we first show the partial correctness (we are going to prove it in 2 ways).}
+
+\newco[Partial Correctness]{1}{
+    Let $m\in\Z$ and $n\in\C$, if $\M(m,n)$ is non of it halts then it returns $z=n\times m$.
+}
+
+\newp{[Proof of Corollary \ref{corollary:co1}]\hfill
+
+    Suppose the loop halts imemdiately after the $i^{\T{th}}$ iteration of the loop
+
+    From the termination condition of the loop (line 3) $w_i=0$
+
+    By the lemma, $w_i=m-i$ and $z_i=n\times i$, so $i=m$ and $z_i=n\times m$
+
+    Hence $z_i=m\times n$ is returned. 
+
+}
+
+
+A \underline{\tbf{loop invariant}} is a predicate that is true each time a particular place in the loop is reached.
+
+Often we consider the beginning / end of iterations of the loop.
+
+Assume this, unless specified otherwise.
+
+
+\newl{2}{
+    $z=n\times(m-w)$ is a loop invariant. \footnote{does not contain $i$ where $i$ is the number of iterations}
+}
+
+\newp{[Proof of Lemma \ref{lemma:l2}]\hfill
+
+    Initially from lines 1 and 2, $z=0$ and $w=m$ so $n\times (m-w)=0=z$.
+
+    Consider an arbitrary iteration of the loop
+
+    \indenv{
+        Let $w'$ and $z'$ be the values of $w$ and $z$ at the beginning of the iteration and let $w''$ and $z''$ be the values of $w$ and $z$ at the end of the iteration.
+
+        Suppose the claim is true at the beginning of the iteration. Then $z'=n\times(m-w')$.
+
+        From lines 4 and 5 the code $w''=w'-1$ and $z''=z'+n$, so 
+        \begin{align*}
+            n\times(m-w'')&=n\times(m-(w'-1))\\
+            &= n\times (m-w') + n\\
+            &= z' + n \\
+            &= z''
+        \end{align*}
+
+        Hence the claim is true at the end of the iteraion.
+
+    }
+
+    By induction, $z=n\times(m-w)$ after every iteration. 
+}
+
+\newp{[Another Proof of Corollary \ref{corollary:co1}]\hfill
+
+    From the termination condition of the loop (line 3) $w=0$
+
+    Since $z=n\times (m-w)$ is a loop invariant
+
+    $z=n\times (m-w)=n\times m$ when the loop terminates.
+}
+
+\tbf{Now, we show the termination. From there we can conclude total correctness.}
+
+\newl[Termination]{3}{
+    If $n\in\C$ and $m\in\N$ and $\M(m,n)$ is run, then it eventually halts.
+
+    Namely, \[\forall n\in\C. \forall m\in\N. (\M(m,n) \T{ eventually halts}).\]
+}
+
+\newp{[Informal Proof of Lemma \ref{lemma:l3}]\hfill
+
+    Before the loop is executed $w$ is set to $m\in\N$.
+
+    Each iteration, $w$ is decreased by $1$, so it is a smaller natural number.
+
+    Hence $w$ must eventually reach $0$. This is the exit condition of the loop. Therefore the loop terminates and the algorithm returns.
+}
+
+\newp{[More formal Proof of Lemma \ref{lemma:l3}]\hfill
+
+    Suppose the loop does not terminate.
+
+    \indenv{
+        Let $n,m$ be arbitrary.
+
+        Let $w_i$ be the value of $w$ immediatley after the $i^{\T{th}}$ iteration of the loop.
+
+        From line 5, we know $w_{i+1}=w_i-1$
+
+        For all $i\in\N,$ let $Q(i)=``w_i\in\N$''
+
+        Base Case:
+        \indenv{
+            Since $w_0=m\in\N$ by assumption, $Q(0)$ is true.
+        }
+
+        Induction Case:
+        \indenv{
+            Let $i\ge 0$ be arbitrary and assume $Q(i)$ is true
+
+            Since the loop does not terminate $w_i\neq 0$, then $w_i\in\Z^+$. Since $w_{i+1}=w_i-1$, it follows that $w_{i+1}\in\N$. Hence $Q(i+1)$ is true.
+        }
+
+        By induction $\forall i\in\N. Q(i)$.
+
+        Then $w_0, w_1, w_2$ is a sequence of natural numbers such that $w_{i+1},w_i$ for all $i\in\N$.
+
+        By the well ordering principle, this sequence has a smallest element $w_k$.
+
+        But $w_{k+1} < w_k$
+
+        This contradicts the definition of $w_k$,
+
+        Thus the loop (and algorithm \M) eventually terminates.
+    }
+
+    Since $n,m$ were arbitrary. By generalization, the lemma is true.
+
+}
+
+Therefore, we conclude that \M is totally correct.
+
+\end{document}

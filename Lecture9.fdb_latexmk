@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1710145691 "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture9.tex" "Lecture9.pdf" "Lecture9" 1710145695 0
-  "Lecture9.aux" 1710145694 1088 e5934679b057a1529310c5237e5bf0ff "pdflatex"
-  "Lecture9.out" 1710145693 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["pdflatex"] 1710326260 "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture9.tex" "Lecture9.pdf" "Lecture9" 1710326264 0
+  "Lecture9.aux" 1710326264 1088 e5934679b057a1529310c5237e5bf0ff "pdflatex"
+  "Lecture9.out" 1710326262 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "Lecture9.tex" 1709235647 11140 0e553286df9e5a8a38caea6f41d8d474 ""
   "c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1699475139 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1699475139 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -269,9 +269,9 @@
   "c:/Program Files/texlive/2023/texmf.cnf" 1699479938 713 e69b156964470283e0530f5060668171 ""
   "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture9.tex" 1709235647 11140 0e553286df9e5a8a38caea6f41d8d474 ""
   "clsfiles/nightsky.png" 1708338107 1039263 2371673c7b9f68538b3dd8cc08568785 ""
-  "clsfiles/shortcuts.sty" 1710145690 5132 8a439c1963d6d52d51ce7754ac33ce8f ""
+  "clsfiles/shortcuts.sty" 1710326258 5184 0a5135f9df974e9785400db067e16919 ""
   "clsfiles/tcbthm.sty" 1708599510 13615 60fb8a51e462dfbd0d798938f4f72e52 ""
-  "hw.cls" 1708762768 14237 c95c8b959cc4acaefabda7d967c7be63 ""
+  "hw.cls" 1710324059 14236 02880384d5b1d2927f12a7d20431ad2a ""
   (generated)
   "Lecture9.aux"
   "Lecture9.log"

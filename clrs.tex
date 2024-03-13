@@ -1,0 +1,48 @@
+\documentclass[11pt, cyan, night, 1in]{hw}
+
+\def\course{CLRS}
+\def\headername{Problems}
+\def\name{Joseph Siu}
+
+\usepackage{clsfiles/csc240}
+\usepackage[noend, noline]{clsfiles/alg}
+
+\newop{\A}{A}
+
+\begin{document}
+
+\coverpage[clsfiles/stars]
+
+\newalg[2.1-2, Decreasing Insertion Sort]{
+    \nofuncname
+
+    \afunc{Insertion-Sort}{\A}{
+    \afor{\ag{j}{2}\ato\alen{\A}}{
+        \as \ag{key}{\A[j]}
+        \as $i\gets j-1$
+        \awh{$i>0$ and $key>A[i]$}{
+            \as $\A[i+1]\gets \A[i]$
+            \as $i\gets i-1$
+        }
+        \as $\A[i+1]\gets key$
+    }
+    }
+}
+
+\newalg[2.1-3, Linear Search]{
+    % \nofuncname
+
+    \afunc{Linear-Search}{\A, v}{
+        \afor{\ag{i}{1}\ato\alen{\A}}{
+            \aif{$\A[i]=v$}{
+                \as return $i$
+            }
+            \as \ag{i}{i+1}
+        }
+        \as return NIL
+    }
+}
+
+
+
+\end{document}

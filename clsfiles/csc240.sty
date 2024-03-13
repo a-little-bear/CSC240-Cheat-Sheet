@@ -1,6 +1,5 @@
-\ProvidesPackage{csc240}
+\ProvidesPackage{csc240}[2022/02/22 v1.0 csc240 style file]
 \NeedsTeXFormat{LaTeX2e}
-
 
 %%% Logic
 \newcommand{\nnot}{\mathrm{NOT}}
@@ -80,95 +79,5 @@
 
 
 
-% https://mirror.quantum5.ca/CTAN/macros/latex/contrib/algorithmicx/algorithmicx.pdf
-\RequirePackage{algorithm}
-\RequirePackage{algpseudocode}
 
 
-
-\newcommand{\as}{\State}
-\newcommand{\ase}{\Statex}
-
-\newcommand{\afunc}{\Function}
-\newcommand{\aefunc}{\EndFunction}
-
-\newcommand{\afor}{\For}
-\newcommand{\afora}{\ForAll}
-\newcommand{\aefor}{\EndFor}
-\newcommand{\aefora}{\EndFor}
-
-\newcommand{\awh}{\While}
-\newcommand{\aewh}{\EndWhile}
-
-\newcommand{\arep}{\Repeat}
-\newcommand{\aunt}{\Until}
-
-\newcommand{\aif}{\If}
-\newcommand{\aelif}{\ElsIf}
-\newcommand{\aelse}{\Else}
-\newcommand{\aeif}{\EndIf}
-
-\newcommand{\aproc}{\Procedure}
-\newcommand{\aeproc}{\EndProcedure}
-
-\newcommand{\alo}{\Loop}
-\newcommand{\aelo}{\EndLoop}
-
-
-\iffalse
-Example usage:
-
-\begin{algorithm}
-% \caption{Name of the Algorithm}
-\begin{algorithmic}[1] 
-        % 0 means no line numbering
-        % 1 means line numbering 1 2 3...
-        % n means line numbering 1n, 2n, 3n...
-
-% \Comment{<text>}
-
-% \State     before a statement
-% \Statex    between statements
-
-\For{<text>}
-    <body>
-\EndFor
-
-\ForAll{<text>}
-    <body>
-\EndFor
-
-\While{<text>}
-    <body>
-\EndWhile
-
-\Repeat
-    <body>
-\Until{<text>}
-
-\If{<text>}
-    <body>
-\ElsIf{<text>}
-    <body>
-...
-\Else
-    <body>
-\EndIf
-
-\Procedure{<name>}{<params>}
-    <body>
-\EndProcedure
-
-\Function{<name>}{<params>}
-    <body>
-\EndFunction
-
-\Loop
-    <body>
-\EndLoop
-
-
-
-\end{algorihmic}
-\end{algorithm}
-\fi
