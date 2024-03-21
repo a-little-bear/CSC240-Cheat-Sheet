@@ -209,7 +209,7 @@ Let $T_{\T{SQ}}(n):\Z^+\to\N$ denote the \# of arithmetic operations performed b
 
         Hence, \[F(n)=\frac{\bra{\frac{1+\sqrt5}{2}}^n}{\sqrt5}-\frac{\bra{\frac{1-\sqrt5}{2}}^n}{\sqrt5}\]
 
-        This can br proved by induction. 
+        This can be proved by induction. 
 
         \newr{
             $x^d-\ds\sum_{i=1}^d a_i x^{d-i}=0$ is the characteristic equation.
@@ -258,7 +258,7 @@ Let $T_{\T{SQ}}(n):\Z^+\to\N$ denote the \# of arithmetic operations performed b
 \newt[Master Theorem]{1}{
     Suppose that for $n\in\Z^+$, \[T(c)=\begin{cases}
         c & \T{if } n< B\\
-        a_1 T(\ceil{\frac{n}{b}})+ a_2 T(\floor(\frac{n}{b})) + dn^i & \T{if } n\geq B
+        a_1 T(\ceil{\frac{n}{b}})+ a_2 T(\floor{\frac{n}{b}}) + dn^i & \T{if } n\geq B
     \end{cases},\] where $a_1,a_2,B,b\in\N$, $a=a_1+a_2\geq1$, $b>1$, $c,d,i\in\R^+\cup\{0\}$. 
 
     Then, \[T(n)\in\begin{cases}

@@ -7,6 +7,7 @@
 \def\logo{clsfiles/qunwang}
 
 \usepackage{clsfiles/csc240}
+\usepackage[noend]{clsfiles/alg}
 
 \begin{document}
 
@@ -88,7 +89,7 @@ For all $i\in\N$, let $Q(i)=``M(2^i)=c2^i+di2^i"$.
     \indenv{
         Let $n\in\Z^+$ be arbitrary, assume $n\geq 2$.
 
-        Let $2^i$ be the smallest power of $2$ that is greater or equalt to $n$
+        Let $2^i$ be the smallest power of $2$ that is greater or equal to $n$
 
         Then, $n\le 2^i<2n$ which implies $i<\log_2(2n)$ and so \begin{align*}
             M(n)\leq M(2^i) &=c2^i+di2^i\\
@@ -125,11 +126,11 @@ For all $i\in\N$, let $Q(i)=``M(2^i)=c2^i+di2^i"$.
 
     \begin{algorithm}
         \begin{algorithmic}
-            \aif{$A$}
+            \aif{$A$}{
                 \as $B$
             \aelse
                 \as $C$
-            \aeif
+            }
         \end{algorithmic}
     \end{algorithm}
 
@@ -142,37 +143,37 @@ For all $i\in\N$, let $Q(i)=``M(2^i)=c2^i+di2^i"$.
 Consider the following Merge code:
 
     \begin{algorithmic}
-        \afunc{Merge}{$A[1..m],m,B[1..n],n$}
+        \afunc{Merge}{$A[1..m],m,B[1..n],n$}{
 
-        \as $i\gets 1$
-        \as $j\gets 1$
-        \as $h\gets 1$\\
-    
-        \awh{$i\leq m$ and $j\leq n$}
-            \aif{$A[i]<B[j]$}
-                \as $C[h]\gets A[i]$
-                \as $i\gets i+1$
-            \aelse
-                \as $C[h]\gets B[j]$
-                \as $j\gets j+1$
-            \aeif
-            \as $h\gets h+1$
-        \aewh\\
-    
-        \aif{$i>m$}
-            \awh{$j\leq n$}
-                \as $C[h]\gets B[j]$
-                \as $j\gets j+1$
+            \as $i\gets 1$
+            \as $j\gets 1$
+            \as $h\gets 1$\\
+        
+            \awh{$i\leq m$ and $j\leq n$}{
+                \aif{$A[i]<B[j]$}{
+                    \as $C[h]\gets A[i]$
+                    \as $i\gets i+1$
+                \aelse
+                    \as $C[h]\gets B[j]$
+                    \as $j\gets j+1$
+                }
                 \as $h\gets h+1$
-            \aewh
-        \aelse 
-            \awh{$i\leq m$}
-                \as $C[h]\gets A[i]$
-                \as $i\gets i+1$
-                \as $h\gets h+1$
-            \aewh
-        \aeif
-        \aefunc
+            }\\
+        
+            \aif{$i>m$}{
+                \awh{$j\leq n$}{
+                    \as $C[h]\gets B[j]$
+                    \as $j\gets j+1$
+                    \as $h\gets h+1$
+                }
+            \aelse 
+                \awh{$i\leq m$}{
+                    \as $C[h]\gets A[i]$
+                    \as $i\gets i+1$
+                    \as $h\gets h+1$
+                }
+            }
+        }
     \end{algorithmic}
 
     \tbf{Input size}: $m,n$ (better than $\max\{m,n\}, m+n$)
@@ -210,17 +211,16 @@ If all elements in $A$ and $B$ are less than $A[m]$ and except for $A[m]$ are le
 
 \begin{algorithm}
     \begin{algorithmic}
-        \afunc{MergeSort}{$A[1..n],n$} \Comment{$n$ = input size}
-        \aif{$n\le 1$} \Comment{step = comparision between elements of $A$}
-            \as return
-        \aeif
-        \as $m\gets \ceil{\frac{n}{2}}$
-        \as $A'\gets A[1..m]$
-        \as $A''\gets A[m+1..n]$
-        \as $M\in \T{RURSORT}(A', m)$
-        \as $M\in \T{RURSORT}(A'', n-m)$
-        \as $A\gets \T{Merge}(A[1..m],m,A[m+1..n],n-m)$
-        \aefunc
+        \afunc{MergeSort}{$A[1..n],n$}{\Comment{$n$ = input size}
+            \aif{$n\le 1$}{\as return} \Comment{step = comparision between elements of $A$}
+                
+            \as $m\gets \ceil{\frac{n}{2}}$
+            \as $A'\gets A[1..m]$
+            \as $A''\gets A[m+1..n]$
+            \as $M\in \T{RURSORT}(A', m)$
+            \as $M\in \T{RURSORT}(A'', n-m)$
+            \as $A\gets \T{Merge}(A[1..m],m,A[m+1..n],n-m)$
+        } 
     \end{algorithmic}
 \end{algorithm}
 

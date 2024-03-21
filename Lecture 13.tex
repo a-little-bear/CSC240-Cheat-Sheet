@@ -1,4 +1,4 @@
-\documentclass[11pt, cyan, night, 1in]{hw}
+\documentclass[11pt, cyan, night, 0.5in]{hw}
 
 \def\course{CSC240}
 \def\headername{Lecture 13 week 9}
@@ -93,7 +93,7 @@ Specifications are often written using
 \neweg{
     Specifications for Binary Search Algorithm
 
-    \Precondition: $A[1..nn]$ is sorted in non decreasing order \[\forall i\in\Z^+. \forall j\in\Z^+. [(i<j\leq n)\iimplies (A[i]\leq A[j])]\]\footnote{elements of $A[1..n]$ and $k$ must be from a totally ordered domain.}
+    \Precondition: $A[1..n]$ is sorted in non decreasing order \[\forall i\in\Z^+. \forall j\in\Z^+. [(i<j\leq n)\iimplies (A[i]\leq A[j])]\]\footnote{elements of $A[1..n]$ and $k$ must be from a totally ordered domain.}
 
     \Postcondition: same as for searching an array
 }
@@ -130,7 +130,7 @@ Usually use induction
     
     Assuming the correctness of \MERGE.
 
-    For $n\in\N$, let $P(n)=``$for all array $\A[1..n]$ with elements from a totaly ordered set. 
+    For $n\in\N$, let $P(n)=``$for all array $\A[1..n]$ with elements from a totally ordered set. 
     
     If \MERGESORT($\A[1..n]$) is performed, then it eventually halts / returns, at which time $\A$ is sorted in nondecreasing order and the multiset of element $\A$ is unchanged.''
 }

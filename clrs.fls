@@ -334,6 +334,10 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/poormanlog/poormanlog
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/poormanlog/poormanlog.tex
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/poormanlog/poormanlog.tex
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/poormanlog/poormanlog.tex
+INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/ulem/ulem.sty
+INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/ulem/ulem.sty
+INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
@@ -381,7 +385,6 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/algorithmicx/algorithmi
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/ot1lmr.fd
-INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
 INPUT ./clrs.aux
 INPUT ./clrs.aux
@@ -466,10 +469,10 @@ INPUT ./clsfiles/uoft.png
 INPUT ./clsfiles/uoft.png
 INPUT ./clsfiles/uoft.png
 INPUT ./clsfiles/uoft.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
 INPUT c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
@@ -500,9 +503,9 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/fourier/ufuts.fd
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/futrorn.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmr8.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/futrorn.tfm
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/vf/public/fourier/futrorn.vf
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/fourier-orns.tfm

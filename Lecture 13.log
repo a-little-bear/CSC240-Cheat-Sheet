@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  13 MAR 2024 23:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  19 MAR 2024 06:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -974,15 +974,15 @@ LaTeX Font Info:    ... okay on input line 22.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* h-part:(L,W,R)=(36.135pt, 542.02501pt, 36.135pt)
+* v-part:(T,H,B)=(36.135pt, 722.7pt, 36.135pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=469.75502pt
-* \textheight=650.43001pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
+* \textwidth=542.02501pt
+* \textheight=722.7pt
+* \oddsidemargin=-36.135pt
+* \evensidemargin=-36.135pt
+* \topmargin=-73.135pt
 * \headheight=35.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -1144,15 +1144,15 @@ File: clsfiles/faith.png Graphic file (type png)
 <use clsfiles/faith.png>
 Package pdftex.def Info: clsfiles/faith.png  used on input line 24.
 (pdftex.def)             Requested size: 153.57375pt x 178.95071pt.
-<clsfiles/nightsky.png, id=55, 331.66768pt x 588.91446pt>
-File: clsfiles/nightsky.png Graphic file (type png)
-<use clsfiles/nightsky.png>
-Package pdftex.def Info: clsfiles/nightsky.png  used on input line 24.
-(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
+<clsfiles/tree.jpg, id=55, 1626.075pt x 2890.8pt>
+File: clsfiles/tree.jpg Graphic file (type jpg)
+<use clsfiles/tree.jpg>
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 24.
+(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
  [1
 
 
-{c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc} <./clsfiles/nightsky.png (PNG copy)> <./clsfiles/night.jpg> <./clsfiles/faith.png>]
+{c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc} <./clsfiles/tree.jpg> <./clsfiles/night.jpg> <./clsfiles/faith.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 35.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1165,41 +1165,41 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `stf' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for U+futs on input line 99.
+LaTeX Font Info:    Trying to load font information for U+futs on input line 105.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/fourier/ufuts.fd
 File: ufuts.fd 2021/11/24 Fontinst v1.933 font definitions for U/futs.
 )
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.99 }
-      
-File: clsfiles/nightsky.png Graphic file (type png)
-<use clsfiles/nightsky.png>
-Package pdftex.def Info: clsfiles/nightsky.png  used on input line 99.
-(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
+l.105 \Postcondition
+                    :
+File: clsfiles/tree.jpg Graphic file (type jpg)
+<use clsfiles/tree.jpg>
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 105.
+(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
  [1
 
 {c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-File: clsfiles/nightsky.png Graphic file (type png)
-<use clsfiles/nightsky.png>
-Package pdftex.def Info: clsfiles/nightsky.png  used on input line 172.
-(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
- [2]
-File: clsfiles/nightsky.png Graphic file (type png)
-<use clsfiles/nightsky.png>
-Package pdftex.def Info: clsfiles/nightsky.png  used on input line 235.
-(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
- [3{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc}]
-File: clsfiles/nightsky.png Graphic file (type png)
-<use clsfiles/nightsky.png>
-Package pdftex.def Info: clsfiles/nightsky.png  used on input line 291.
-(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
+File: clsfiles/tree.jpg Graphic file (type jpg)
+<use clsfiles/tree.jpg>
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 178.
+(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
+ [2{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc}]
+File: clsfiles/tree.jpg Graphic file (type jpg)
+<use clsfiles/tree.jpg>
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 253.
+(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
+ [3]
+File: clsfiles/tree.jpg Graphic file (type jpg)
+<use clsfiles/tree.jpg>
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 359.
+(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
  [4]
-File: clsfiles/nightsky.png Graphic file (type png)
-<use clsfiles/nightsky.png>
-Package pdftex.def Info: clsfiles/nightsky.png  used on input line 363.
-(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
+File: clsfiles/tree.jpg Graphic file (type jpg)
+<use clsfiles/tree.jpg>
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 363.
+(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
  [5] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./Lecture 13.aux)
@@ -1211,15 +1211,15 @@ Package rerunfilecheck Info: File `"Lecture 13".out' has not changed.
 (rerunfilecheck)             Checksum: F59984BA1389F1C2A24465562863E890;939.
  ) 
 Here is how much of TeX's memory you used:
- 38989 strings out of 474272
- 735578 string characters out of 5744472
- 1952533 words of memory out of 5000000
- 60395 multiletter control sequences out of 15000+600000
- 631543 words of font info for 155 fonts, out of 8000000 for 9000
+ 38979 strings out of 474272
+ 735429 string characters out of 5744472
+ 1955533 words of memory out of 5000000
+ 60393 multiletter control sequences out of 15000+600000
+ 631202 words of font info for 151 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  118i,13n,121p,2900b,1405s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-orns.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/starfont/starfont.pfb>
-Output written on "Lecture 13.pdf" (6 pages, 2068163 bytes).
+Output written on "Lecture 13.pdf" (6 pages, 1726707 bytes).
 PDF statistics:
  226 PDF objects out of 1000 (max. 8388607)
  155 compressed objects within 2 object streams

@@ -487,10 +487,10 @@ INPUT ./clsfiles/faith.png
 INPUT ./clsfiles/faith.png
 INPUT ./clsfiles/faith.png
 INPUT ./clsfiles/faith.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
 INPUT c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc
@@ -524,9 +524,9 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/fourier/ufuts.fd
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/fourier/ufuts.fd
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/futrorn.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/futrorn.tfm
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/vf/public/fourier/futrorn.vf
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/fourier-orns.tfm
@@ -540,19 +540,19 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmri10.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
-INPUT ./clsfiles/nightsky.png
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
+INPUT ./clsfiles/tree.jpg
 INPUT Lecture 13.aux
 INPUT ./Lecture 13.out
 INPUT ./Lecture 13.out

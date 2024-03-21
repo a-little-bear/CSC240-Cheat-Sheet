@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1710385563 "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture 13.tex" "Lecture 13.pdf" "Lecture 13" 1710385567 0
-  "Lecture 13.aux" 1710385567 1549 e472f63cf2775df00d4245ffa4220d7b "pdflatex"
-  "Lecture 13.out" 1710385567 939 f59984ba1389f1c2a24465562863e890 "pdflatex"
-  "Lecture 13.tex" 1710385562 11359 c262406c6722e1973d47c4a95d9e5a96 ""
+["pdflatex"] 1710842968 "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture 13.tex" "Lecture 13.pdf" "Lecture 13" 1710842972 0
+  "Lecture 13.aux" 1710842971 1549 74fb015c7b4b46eb55293a90c0a5cb70 "pdflatex"
+  "Lecture 13.out" 1710842971 939 f59984ba1389f1c2a24465562863e890 "pdflatex"
+  "Lecture 13.tex" 1710842963 11361 7732c1b16dd4b7e9876ecb774b3d10af ""
   "c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1699475139 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1699475139 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1699475139 2840 216e6e45ad352e2456e1149f28885bee ""
@@ -290,15 +290,15 @@
   "c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1699479960 4753631 ce11096d3ddebebb488d7abe23a051aa ""
   "c:/Program Files/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1699480103 8213025 3bd61feff7b9dff35f8a668730b4a750 ""
   "c:/Program Files/texlive/2023/texmf.cnf" 1699479938 713 e69b156964470283e0530f5060668171 ""
-  "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture 13.tex" 1710385562 11359 c262406c6722e1973d47c4a95d9e5a96 ""
+  "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture 13.tex" 1710842963 11361 7732c1b16dd4b7e9876ecb774b3d10af ""
   "clsfiles/alg.sty" 1710360307 2762 4bc90d05a469c6dac0bc2630148ec385 ""
   "clsfiles/csc240.sty" 1710328329 2830 5b4093ff1f317a53ddd520faf312b2b9 ""
   "clsfiles/faith.png" 1710365211 85831 33cf5b7b17d496f02100d7adc26cf48f ""
   "clsfiles/night.jpg" 1682216561 619295 af5cb3c88384d9c47dcb5a8350bf1c54 ""
-  "clsfiles/nightsky.png" 1708338107 1039263 2371673c7b9f68538b3dd8cc08568785 ""
   "clsfiles/shortcuts.sty" 1710361252 5261 ebe048f5f219cba679befc3b810481b4 ""
   "clsfiles/tcbthm.sty" 1708599510 13615 60fb8a51e462dfbd0d798938f4f72e52 ""
-  "hw.cls" 1710327403 14236 02880384d5b1d2927f12a7d20431ad2a ""
+  "clsfiles/tree.jpg" 1710842544 697214 f55d12c812bf86227f69913a69393ef8 ""
+  "hw.cls" 1710842907 14232 3a441f5655cda58d90e4a7d79e995aa1 ""
   (generated)
   "Lecture 13.aux"
   "Lecture 13.log"

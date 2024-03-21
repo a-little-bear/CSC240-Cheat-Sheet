@@ -33,7 +33,7 @@
 \def\defaultlanguage{python}
 
 \newcommand{\thmopacity}{0.8} %opacity of theorem box, default: night mode
-\newcommand{\nightmodebackground}{clsfiles/nightsky} %background of night mode
+\newcommand{\nightmodebackground}{clsfiles/tree} %background of night mode
 
 
 

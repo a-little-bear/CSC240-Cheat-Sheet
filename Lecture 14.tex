@@ -1,0 +1,347 @@
+\documentclass[11pt, cyan, night, 0.5in]{hw}
+
+\def\course{CSC240}
+\def\headername{Lecture 13 week 9}
+\def\name{Joseph Siu}
+\def\email{joseph.siu@mail.utoronto.ca}
+\def\logo{clsfiles/faith}
+\usepackage{multicol}
+
+\usepackage{clsfiles/csc240}
+\usepackage[noend]{clsfiles/alg}
+
+\newop{\M}{M}
+\newop{\DIV}{ div }
+
+\begin{document}
+
+\coverpage[clsfiles/night]
+
+\newfunc{\M'(m,n)}{
+    \as \ag{w}{m}
+    \as \ag{y}{n}
+    \as \ag{z}{0}
+    \awh{$w\neq0$ \ado}{
+        \aif{$w\mod 2 = 1$ \athen}{
+            \as \ag{z}{z+y}
+        }
+        \as \ag{w}{w \DIV 2} \Comment{quotient when $w$ is divided by 2}
+        \as \ag{y}{2\times y}\Comment{or \ag{y}{y+y}}
+    }
+    \as \artn \;z
+}
+
+\Precon: $m\in\N, n\in\Z$
+
+\Postcon: $z=n\times m$, $m$ and $n$ are unchanged.
+
+
+Find Loop Invariants
+\begin{enumerate}
+    \item Look at examples
+    \neweg{
+        $m=11=1011_2$, $n=20=10100_2$.
+
+        Let $w_i, y_i$ and $z_i$ denote the values of $w,y,$ and $z$ immediately after the $i^{\T{th}}$ iteration of the while loop.
+
+        \begin{align*}
+            i & & w_i & & w_i \T{ in binary} & & y_i & & z_i\\
+            0 & & 11 & & 101\tbf{1} & & 20 & & 0\\
+            1 & & 5 & & 10\tbf{1} & & 40& &20\\
+            2 & & 2 & & 1\tbf{0} & & 80& &60\\
+            3 & & 1 & & \tbf{1} & & 160& &60\\
+            4 & & 0 & & \tbf{0} & & 320& &220\\
+            && && \tbf{$w_1\mod2$} && &&
+        \end{align*}
+
+        Here $w_i$ = $w$ shifted to the right $i$ positions,
+
+        $y_i=n 2^i=n$ shifted to the left $i$ positions,
+
+        $z_i$=?
+    }
+    \item Use your understnading of how the algorithm works
+    \fig{img/2024-03-20-15-21-58.png}
+    \indenv{
+        Let $m_{k-1}\cdots m_0$ denote the binary representation of $m$:
+
+        \[m=\sum_{j=0}^{k-1} m_j 2^j,\] where $m_j\in\{0,1\}$ for $0\le j\le k-1$.
+
+        For example $m=1011_2$, then $m_0=1, m_1=1, m_2=0, m_3=1$.
+        \begin{multicols}{2}
+            \begin{align*}
+                w_i&=\sum_{j=i}^{k-1} m_j 2^{j-i} = m_{k-1}\cdots m_i\\
+                w_i\mod 2&=m_i\\
+                2^i w_i &= \sum_{j=1}^{k-1}m_j 2^j\\
+                2^{i+1}w_{i+1}&=\sum_{j=i+1}^{k-1}m_j2^j= m-\sum_{j=0}^i m_j2^j\\
+                \alt{So, }
+                \sum_{j=0}^i m_j2^j &= m-w_{i+1}2^{i+1}
+            \end{align*}
+
+            \columnbreak
+            \begin{align*}
+                z_0&=0\\
+                z_{i+1}&=\begin{cases}
+                    z_i + y & \T{if } w_i\mod 2= 1\\
+                    z_i & \T{if } w_i\mod 2= 0
+                \end{cases}\\
+                &=z_i + m_iy^i\\
+                &=z_i + m_i n 2^i\\
+                &=m_0n2^0 + m_1n2^1 +\cdots +m_in2^i\\
+                &=n\sum_{j=0}^i m_j 2^j\\
+                &= n\bra{m-w_{i+1}2^{i+1}}\\
+                &=nm-w_{i+1}y_{i+1}
+            \end{align*}
+        \end{multicols}
+        
+        \newl{1}{
+            If $m\in\N$ and $n\in\Z$ then $z=n\times m-w\times y$ is a loop invariant.
+        }
+
+        \newp{\hfill
+
+        Initially $z=0$, $w=m\in\N$, $y=n$ by lines 1,2,3.
+
+        So $n\times m - w \times y = n\times m - m\times n = 0 = z$.
+
+        Consider an arbitrary iteraiton of the loop.
+
+        Let $w',y',z'$ denote the values of $w,y$ and $z$ at the beginning of the iteration and let $w'',y'',z''$ denote the values at the end.
+
+        Suppose the claim is true at the beginning of the iteration $z'=n\times m-w'\times y'$, and $w'\in\N$.
+
+        From line 7, $y''=2y'$.
+
+        \begin{proofcases}
+            \case $w'$ is odd
+            \indenv{
+                From lines 5 and 6, $z''=z'+y'$ and $w''=\frac{(w'-1)}{2}\in\N$
+
+                So \begin{align*}
+                    n\times m-w''\times y'' &= n\times m -\frac{ (w'-1)}{2}\times 2y'\\
+                    &= n\times m - (w'-1)\times y'\\
+                    &= m\times n - w'\times y' + y\\
+                    &= z'+y' = z''.
+                \end{align*}
+            }
+            \case $w'$ is even
+            \indenv{
+                From lines 5 and 6, $z''=z'$ and $w''=\frac{w'}{2}$.
+
+                So, \begin{align*}
+                    n\times m - w''\times y'' &= n\times m - \frac{w'}{2}\times 2y'\\
+                    &=n\times m - w' \times y'\\
+                    &= z' = z''.
+                \end{align*}
+            }
+        \end{proofcases}
+        }
+
+
+        \newco[Partial Correctness]{1}{
+            Let $m\in\N$ and $n\in\Z$.
+
+            If $\M'(m,n)$ is run and it halts then when it halts $z=n\times m$ and $n$ and $m$ are unchanged.
+        }
+
+        \newp{
+            The code does not do any assignments to $m$ or $n$ so they are unchanged.
+
+            From the termination condition of the loop, $w=0$. y the Lemma $z=n\times m-w\times y=n\times m$
+        }
+
+        \underline{Why does \M'(m,n) terminate?}
+
+        $w$ gets smaller every complete iteration of the while loop.
+
+        \newl[Termination]{2}{
+            If $w\in\N$ and $n\in\Z$ and $\M'(m,n)$ is run, it eventually halts.
+        }
+
+        \newp{\hfill
+
+            \indenv{
+                Suppose the loop does not terminate.
+
+                Consider the sequence $\{w_i\}_{i\ge0}$. 
+
+                Since $w\in\N$ is a loop invariant, $w_i\in\N$ for all $i\ge 0$.
+
+                $w_{i+1}<w_i$ since $w_i\in\Z^+$ and $w_{i+1}=w_i\DIV2$.
+
+                This contradicts the well ordering principle.
+            }
+
+            Then the loop eventually terminates.
+        }
+
+
+    }
+\end{enumerate}
+
+\section{Language}
+
+Language is just a subset of the words in the alphabet, for example in english, we have works from a to z, and english is a part of the language.
+
+Formally, let $\Si$ denote a finite alphabet, $\Si^*$= set of all (finite length) strings over $\Si$. 
+
+A \underline{language over $\Si$} is a subset of $\Si^*$.
+
+$\la\in\Si^*$ denotes the empty string. 
+
+If $x,y\in\Si^*$, we use $x\cd y$ to denote the concatenation of $x$ and $y$, this makes sense since $x$ and $y$ are finite, otherwise it won't make sense at all.
+
+In other words, if $x,y\in\Si^*$, then $x\cdot y$ is the string consisting of the letters of $x$ followed by the letters of $y$.
+
+For example, if $x=aab, \quad y=ba\quad\quad$ concatenation,
+
+then \begin{align*}
+    xy&=aabba\\
+    yx&=baaab\\
+    x\cd \la = x &= \la\cd x
+\end{align*}
+
+\subsection{DFA}
+
+A (deterministic) finite (state) automation DFA or DFSA is a way of describing a language
+
+\fig{img/2024-03-20-16-08-07.png}
+
+\begin{center}
+    Deterministic finite state automation $A$.
+\end{center}
+
+Finite set of states $Q=\{q_0,q_1,q_2,q_3\}$.
+
+$q_0$ initial state \fig[width=2cm]{img/2024-03-20-16-09-48.png}
+
+$F=\{q_1,q_2\}$ set of final states \fig[width=2cm]{img/2024-03-20-16-12-35.png}
+
+$\Si = \{0,1\}$
+
+$\de:Q\times \Si\to Q$ is the state transition function
+
+$\de(q_0,0)=q_2, \de(q_0,1)=q_1, \de(q_1,0)=q_1, \de(q_1,1)=q_1$;
+
+$\de(q_2,0)=q_2, \de(q_2,1)=q_3, \de(q_3,0)=q_2, \de(q_3,1)=q_3$.
+
+
+Given an input string $a\in\{0,1\}^*$, the DFA behaves as follows\begin{itemize}
+    \item It starts in the initial state, $q_0$
+    \item It reads the string $a$ from left to right, 1 letter at a time and changes state according to the transition function following the edge labelled by the letter out of the current state, when all of the letters have been read, the DFA accepts if it is in a final state (in $F$) and rejects if it is in $Q-F$.
+\end{itemize}
+
+For example, 
+
+\begin{itemize}
+    \item 0110 accept
+    \item 100 accept
+    \item 0101 rejects
+\end{itemize}
+
+$D$ is a 5-tuple. That is, $D=(Q, \Si, \de, q_0, F)$.
+
+If $D$ is a DFA, then the \underline{language accepted by $D$} is \begin{align*}
+    L(D)&=\{x\in\Si^*\mid \T{D accepts $x$}\}\\
+    &=\{x\in\Si^*\mid \de^*(q_0,x)\in F\}\footnote{$\de^*$ is defined as below.}
+\end{align*}
+
+For example, \[L(A)=\{x\mid x\T{ begins with 1 or ends with 0}\}\]
+
+
+\np
+\subsection{Extended Transition Function}
+
+$\de^* : Q\times \Si^*\to Q$
+
+$\de^*(q, \la)=q$ for all $q\in Q$
+
+For all $q\in Q, a\in \Si, x\in \Si^*$, define
+
+\[\de^* (q, x\cd a) = \de (\de^* (q,x),a).\]
+
+To prove $L(A)=\{x\mid x\T{ begins with 1 or ends with 0}\}$ 
+\begin{itemize}
+    \item associate a language $L_i\in\Si^*$ with each state $q$ such that $L_i=\{x\in\Si^*\mid \de^*(q_0,x)=q_i\}$
+    \item prove by structural induction or inductions, on the length of $\la$
+    \indenv{
+        $L_0=\{\la\}$
+
+        $L_1=\{x\in\{0,1\}^*\mid \T{$x$ starts with 1} \}$
+
+        $L_2=\{x\in\{0,1\}^*\mid \T{$x$ starts with 0 and ends with 0 }\}$
+
+        $L_3=\{x\in\{0,1\}^*\mid \T{$x$ starts with 0 and ends with 1}\}$
+
+        For all $x\in\Si^*$, let $P(x)=``\forall i\in\{0,1,2,3\}.\sqrbra{(x\in L_i)\iif \de^*(q_0, x)=q_i}$''
+
+        Prove by structural induction on recursive defined $\{0,1\}^*$:
+        \indenv{
+            $\la\in\{0,1\}^*$
+
+            If $x\in\{0,1\}^*$ and $a\in\{0,1\}$, then $x\cd a\in\{0,1\}^*$
+        }
+
+        Let $P'(n)=\forall x\in\{0,1\}^n. P(x)$ \footnote{all binary string of length $n$}
+
+        Given a DFA that accepts $\{x\in\{a,b\}^*\mid \T{ the second last letter of $x$ is $b$}\}$
+
+        \fig{img/2024-03-20-16-39-58.png}
+    }
+\end{itemize}
+
+\fig{img/2024-03-20-17-05-17.png}
+
+
+\section{Nondeterministic Finite State Automaton}
+
+NFA FNSA, $N=(Q, \Si, \de, q_0\in Q, F\subseteq Q)$ is also a 5-tuple. The only difference is how $\de$ is defined compared to DFA.
+
+$\de:Q\times \bra{\Si\cup\{\la\}}\to P(Q)$, range of $\de$ is $P(Q)=\{s\mid S\subseteq Q\}$ in staed of $Q$.
+
+$\de(q,\la)$ - transition without reading a letter
+
+\fig{img/2024-03-20-16-47-56.png}
+
+$\de(q_2,0)=\nil=\de(q_3,1)=\de(q_2,\la)$
+
+$\de(q_1,0)=\{q_0,q_2\}$
+
+$\de(q_1,1)=\{q_2\}$
+
+Let $E: Q\to P(Q)$ denote the set of states reachale from $q$ by following (including 0 and at most $|\Q|-1$ steps) any number of $\la$-transitions (that is, $\de(q,\la)$ is a $\la$-transition)
+
+$E(q_0)=\{q_0,q_2\}$
+
+$E(q_1)=\{q_0,q_1,q_2\}$
+
+$E(q_2)=\{q_2\}$
+
+\subsection{Extended Transition Function}
+
+The extended transition function $\de^*:Q\times \Si^*\to P(Q)$ can be defined recursively as follows:
+
+Base Case: $\de^*(q, \la)=E(Q)$ for all $q\in Q$.
+
+Constructor Case: For all $q\in Q, a\in \Si, x\in\Si^*$, let \[\de^*(q,xa)=\bigcup\curbra{E(q'')\mid q''\in\de(q',a)}\T{ for some }q'\in\de^*(q,x).\]
+
+Then, one can prove by induction that $\forall x\in\Si^*. \forall y\in\S^*. \sqrbra{\de^*(q,xy)=\de^*(\de^*(q,x),y)}$.
+
+For example, 
+
+\begin{align*}
+    \de^*(q_0,\la)&=E(q_0) = \{q_0,q_2\}\\
+    \de^*(q_0,1)&=E(\de(q_0, 1))\cup E(\de(q_2, 1))\\
+    &= E(\{q_1\})\cup E(\nil)\\
+    &=\{q_0,q_1,q_2\}
+\end{align*}
+
+Above we defined $\de^*(q,x)=``$ set of all states that can be reached from $q$ when the letters of $x$ are read.''
+
+Now, let $L(N)=\{x\in\Si^*\mid \de^*(q_0, x)\cap F\neq \nil\}$
+
+$N$ accepts $x$ if and only if there is a sequence of lucky guesses that the machine can bring from the initial state to the final state.
+
+In other words $N$ accepts $x$ if there is a sequence of generated $N$ can make to go from $q_0$ to a final state while reading $x$.
+
+\end{document}
