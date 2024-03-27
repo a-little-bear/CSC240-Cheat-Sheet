@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  23 MAR 2024 02:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  27 MAR 2024 16:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture 14.tex"
-(c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture 14.tex
+**"c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture 15.tex"
+(c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture 15.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
 (./hw.cls
@@ -940,11 +940,39 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip80
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-))
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 16.
+)) (c:/Program Files/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryautomata.code.tex
+File: tikzlibraryautomata.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (c:/Program Files/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (c:/Program Files/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodepartlowerbox=\box139
+\pgfnodeparttwobox=\box140
+\pgfnodepartthreebox=\box141
+\pgfnodepartfourbox=\box142
+\pgfnodeparttwentybox=\box143
+\pgfnodepartnineteenbox=\box144
+\pgfnodeparteighteenbox=\box145
+\pgfnodepartseventeenbox=\box146
+\pgfnodepartsixteenbox=\box147
+\pgfnodepartfifteenbox=\box148
+\pgfnodepartfourteenbox=\box149
+\pgfnodepartthirteenbox=\box150
+\pgfnodeparttwelvebox=\box151
+\pgfnodepartelevenbox=\box152
+\pgfnodeparttenbox=\box153
+\pgfnodepartninebox=\box154
+\pgfnodeparteightbox=\box155
+\pgfnodepartsevenbox=\box156
+\pgfnodepartsixbox=\box157
+\pgfnodepartfivebox=\box158
+))) (c:/Program Files/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 15.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./Lecture 14.aux
+) (./Lecture 15.aux
 
 LaTeX Warning: Label `fig:' multiply defined.
 
@@ -982,26 +1010,26 @@ LaTeX Warning: Label `fig:' multiply defined.
 LaTeX Warning: Label `fig:' multiply defined.
 
 )
-\openout1 = `"Lecture 14.aux"'.
+\openout1 = `"Lecture 15.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1041,7 +1069,7 @@ LaTeX Font Info:    ... okay on input line 16.
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count390
 \scratchdimen=\dimen309
-\scratchbox=\box139
+\scratchbox=\box159
 \nofMPsegments=\count391
 \nofMParguments=\count392
 \everyMPshowfont=\toks69
@@ -1062,19 +1090,19 @@ Package grfext Info: Graphics extension search list:
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \microtypecontext on input line 16.
-Package microtype Info: Applying patch `item' on input line 16.
-Package microtype Info: Applying patch `toc' on input line 16.
-Package microtype Info: Applying patch `eqnum' on input line 16.
-Package microtype Info: Applying patch `footnote' on input line 16.
-Package microtype Info: Applying patch `verbatim' on input line 16.
+LaTeX Info: Redefining \microtypecontext on input line 15.
+Package microtype Info: Applying patch `item' on input line 15.
+Package microtype Info: Applying patch `toc' on input line 15.
+Package microtype Info: Applying patch `eqnum' on input line 15.
+Package microtype Info: Applying patch `footnote' on input line 15.
+Package microtype Info: Applying patch `verbatim' on input line 15.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 16.
+LaTeX Info: Redefining \showhyphens on input line 15.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1082,209 +1110,148 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
 \c@lstlisting=\count396
-Package hyperref Info: Link coloring ON on input line 16.
- (./Lecture 14.out) (./Lecture 14.out)
+Package hyperref Info: Link coloring ON on input line 15.
+ (./Lecture 15.out) (./Lecture 15.out)
 \@outlinefile=\write4
-\openout4 = `"Lecture 14.out"'.
+\openout4 = `"Lecture 15.out"'.
 
-*geometry* verbose mode - [ newgeometry ] result:
-* driver: pdftex
-* paper: <default>
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(0.0pt, 614.295pt, 0.0pt)
-* v-part:(T,H,B)=(0.0pt, 794.96999pt, 0.0pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=614.295pt
-* \textheight=794.96999pt
-* \oddsidemargin=-72.26999pt
-* \evensidemargin=-72.26999pt
-* \topmargin=-132.26999pt
-* \headheight=35.0pt
-* \headsep=25.0pt
-* \topskip=10.0pt
-* \footskip=0.5pt
-* \marginparwidth=65.0pt
-* \marginparsep=11.0pt
-* \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-<clsfiles/night.jpg, id=51, 3854.4pt x 2409.0pt>
-File: clsfiles/night.jpg Graphic file (type jpg)
-<use clsfiles/night.jpg>
-Package pdftex.def Info: clsfiles/night.jpg  used on input line 18.
-(pdftex.def)             Requested size: 614.295pt x 383.90402pt.
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 18.
- (c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/ot1lmtt.fd
-File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `OT1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/lmtt/b/n' tried instead on input line 18.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: OT1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 18.
+<img/2024-03-27-15-14-50.png, id=63, 1088.56688pt x 406.51875pt>
+File: img/2024-03-27-15-14-50.png Graphic file (type png)
+<use img/2024-03-27-15-14-50.png>
+Package pdftex.def Info: img/2024-03-27-15-14-50.png  used on input line 19.
+(pdftex.def)             Requested size: 271.01157pt x 101.20763pt.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 21.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 18.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 21.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 18.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 21.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 18.
+(Font)              <10> on input line 21.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 18.
+(Font)              <7> on input line 21.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 18.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
+(Font)              <5> on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 18.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 21.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 18.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 21.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.74> on input line 18.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 18.
-<clsfiles/faith.png, id=53, 173.14688pt x 201.75375pt>
-File: clsfiles/faith.png Graphic file (type png)
-<use clsfiles/faith.png>
-Package pdftex.def Info: clsfiles/faith.png  used on input line 18.
-(pdftex.def)             Requested size: 153.57375pt x 178.95071pt.
-<clsfiles/tree.jpg, id=55, 1626.075pt x 2890.8pt>
+(Font)              <14.4> on input line 42.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 42.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delta' on input line 42.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 42.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 42.
+
+<img/2024-03-27-15-23-26.png, id=64, 1310.64656pt x 697.10437pt>
+File: img/2024-03-27-15-23-26.png Graphic file (type png)
+<use img/2024-03-27-15-23-26.png>
+Package pdftex.def Info: img/2024-03-27-15-23-26.png  used on input line 57.
+(pdftex.def)             Requested size: 271.00415pt x 144.1412pt.
+LaTeX Font Info:    Trying to load font information for U+futs on input line 66.
+(c:/Program Files/texlive/2023/texmf-dist/tex/latex/fourier/ufuts.fd
+File: ufuts.fd 2021/11/24 Fontinst v1.933 font definitions for U/futs.
+)
+<clsfiles/tree.jpg, id=66, 1626.075pt x 2890.8pt>
 File: clsfiles/tree.jpg Graphic file (type jpg)
 <use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 18.
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 66.
 (pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
- [1
+ [1{c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}
 
-
-{c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc} <./clsfiles/tree.jpg> <./clsfiles/night.jpg> <./clsfiles/faith.png>]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 32.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 32.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 32.
+{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./clsfiles/tree.jpg> <./img/2024-03-27-15-14-50.png> <./img/2024-03-27-15-23-26.png>]
+<img/2024-03-27-15-26-29.png, id=84, 1327.20844pt x 514.17094pt>
+File: img/2024-03-27-15-26-29.png Graphic file (type png)
+<use img/2024-03-27-15-26-29.png>
+Package pdftex.def Info: img/2024-03-27-15-26-29.png  used on input line 67.
+(pdftex.def)             Requested size: 271.00615pt x 104.9899pt.
 LaTeX Font Info:    Font shape `OT1/stf/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 62.
+(Font)              scaled to size 9.49997pt on input line 74.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `stf' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<img/2024-03-20-15-21-58.png, id=64, 1346.02875pt x 1067.48813pt>
-File: img/2024-03-20-15-21-58.png Graphic file (type png)
-<use img/2024-03-20-15-21-58.png>
-Package pdftex.def Info: img/2024-03-20-15-21-58.png  used on input line 64.
-(pdftex.def)             Requested size: 271.00839pt x 214.92723pt.
-LaTeX Font Info:    Trying to load font information for U+futs on input line 179.
- (c:/Program Files/texlive/2023/texmf-dist/tex/latex/fourier/ufuts.fd
-File: ufuts.fd 2021/11/24 Fontinst v1.933 font definitions for U/futs.
-)
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.179     }
-           
 File: clsfiles/tree.jpg Graphic file (type jpg)
 <use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 179.
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 147.
 (pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
- [1
-
-{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} <./img/2024-03-20-15-21-58.png>]
+ [2{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc} <./img/2024-03-27-15-26-29.png>]
+<img/2024-03-27-15-47-58.png, id=98, 1302.36563pt x 533.74406pt>
+File: img/2024-03-27-15-47-58.png Graphic file (type png)
+<use img/2024-03-27-15-47-58.png>
+Package pdftex.def Info: img/2024-03-27-15-47-58.png  used on input line 151.
+(pdftex.def)             Requested size: 271.00092pt x 111.06337pt.
+<img/2024-03-27-15-52-11.png, id=99, 1696.08656pt x 800.9925pt>
+File: img/2024-03-27-15-52-11.png Graphic file (type png)
+<use img/2024-03-27-15-52-11.png>
+Package pdftex.def Info: img/2024-03-27-15-52-11.png  used on input line 159.
+(pdftex.def)             Requested size: 270.9912pt x 127.97807pt.
+<img/2024-03-27-16-12-01.png, id=100, 1736.73843pt x 591.71063pt>
+File: img/2024-03-27-16-12-01.png Graphic file (type png)
+<use img/2024-03-27-16-12-01.png>
+Package pdftex.def Info: img/2024-03-27-16-12-01.png  used on input line 189.
+(pdftex.def)             Requested size: 270.99371pt x 92.32816pt.
 File: clsfiles/tree.jpg Graphic file (type jpg)
 <use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 179.
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 189.
 (pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
- [2{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc}]
-<img/2024-03-20-16-08-07.png, id=95, 1378.39969pt x 745.28438pt>
-File: img/2024-03-20-16-08-07.png Graphic file (type png)
-<use img/2024-03-20-16-08-07.png>
-Package pdftex.def Info: img/2024-03-20-16-08-07.png  used on input line 208.
-(pdftex.def)             Requested size: 271.0058pt x 146.52962pt.
+ [3 <./img/2024-03-27-15-47-58.png> <./img/2024-03-27-15-52-11.png>]
+<img/2024-03-27-16-15-30.png, id=107, 1759.32281pt x 681.29532pt>
+File: img/2024-03-27-16-15-30.png Graphic file (type png)
+<use img/2024-03-27-16-15-30.png>
+Package pdftex.def Info: img/2024-03-27-16-15-30.png  used on input line 208.
+(pdftex.def)             Requested size: 271.00098pt x 104.94475pt.
 File: clsfiles/tree.jpg Graphic file (type jpg)
 <use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 209.
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 253.
 (pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
- [3]
-<img/2024-03-20-16-09-48.png, id=103, 133.24782pt x 76.03406pt>
-File: img/2024-03-20-16-09-48.png Graphic file (type png)
-<use img/2024-03-20-16-09-48.png>
-Package pdftex.def Info: img/2024-03-20-16-09-48.png  used on input line 216.
-(pdftex.def)             Requested size: 56.90506pt x 32.47124pt.
-<img/2024-03-20-16-12-35.png, id=104, 255.20343pt x 218.31563pt>
-File: img/2024-03-20-16-12-35.png Graphic file (type png)
-<use img/2024-03-20-16-12-35.png>
-Package pdftex.def Info: img/2024-03-20-16-12-35.png  used on input line 218.
-(pdftex.def)             Requested size: 56.90427pt x 48.67917pt.
+ [4 <./img/2024-03-27-16-12-01.png> <./img/2024-03-27-16-15-30.png>]
 File: clsfiles/tree.jpg Graphic file (type jpg)
 <use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 252.
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 321.
 (pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
- [4 <./img/2024-03-20-16-08-07.png> <./img/2024-03-20-16-09-48.png> <./img/2024-03-20-16-12-35.png>]
-<img/2024-03-20-16-39-58.png, id=116, 1059.96pt x 967.36406pt>
-File: img/2024-03-20-16-39-58.png Graphic file (type png)
-<use img/2024-03-20-16-39-58.png>
-Package pdftex.def Info: img/2024-03-20-16-39-58.png  used on input line 290.
-(pdftex.def)             Requested size: 271.00595pt x 247.33142pt.
-<img/2024-03-20-17-05-17.png, id=117, 1186.4325pt x 484.81125pt>
-File: img/2024-03-20-17-05-17.png Graphic file (type png)
-<use img/2024-03-20-17-05-17.png>
-Package pdftex.def Info: img/2024-03-20-17-05-17.png  used on input line 293.
-(pdftex.def)             Requested size: 271.00908pt x 110.74228pt.
+ [5]
 File: clsfiles/tree.jpg Graphic file (type jpg)
 <use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 294.
+Package pdftex.def Info: clsfiles/tree.jpg  used on input line 392.
 (pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
- [5 <./img/2024-03-20-16-39-58.png>]
-<img/2024-03-20-16-47-56.png, id=126, 1166.10657pt x 426.09187pt>
-File: img/2024-03-20-16-47-56.png Graphic file (type png)
-<use img/2024-03-20-16-47-56.png>
-Package pdftex.def Info: img/2024-03-20-16-47-56.png  used on input line 304.
-(pdftex.def)             Requested size: 271.01021pt x 99.02632pt.
-File: clsfiles/tree.jpg Graphic file (type jpg)
-<use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 344.
-(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
- [6 <./img/2024-03-20-17-05-17.png> <./img/2024-03-20-16-47-56.png>]
-File: clsfiles/tree.jpg Graphic file (type jpg)
-<use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 347.
-(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
- [7] 
+ [6] 
 enddocument/afterlastpage: lastpage setting LastPage.
-(./Lecture 14.aux)
+(./Lecture 15.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2020/03/25>
@@ -1293,25 +1260,22 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `"Lecture 14".out' has not changed.
-(rerunfilecheck)             Checksum: 3573E59C2E01F5FD2FCFBD9652C0E908;808.
+Package rerunfilecheck Info: File `"Lecture 15".out' has not changed.
+(rerunfilecheck)             Checksum: AD5223D9FF52F360090C9446D4CF4072;1086.
  ) 
 Here is how much of TeX's memory you used:
- 39040 strings out of 474272
- 737414 string characters out of 5744472
- 1954533 words of memory out of 5000000
- 60454 multiletter control sequences out of 15000+600000
- 628522 words of font info for 152 fonts, out of 8000000 for 9000
+ 39401 strings out of 474272
+ 754482 string characters out of 5744472
+ 1946533 words of memory out of 5000000
+ 60851 multiletter control sequences out of 15000+600000
+ 600315 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 118i,16n,121p,2900b,1601s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
-
-<c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-orns.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/starfont/starfont.pfb>
-Output written on "Lecture 14.pdf" (8 pages, 2170341 bytes).
+ 118i,13n,121p,2900b,1413s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-orns.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/starfont/starfont.pfb>
+Output written on "Lecture 15.pdf" (6 pages, 1460210 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
+ 208 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
  21 named destinations out of 1000 (max. 500000)
- 38093 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 23253 words of extra memory for PDF output out of 24883 (max. 10000000)
 

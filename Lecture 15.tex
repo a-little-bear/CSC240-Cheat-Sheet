@@ -1,0 +1,392 @@
+\documentclass[11pt, cyan, night, 0.5in]{hw}
+
+\def\course{CSC240}
+\def\headername{Lecture 15 week 11}
+\def\name{Joseph Siu}
+\def\email{joseph.siu@mail.utoronto.ca}
+\def\logo{clsfiles/faith}
+\usepackage{multicol}
+
+\usepackage{clsfiles/csc240}
+\usepackage[noend]{clsfiles/alg}
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
+\begin{document}
+
+\section{Review}
+
+\fig{img/2024-03-27-15-14-50.png}
+
+We can see $0$ is not accepted, but $1$ is accepted.
+
+$\de: Q\times\bra{\Si\cup\{\la\}}\to P(Q)$
+
+For all $q\in Q$, let $E(q)$= ``set of states reachable from $q$ by following 0 or more $\la$-transitions''
+
+$E(q_0)=\{q_0, q_2\}$, $E(q_1)=\{q_0, q_1, q_2\}$, $E(q_2)=\{q_2\}$
+
+extended transition function $\de^*: Q\times \Si^*\to P(Q)$
+
+$\de^*(q, \la)=E(q)$ for all $q\in Q$
+
+$\de^*(q,xa)=\bigcup\{E(q'')\mid q''\in \de(q',a) \T{ for some } q'\in\de^*(q,x) \T{ for all } x\in\Si^*, q\in Q, a\in \Si\}$
+
+$q'\in \de^*(q,x)$ if and only if there is a path from $q$ to $q'$ labelled by $x$.
+
+\begin{align*}
+    L(M)&=\{x\in\Si^*\mid \de^*(q_0,x)\cap F\neq\nil\}\\
+    &=\{x\in\Si^*\mid\T{ there is a path from $q_0$ to $a$ final state (in F) labelled by $x$}\}
+\end{align*}
+
+\section{Extend $\de^*$}
+
+We can also extend $\de^*$ to $P(Q)\times\Si^*$
+
+$\de^*(Q',x)=\bigcup\{\de^*(q,x)\mid q\in Q'\}$ for all $Q'\in P(Q)$ and $x\in\Si^*$.
+
+Alternatively we can also give a recursive definition (or defined recursively by):
+\begin{align*}
+    \de^*(Q',\la)&=\bigcup\{E(q)\mid q\in Q'\}\\
+    \alt{for all $a\in\Si, x\in\Si^*$,}
+    \de^*(q_0,xa)&=\bigcup\{E(q'')\mid q''\in\de(q',a)\T{ for some }q'\in\de^*(Q',x)\}
+\end{align*}
+
+Why is this useful? We can prove by induction $\forall x\in\Si^*.\forall y\in\Si^*. \forall Q'\in P(Q). \de^*(Q',xy)=\de^*(\de^*(Q',x),y)$
+
+\fig{img/2024-03-27-15-23-26.png}
+
+$L(D)=\{x\in\{0,1\}^*\mid\T{ the second last letter of $x$ is 1}\}$
+
+\section{Convert DFA to NFA and NFA to DFA}
+
+Given an NFA $N$ such that $L(N)=L(D)$.
+
+\begin{enumerate}
+    \item View the DFA as an NFA: change $\de(q,a)=q'$ to $\de(q,a)=\{q'\}$ for all $q\in Q.$ for all $a\in \Si$; and add $\de(q,\la)=\nil$.
+    \item \fig{img/2024-03-27-15-26-29.png} we can see this is a easier NFA compared to the previous one.
+\end{enumerate}
+
+We can always convert DFA to NFA, but how about the converse. 
+
+\newt{1}{
+    For every NFA $N=(Q,\Si,\de,q0,F)$, there is a DFA $D=(Q',\Si,\de',q_0,F')$ such that $L(D)=L(N)$.
+}
+
+We are going to prove this by construction, take an arbitrary NFA and then we will construct the DFA one.
+
+And this proof technique is ok well we will use generalization.
+
+\newp{[Proof by generalization]\hfill
+
+    Let $N=(Q,\Si,\de,q_0,F)$ be an arbitrary NFA. Now we will construct a DFA as we are reading the input strings.
+
+    That is, construct a DFA that keeps track of the subset of states $N$ could be in as it reads the input.
+    
+    Subset construction: 
+    \indenv{
+        Let $D=(Q',\Si,\ga,q_0,F')$
+
+        $Q'=P(Q)$
+
+        $q_0'=E(q_0)$
+
+        $\ga(S, a)=\bigcup\{\de^*(q,a)\mid q\in S\}, S\in P(Q).  x\in \Si$
+
+        $F'=\{S\in P(Q)\mid S\cap F\neq \nil\}$
+
+        This isn't very hard, in fact all the definitions are in there.
+
+    }
+
+    Now prove $L(D)=L(N)$.
+
+    Let $p(w)=$``$\ga^*(q_0', w)=\de^*(q_0,w)$ for $w\in\Si^*$.''
+
+    We will prove $\forall w\in\Si^*. p(w)$ by structural induction.
+
+    Base Case $w=\la$.
+
+    \indenv{
+        $\ga^*(q_0',\la)=q_0')$ since $D$ is deterministic.
+
+        $\de^*(q_0,\la)=E(q_0)$ since $N$ is nondeterministic.
+
+        By construction $q_0'=E(q_0)$, so $p(\la)$ is true.
+    }
+
+    Constructor Case:
+    \indenv{
+        Let $x\in\S^*, a\in\Si$, assume $p(x)$ is true.
+
+        \begin{align*}
+            \ga^*(q_0',x)&=\de^*(q_0,\la)\\
+            \ga^*(q_0',xa)&=\ga(\ga^*(q_0',x),a)\\
+            &=\bigcup\{\de^*(q, a)\mid q\in\ga^*(q_0', x)\} \T{ by construction}\\
+            &=\bigcup\{\de^*(q,a)\mid q\in\de^*(q_0,x)\} \T{ by induction hypothesis / substitution }\\
+            &=\de^*(q_0,xa)\\
+            &=\de^*(q_0,w)
+        \end{align*}
+
+        Hence $p(xa)$ is true.
+    }
+
+    By structural induction, $\forall w\in\Si^*. p(w)$ is true.
+}
+
+So, $w\in L(D)$ 
+
+\indenv{
+    if and only if $\ga^*(q_0',w)\in F'$ since $D$ is a DFA, and so $L(D)=\{w\in\Si^*\mid \ga^*(q_0',w)\in F'\}$, and this is true 
+
+    if and only if $\ga^*(q_0',w)\cap F\neq\nil$ since $F'=\{S\in P(Q)\mid S\cap F\neq\nil\}$, 
+
+    if and only if $\de^*(q_0,w)\cap F\neq\nil$ since $p(w)$ is true so $\ga^*(q_0',w)=\de^*(q_0,w)$, 
+
+    if and only if $w\in L(N)$ since $L(n)=\{w\in\Si^*\mid \de^*(q_0, w)\cap F\neq\nil\}$
+}
+
+Hence $L(D)=L(N)$.
+
+Now consider \fig{img/2024-03-27-15-47-58.png}
+
+We want to convert this NFA to DFA.
+
+We can see $q_0'=\{q_0\}$,
+
+$\dots$
+
+\fig{img/2024-03-27-15-52-11.png}
+
+We first find the paths, the find the final states, we can see this DFA is the exact same as our original one.
+
+Now we are going to talk about closure results.
+
+\section{Closure Results}
+
+Let $FA$ denote a finite automata.
+
+Suppose $L_1,L_2\subseteq\Si^*$ are accepted by $FA$.
+
+Then $\overline{L_1}=\Si^*-L_1=\{x\in\Si^*\mid x\notin L_1\}$ being the complement of $L_1$.
+
+$L_1\cup L_2=\{x\mid (x\in L_1)\oor (x\in L_2)\}$ being the union
+
+$L_1\cap L_2=\{x\mid (x\in L_1) \aand (x\in L_2)$ being the intersection
+
+$L_1-L_2=\{x\in\Si^*\mid ((x\in L_1)\aand (x\notin L_2))\}$ are accepted by $FA$.
+
+\newcl{1}{
+    The family of language $\{L\in\Si^*\mid \T{ $L$ is accepted by a FA}\}$ is \underline{closed} under complement, union, intersection, and difference.
+}
+
+Let $M_1=(Q_1,\Si,\de,q_1,F_1)$ be a DFA such that $L(M_1)=L_1$ and let $M_2=(Q_2,\Si,\de,q_2,F_2)$ be a DFA such that $L(M_2)=L_2$.
+
+W.l.o.g. suppose $Q_1\cap Q_2=\nil$ (otherwise we can rename them).
+
+We will first prove other things.
+
+\fig{img/2024-03-27-16-12-01.png}
+
+\newp{[Proof of Complement]
+
+    By switching all states in $M_1$ from final to non-final and non-final to final, we can claim $M$ aceepts the strings oppositely compared to $M_1$.
+
+    That is, let $M=(Q,\Si,\de_1,q_1,Q_1-F_1)$, then we can claim $L(M)=\Si^*-L(M_1)$.
+
+    Let $x\in\Si^*$ Then $x\in L(M)$ 
+
+    \indenv{
+        if and only if $\de_1^*(q_1,x)\in Q_1-F_1$
+
+        if and only if (This is true only for DFA) $\de_1^*(q_1,x)\notin F_1$
+
+        if and only if $\de_1^*(q_1,x)\notin L(M_1)=L_1$
+    }
+}
+
+\fig{img/2024-03-27-16-15-30.png}
+
+We can see $1$ is in both $M_1$ and $M$, thus not works for NFA.
+
+\newr{
+    The construction may not work if $M_1$ is not an NFA.
+
+    $\de_1^*(q_0,x)\cap (Q_1-F_1)\neq\nil$ and $\de_1^*(q_1,x)\cap F_1\neq\nil$, for an NFA both can be true.
+}
+
+[insert pic here]
+
+\newp{[proof of union]
+    More formally, let $q_0$ be a new state,
+
+    \[M=(Q_1\cup Q_2\cup\{q_0\}, \Si, \de, q_0, F_1\cup F_2)\]
+
+    where $q_0\notin Q_1\cup Q_2$
+
+    $\de(q_0,\la)=\{q_1, q_2\}$
+
+    $\de(q_0,a)=\nil$ for all $a\in\Si$
+
+    $\de(q,a)=\{\de_1(q,a)\}$ if $q\in Q_1, a\in\Si$
+
+    $\de(q,a)=\{\de_2(q,a)\}$ if $q\in Q_2, a\in\Si$
+
+    $\de(q,\la)=\nil$ for all $q\in Q_1\cup Q_2$
+
+    Then we can claim that $L(M)=L_1\cup L_2$.
+}
+
+For intersection, we can see $L_1\cap L_2=\overline{\overline{L_1}\cup\overline{L_2}}$.
+
+Another way is to run both machines in parallel, accept only if both accept.
+
+Formally,
+
+\newp{[Proof of intersection]
+
+    $M=(Q\times Q, \Si, \de, (q_1,q_2), F_1\times F_2)$
+
+    $\de((q_1,q_2),a)=(\de_1(q_1,a),\de_2(q_2,a))$ for all $p_1\in Q_1, p_2\in Q_2, a\in\Si$
+
+    Then we can claim $L(M)=L(M_1)\cap L(M_2)$.
+}
+
+For difference,
+
+\newp{[Proof of difference]\hfill
+
+    We can simply use intersection and construct $L_1-L_2=L_1\cap\overline{L_2}$.
+}
+
+For concatenation,
+
+[insert fig here]
+
+\newp{[Proof of concatenation]\hfill
+
+    $L_1\cd L_2=\{x\cd y\mid x\in L_1 \aand y\in L_2\}$
+
+    if $L_1=\{a,bb\}$, $L_2=\{\la, c\}$
+
+    Then \begin{align*}
+        L_1\cd L_2 &= \{a, ac, bb, bbc\}\\
+        &\neq L_2\cd L_1\\
+        L_1\cd \nil &= L_1 = \nil\cd L_1
+    \end{align*}
+
+    To prove the family of languages accepted by $FA$ is closed under concatenation, we want to construct 2 machines.
+
+    From the figure, we can construct $M=\bra{Q_1\cup Q_2,\Si, \de,q_1, F_2}$
+
+    $\de(q,a)=\de_1(q,a)$ if $q\in Q_1$
+
+    $\de(q,\la)=\{q_2\}$ if $q\in F_1$
+
+    $\de(q,a)=\de_2(q,a)$ if $q\in Q_2$
+
+    $\de(q,\la)=\nil$ if $q\in (Q_1-F_1)\cup Q_2$
+}
+
+\section{Positive Closure}
+
+\begin{align*}
+    L_1^1 &= L_1\\
+    L_1^{i+1}&= L_1^{i}\cd L_1 = L_1\cd L_1^i\\
+    L_1^+ &= \bigcup_{i\geq 1}L_1^i\mid L^i=\{x_1\cd\ldots\cd x_i\mid x_1\cd\ldots\cd x_i\in L_1\}
+\end{align*}
+
+$L_1=\{aab,c\}$
+
+$L_1^+=\{aab,c,aabc,caab,cc,aabaab\}$
+
+[insert fig here]
+
+$L(M)=(Q,\Si,q_1,\de,F_1)$
+
+$\de(q,a)=\{\de_1(q,a)\}$ for  $q\in Q_1, a\in \Si$
+
+$\de(q_1,\la)=\{q_1\}$ for $q\in F_1$
+
+$\de(q_1,\la)=\nil$ for $q\notin F_1$
+
+$L(M_1)^+=L(M)$
+
+\section{Star Closure}
+
+$L_1^0 = \{\la\}\neq \la$
+
+$L_1^*=\ds\bigcup_{i\ge0}L^i=L_1^+\cup\{\la\}$
+
+$L_1^*=L_1^+$ if and only if $\la\in L_1$
+
+[insert fig here]
+
+Is $L(M)=\bra{L(M_1)}^*$ true?
+
+\tbf{\underline{Not always:}}
+
+[insert fig here]
+
+$M_1 a,aa\notin L(M_1)$ so $aa\notin L(M_1)^*$
+
+$aa\in L(M)$
+
+$L(M)\neq L(M_1)^*$
+
+To resolve this, [insert fig here]
+
+\section{Regular Expressions}
+
+Let $\Si$ be a finite alphabet, $R$ is a set of strings defined inductively:
+
+Base Cases:
+\indenv{
+    $\nil\in R, \la\in R$
+
+    $\Si\subseteq R$
+}
+
+Constructor Cases:
+\indenv{
+    If $r, r'\in R$, then $r\cd r', r+r', r^*\in R$
+}
+
+Here $R$ is the set of regular expressions over $\Si$.
+
+If $r\in R$, then $L(r)\subseteq \Si^*$ is the function $L: R\to P(\Si^*)$,
+\begin{align*}
+    L(\nil)&=\nil\\
+    L(\la)&=\{\la\}\\
+    L(a)&=\{a\}\T{ for all }a\in\Si\\
+    L(r\cd r')&=L(r)\cd L(r')\\
+    L(r+r')&=L(r)\cup L(r')\\
+    L(r^*)&=L(r)^*
+\end{align*}
+
+This is regular expression, we can also talk about generalized regular expressions.
+
+\section{Generalized Regular Expressions}
+
+Generalized regular expressions allow $\cap$, difference and complement:
+
+\begin{align*}
+    L(r\cap r') &= L(r)\cap L(r')\\
+    L(r-r') &= L(r) - L(r')\\
+    L(\overline{r}) &= \overline{L(r)} = \Si^* - L(r)
+\end{align*}
+
+$abc+cc$ means $((a\cd (b\cd c)) + (c\cd c))$
+
+A language $A$ is \underline{\tbf{regular}} if and only if $A=L(r)$ for some $r\in R$.
+
+$r_1$ and $r_2$ are equivalent if $L(r_1)=L(r_2)$.
+
+\newt{2}{
+    Every regular language can be accepted by a finite automaton (FA).
+}
+
+
+
+
+\end{document}

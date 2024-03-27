@@ -309,7 +309,7 @@ $\de(q_1,0)=\{q_0,q_2\}$
 
 $\de(q_1,1)=\{q_2\}$
 
-Let $E: Q\to P(Q)$ denote the set of states reachale from $q$ by following (including 0 and at most $|\Q|-1$ steps) any number of $\la$-transitions (that is, $\de(q,\la)$ is a $\la$-transition)
+Let $E: Q\to P(Q)$ denote the set of states reachable from $q$ by following (including 0 and at most $|\Q|-1$ steps) any number of $\la$-transitions (that is, $\de(q,\la)$ is a $\la$-transition)
 
 $E(q_0)=\{q_0,q_2\}$
 
@@ -325,7 +325,7 @@ Base Case: $\de^*(q, \la)=E(Q)$ for all $q\in Q$.
 
 Constructor Case: For all $q\in Q, a\in \Si, x\in\Si^*$, let \[\de^*(q,xa)=\bigcup\curbra{E(q'')\mid q''\in\de(q',a)}\T{ for some }q'\in\de^*(q,x).\]
 
-Then, one can prove by induction that $\forall x\in\Si^*. \forall y\in\S^*. \sqrbra{\de^*(q,xy)=\de^*(\de^*(q,x),y)}$.
+Then, one can prove by induction that $\forall x\in\Si^*. \forall y\in\Si^*. \sqrbra{\de^*(q,xy)=\de^*(\de^*(q,x),y)}$.
 
 For example, 
 
