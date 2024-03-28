@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  27 MAR 2024 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  28 MAR 2024 10:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,8 +7,8 @@ entering extended mode
 (c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture 15.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
-(./hw.cls
-Document Class: hw 2024/02/24 hw
+(./LatexTemplate/hw.cls
+Document Class: LatexTemplate/hw 2024/03/27 LatexTemplate/hw
 (c:/Program Files/texlive/2023/texmf-dist/tex/latex/silence/silence.sty
 Package: silence 2012/07/02 v1.5b Selective filtering of warnings and error messages
 \sl@Save=\count186
@@ -713,8 +713,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip74
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 225.
-Package hyperref Info: Option `colorlinks' set `true' on input line 225.
+Package hyperref Info: Option `colorlinks' set `true' on input line 234.
+Package hyperref Info: Option `colorlinks' set `true' on input line 234.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2023/07/05 v6.0f a miscellany of footnote facilities
 \FN@temptoken=\toks56
@@ -779,7 +779,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box121
 \@float@everytoks=\toks62
 \@floatcapt=\box122
-) (./clsfiles/shortcuts.sty
+) (./LatexTemplate/clsfiles/shortcuts.sty
 Package: shortcuts 
 LaTeX Info: Redefining \cal on input line 126.
 LaTeX Info: Redefining \frak on input line 128.
@@ -813,49 +813,38 @@ Package: xinttrig 2022/06/10 v1.4m Trigonometrical functions for xintexpr (JFB)
 Package: xintlog 2022/06/10 v1.4m Logarithms and exponentials for xintexpr (JFB)
  (c:/Program Files/texlive/2023/texmf-dist/tex/generic/poormanlog/poormanlog.sty
 Package: poormanlog 2022/05/25 v0.07 base 10 log and pow with 9 digits (JFB)
- (c:/Program Files/texlive/2023/texmf-dist/tex/generic/poormanlog/poormanlog.tex)))) (c:/Program Files/texlive/2023/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box123
-\UL@hyphenbox=\box124
-\UL@skip=\skip77
-\UL@hook=\toks64
-\UL@height=\dimen304
-\UL@pe=\count360
-\UL@pixel=\dimen305
-\ULC@box=\box125
-Package: ulem 2019/11/18
-\ULdepth=\dimen306
-)) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+ (c:/Program Files/texlive/2023/texmf-dist/tex/generic/poormanlog/poormanlog.tex))))) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2023/09/26 version 6.1.0 text color boxes
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks65
-\verbatim@line=\toks66
+\every@verbatim=\toks64
+\verbatim@line=\toks65
 \verbatim@in@stream=\read3
 ) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box126
-\tcb@upperbox=\box127
-\tcb@lowerbox=\box128
-\tcb@phantombox=\box129
-\c@tcbbreakpart=\count361
-\c@tcblayer=\count362
-\c@tcolorbox@number=\count363
+\tcb@titlebox=\box123
+\tcb@upperbox=\box124
+\tcb@lowerbox=\box125
+\tcb@phantombox=\box126
+\c@tcbbreakpart=\count360
+\c@tcblayer=\count361
+\c@tcolorbox@number=\count362
+\tcb@temp=\box127
+\tcb@temp=\box128
+\tcb@temp=\box129
 \tcb@temp=\box130
-\tcb@temp=\box131
-\tcb@temp=\box132
-\tcb@temp=\box133
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
 Library (tcolorbox): 'tcbbreakable.code.tex' version '6.1.0'
 (c:/Program Files/texlive/2023/texmf-dist/tex/latex/pdfcol/pdfcol.sty
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box134
-\tcb@totalupperbox=\box135
-\tcb@totallowerbox=\box136
+\tcb@testbox=\box131
+\tcb@totalupperbox=\box132
+\tcb@totallowerbox=\box133
 ) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.1.0'
 (c:/Program Files/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -864,12 +853,12 @@ Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
 Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 ) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box137
+\l__tikzfill_img_box=\box134
 )) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.1.0'
 )) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.1.0'
-)) (./clsfiles/tcbthm.sty
+)) (./LatexTemplate/clsfiles/tcbthm.sty
 Package: tcbthm 
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/starfont/starfont.sty
 Package: starfont 2010/09/29 v1.2 Anthony Owen's StarFont
@@ -879,65 +868,67 @@ Package: wasysym 2020/01/19 v2.4 Wasy-2 symbol support package
 LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 (Font)                  U/wasy/m/n --> U/wasy/b/n on input line 93.
 )
-\c@example=\count364
-\c@remark=\count365
-\c@tcb@cnt@question=\count366
-\c@tcb@cnt@claim=\count367
-\c@tcb@cnt@proposition=\count368
-\c@tcb@cnt@definition=\count369
-\c@tcb@cnt@corollary=\count370
-\c@tcb@cnt@theorem=\count371
-\c@tcb@cnt@lemma=\count372
+\c@example=\count363
+\c@remark=\count364
+\c@tcb@cnt@question=\count365
+\c@tcb@cnt@claim=\count366
+\c@tcb@cnt@proposition=\count367
+\c@tcb@cnt@definition=\count368
+\c@tcb@cnt@corollary=\count369
+\c@tcb@cnt@theorem=\count370
+\c@tcb@cnt@lemma=\count371
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box138
-\sift@deathcycles=\count373
-\@vwid@loff=\dimen307
-\@vwid@roff=\dimen308
+\@vwid@box=\box135
+\sift@deathcycles=\count372
+\@vwid@loff=\dimen304
+\@vwid@roff=\dimen305
 )
-\c@tcb@cnt@exercise=\count374
-\c@tcb@cnt@unit=\count375
-\c@tcb@cnt@chapter=\count376
+\c@tcb@cnt@exercise=\count373
+\c@tcb@cnt@unit=\count374
+\c@tcb@cnt@chapter=\count375
 )) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
-) (./clsfiles/csc240.sty
+) (./LatexTemplate/clsfiles/csc240.sty
 Package: csc240 2022/02/22 v1.0 csc240 style file
- (c:/Program Files/texlive/2023/texmf-dist/tex/latex/smartref/smartref.sty
+ (c:/Program Files/texlive/2023/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write4
+ Excluding comment 'comment') (c:/Program Files/texlive/2023/texmf-dist/tex/latex/smartref/smartref.sty
 Package: smartref 2002/02/28 v1.9 Increase reference capability (deep reference)
-\c@@smartlistlen=\count377
-\c@less@smartlist=\count378
-\c@@currsmartlistplace=\count379
-\sm@rtintern@ltok=\toks67
+\c@@smartlistlen=\count376
+\c@less@smartlist=\count377
+\c@@currsmartlistplace=\count378
+\sm@rtintern@ltok=\toks66
 )
-\c@linenum=\count380
+\c@linenum=\count379
 
 Defining \sgetlinenumval ...
 Defining \slinenumref ...
 Defining \sreflinenumref ...
 Defining \linenumref ...
-\c@ind=\count381
-) (./clsfiles/alg.sty
+\c@ind=\count380
+) (./LatexTemplate/clsfiles/alg.sty
 Package: alg 
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
-\@float@every@algorithm=\toks68
-\c@algorithm=\count382
+\@float@every@algorithm=\toks67
+\c@algorithm=\count381
 ) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count383
-\c@ALG@rem=\count384
-\c@ALG@nested=\count385
-\ALG@tlm=\skip78
-\ALG@thistlm=\skip79
-\c@ALG@Lnr=\count386
-\c@ALG@blocknr=\count387
-\c@ALG@storecount=\count388
-\c@ALG@tmpcounter=\count389
-\ALG@tmplength=\skip80
+\c@ALG@line=\count382
+\c@ALG@rem=\count383
+\c@ALG@nested=\count384
+\ALG@tlm=\skip77
+\ALG@thistlm=\skip78
+\c@ALG@Lnr=\count385
+\c@ALG@blocknr=\count386
+\c@ALG@storecount=\count387
+\c@ALG@tmpcounter=\count388
+\ALG@tmplength=\skip79
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
 )) (c:/Program Files/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryautomata.code.tex
@@ -946,26 +937,26 @@ File: tikzlibraryautomata.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (c:/Program Files/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodepartlowerbox=\box139
-\pgfnodeparttwobox=\box140
-\pgfnodepartthreebox=\box141
-\pgfnodepartfourbox=\box142
-\pgfnodeparttwentybox=\box143
-\pgfnodepartnineteenbox=\box144
-\pgfnodeparteighteenbox=\box145
-\pgfnodepartseventeenbox=\box146
-\pgfnodepartsixteenbox=\box147
-\pgfnodepartfifteenbox=\box148
-\pgfnodepartfourteenbox=\box149
-\pgfnodepartthirteenbox=\box150
-\pgfnodeparttwelvebox=\box151
-\pgfnodepartelevenbox=\box152
-\pgfnodeparttenbox=\box153
-\pgfnodepartninebox=\box154
-\pgfnodeparteightbox=\box155
-\pgfnodepartsevenbox=\box156
-\pgfnodepartsixbox=\box157
-\pgfnodepartfivebox=\box158
+\pgfnodepartlowerbox=\box136
+\pgfnodeparttwobox=\box137
+\pgfnodepartthreebox=\box138
+\pgfnodepartfourbox=\box139
+\pgfnodeparttwentybox=\box140
+\pgfnodepartnineteenbox=\box141
+\pgfnodeparteighteenbox=\box142
+\pgfnodepartseventeenbox=\box143
+\pgfnodepartsixteenbox=\box144
+\pgfnodepartfifteenbox=\box145
+\pgfnodepartfourteenbox=\box146
+\pgfnodepartthirteenbox=\box147
+\pgfnodeparttwelvebox=\box148
+\pgfnodepartelevenbox=\box149
+\pgfnodeparttenbox=\box150
+\pgfnodepartninebox=\box151
+\pgfnodeparteightbox=\box152
+\pgfnodepartsevenbox=\box153
+\pgfnodepartsixbox=\box154
+\pgfnodepartfivebox=\box155
 ))) (c:/Program Files/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -1067,17 +1058,17 @@ LaTeX Font Info:    ... okay on input line 15.
 
 (c:/Program Files/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count390
-\scratchdimen=\dimen309
-\scratchbox=\box159
-\nofMPsegments=\count391
-\nofMParguments=\count392
-\everyMPshowfont=\toks69
-\MPscratchCnt=\count393
-\MPscratchDim=\dimen310
-\MPnumerator=\count394
-\makeMPintoPDFobject=\count395
-\everyMPtoPDFconversion=\toks70
+\scratchcounter=\count389
+\scratchdimen=\dimen306
+\scratchbox=\box156
+\nofMPsegments=\count390
+\nofMParguments=\count391
+\everyMPshowfont=\toks68
+\MPscratchCnt=\count392
+\MPscratchDim=\dimen307
+\MPnumerator=\count393
+\makeMPintoPDFobject=\count394
+\everyMPtoPDFconversion=\toks69
 ) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/grfext/grfext.sty
@@ -1109,11 +1100,11 @@ Package microtype Info: No adjustment of character kerning.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-\c@lstlisting=\count396
+\c@lstlisting=\count395
 Package hyperref Info: Link coloring ON on input line 15.
  (./Lecture 15.out) (./Lecture 15.out)
-\@outlinefile=\write4
-\openout4 = `"Lecture 15.out"'.
+\@outlinefile=\write5
+\openout5 = `"Lecture 15.out"'.
 
 <img/2024-03-27-15-14-50.png, id=63, 1088.56688pt x 406.51875pt>
 File: img/2024-03-27-15-14-50.png Graphic file (type png)
@@ -1186,15 +1177,15 @@ LaTeX Font Info:    Trying to load font information for U+futs on input line 66.
 (c:/Program Files/texlive/2023/texmf-dist/tex/latex/fourier/ufuts.fd
 File: ufuts.fd 2021/11/24 Fontinst v1.933 font definitions for U/futs.
 )
-<clsfiles/tree.jpg, id=66, 1626.075pt x 2890.8pt>
-File: clsfiles/tree.jpg Graphic file (type jpg)
-<use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 66.
-(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
+<LatexTemplate/clsfiles/nightsky.png, id=66, 331.66768pt x 588.91446pt>
+File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
+<use LatexTemplate/clsfiles/nightsky.png>
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 66.
+(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
  [1{c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}
 
-{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./clsfiles/tree.jpg> <./img/2024-03-27-15-14-50.png> <./img/2024-03-27-15-23-26.png>]
-<img/2024-03-27-15-26-29.png, id=84, 1327.20844pt x 514.17094pt>
+{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./LatexTemplate/clsfiles/nightsky.png> <./img/2024-03-27-15-14-50.png> <./img/2024-03-27-15-23-26.png>]
+<img/2024-03-27-15-26-29.png, id=86, 1327.20844pt x 514.17094pt>
 File: img/2024-03-27-15-26-29.png Graphic file (type png)
 <use img/2024-03-27-15-26-29.png>
 Package pdftex.def Info: img/2024-03-27-15-26-29.png  used on input line 67.
@@ -1205,50 +1196,50 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `stf' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-File: clsfiles/tree.jpg Graphic file (type jpg)
-<use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 147.
-(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
+File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
+<use LatexTemplate/clsfiles/nightsky.png>
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 147.
+(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
  [2{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc} <./img/2024-03-27-15-26-29.png>]
-<img/2024-03-27-15-47-58.png, id=98, 1302.36563pt x 533.74406pt>
+<img/2024-03-27-15-47-58.png, id=100, 1302.36563pt x 533.74406pt>
 File: img/2024-03-27-15-47-58.png Graphic file (type png)
 <use img/2024-03-27-15-47-58.png>
 Package pdftex.def Info: img/2024-03-27-15-47-58.png  used on input line 151.
 (pdftex.def)             Requested size: 271.00092pt x 111.06337pt.
-<img/2024-03-27-15-52-11.png, id=99, 1696.08656pt x 800.9925pt>
+<img/2024-03-27-15-52-11.png, id=101, 1696.08656pt x 800.9925pt>
 File: img/2024-03-27-15-52-11.png Graphic file (type png)
 <use img/2024-03-27-15-52-11.png>
 Package pdftex.def Info: img/2024-03-27-15-52-11.png  used on input line 159.
 (pdftex.def)             Requested size: 270.9912pt x 127.97807pt.
-<img/2024-03-27-16-12-01.png, id=100, 1736.73843pt x 591.71063pt>
+<img/2024-03-27-16-12-01.png, id=102, 1736.73843pt x 591.71063pt>
 File: img/2024-03-27-16-12-01.png Graphic file (type png)
 <use img/2024-03-27-16-12-01.png>
 Package pdftex.def Info: img/2024-03-27-16-12-01.png  used on input line 189.
 (pdftex.def)             Requested size: 270.99371pt x 92.32816pt.
-File: clsfiles/tree.jpg Graphic file (type jpg)
-<use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 189.
-(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
+File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
+<use LatexTemplate/clsfiles/nightsky.png>
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 189.
+(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
  [3 <./img/2024-03-27-15-47-58.png> <./img/2024-03-27-15-52-11.png>]
-<img/2024-03-27-16-15-30.png, id=107, 1759.32281pt x 681.29532pt>
+<img/2024-03-27-16-15-30.png, id=109, 1759.32281pt x 681.29532pt>
 File: img/2024-03-27-16-15-30.png Graphic file (type png)
 <use img/2024-03-27-16-15-30.png>
 Package pdftex.def Info: img/2024-03-27-16-15-30.png  used on input line 208.
 (pdftex.def)             Requested size: 271.00098pt x 104.94475pt.
-File: clsfiles/tree.jpg Graphic file (type jpg)
-<use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 253.
-(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
+File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
+<use LatexTemplate/clsfiles/nightsky.png>
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 253.
+(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
  [4 <./img/2024-03-27-16-12-01.png> <./img/2024-03-27-16-15-30.png>]
-File: clsfiles/tree.jpg Graphic file (type jpg)
-<use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 321.
-(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
+File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
+<use LatexTemplate/clsfiles/nightsky.png>
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 321.
+(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
  [5]
-File: clsfiles/tree.jpg Graphic file (type jpg)
-<use clsfiles/tree.jpg>
-Package pdftex.def Info: clsfiles/tree.jpg  used on input line 392.
-(pdftex.def)             Requested size: 614.29239pt x 794.95042pt.
+File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
+<use LatexTemplate/clsfiles/nightsky.png>
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 392.
+(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
  [6] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./Lecture 15.aux)
@@ -1264,18 +1255,18 @@ Package rerunfilecheck Info: File `"Lecture 15".out' has not changed.
 (rerunfilecheck)             Checksum: AD5223D9FF52F360090C9446D4CF4072;1086.
  ) 
 Here is how much of TeX's memory you used:
- 39401 strings out of 474272
- 754482 string characters out of 5744472
+ 39364 strings out of 474272
+ 754930 string characters out of 5744472
  1946533 words of memory out of 5000000
- 60851 multiletter control sequences out of 15000+600000
- 600315 words of font info for 103 fonts, out of 8000000 for 9000
+ 60815 multiletter control sequences out of 15000+600000
+ 600209 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  118i,13n,121p,2900b,1413s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-orns.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/starfont/starfont.pfb>
-Output written on "Lecture 15.pdf" (6 pages, 1460210 bytes).
+Output written on "Lecture 15.pdf" (6 pages, 1768060 bytes).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
+ 210 PDF objects out of 1000 (max. 8388607)
+ 141 compressed objects within 2 object streams
  21 named destinations out of 1000 (max. 500000)
  23253 words of extra memory for PDF output out of 24883 (max. 10000000)
 

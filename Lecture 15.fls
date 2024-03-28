@@ -4,8 +4,9 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/Program Files/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
 INPUT c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC240/Cheat Sheet/CSC240-Cheat-Sheet/Lecture 15.tex
 OUTPUT Lecture 15.log
+INPUT ./LatexTemplate/hw.cls
 INPUT ./hw.cls
-INPUT hw.cls
+INPUT LatexTemplate/hw.cls
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/silence/silence.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/silence/silence.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
@@ -311,8 +312,8 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/changepage/changepage.s
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/changepage/changepage.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/float/float.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/float/float.sty
-INPUT ./clsfiles/shortcuts.sty
-INPUT clsfiles/shortcuts.sty
+INPUT ./LatexTemplate/clsfiles/shortcuts.sty
+INPUT LatexTemplate/clsfiles/shortcuts.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/xint/xintexpr.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/xint/xintexpr.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/xint/xintfrac.sty
@@ -334,10 +335,6 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/poormanlog/poormanlog
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/poormanlog/poormanlog.tex
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/poormanlog/poormanlog.tex
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/poormanlog/poormanlog.tex
-INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/ulem/ulem.sty
-INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/ulem/ulem.sty
-INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map
-INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
@@ -359,8 +356,8 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzlibraryfil
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
-INPUT ./clsfiles/tcbthm.sty
-INPUT clsfiles/tcbthm.sty
+INPUT ./LatexTemplate/clsfiles/tcbthm.sty
+INPUT LatexTemplate/clsfiles/tcbthm.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/starfont/starfont.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/starfont/starfont.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/wasysym/wasysym.sty
@@ -369,13 +366,15 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/varwidth/varwidth.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/varwidth/varwidth.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/parskip/parskip.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/parskip/parskip.sty
-INPUT ./clsfiles/csc240.sty
-INPUT clsfiles/csc240.sty
+INPUT ./LatexTemplate/clsfiles/csc240.sty
+INPUT LatexTemplate/clsfiles/csc240.sty
+INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/comment/comment.sty
+INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/comment/comment.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/smartref/smartref.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/smartref/smartref.sty
-INPUT ./clsfiles/alg.sty
+INPUT ./LatexTemplate/clsfiles/alg.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/alg/alg.sty
-INPUT clsfiles/alg.sty
+INPUT LatexTemplate/clsfiles/alg.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/algorithms/algorithm.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/algorithms/algorithm.sty
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
@@ -393,6 +392,7 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tik
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/ot1lmr.fd
+INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
 INPUT ./Lecture 15.aux
 INPUT ./Lecture 15.aux
@@ -490,10 +490,10 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/tex/latex/fourier/ufuts.fd
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/futrorn.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmr8.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/futrorn.tfm
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/vf/public/fourier/futrorn.vf
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/fourier/fourier-orns.tfm
@@ -516,9 +516,9 @@ INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmri10.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
 INPUT c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc
 INPUT ./img/2024-03-27-15-47-58.png
 INPUT ./img/2024-03-27-15-47-58.png
@@ -535,23 +535,23 @@ INPUT ./img/2024-03-27-16-12-01.png
 INPUT ./img/2024-03-27-16-12-01.png
 INPUT ./img/2024-03-27-16-12-01.png
 INPUT ./img/2024-03-27-16-12-01.png
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
 INPUT ./img/2024-03-27-16-15-30.png
 INPUT ./img/2024-03-27-16-15-30.png
 INPUT ./img/2024-03-27-16-15-30.png
 INPUT ./img/2024-03-27-16-15-30.png
 INPUT ./img/2024-03-27-16-15-30.png
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
-INPUT ./clsfiles/tree.jpg
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
+INPUT ./LatexTemplate/clsfiles/nightsky.png
 INPUT Lecture 15.aux
 INPUT ./Lecture 15.out
 INPUT ./Lecture 15.out
