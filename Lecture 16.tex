@@ -1,0 +1,300 @@
+\documentclass[11pt, cyan, night, 0.5in]{LatexTemplate/hw}
+
+\def\course{CSC240}
+\def\headername{Lecture 16 week 12}
+\def\name{Joseph Siu}
+\def\email{joseph.siu@mail.utoronto.ca}
+\def\logo{\clsfiles/faith}
+\usepackage{multicol}
+
+\useclspackage{csc240}
+\useclspackage[noend]{alg}
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
+\begin{document}
+
+\section{Review}
+
+$R$ = set of \underline{regular expressions} over $\Si$
+
+Base Cases:
+\indenv{
+    $\nil,\la\in R$
+
+    $\Si\subseteq R$
+}
+
+Constructor Cases:
+\indenv{
+    If $r,r'\in R$ then $(r+r'), (r\cd r'), \T{ and }r^*\in R$
+}
+
+$L(\nil)=\nil$, $L(\la)=\{\la\}$
+
+$L(a)=\{a\}$ for all $a\in\Si$
+
+$L((r+r'))=L(r)\cup L(r')$
+
+$L((r\cd r'))=L(r)\cd L(r')$
+
+$L(r^*)=(L(r))^*$
+
+
+A language is \underline{regular} if $L=L(r)$ for some $r\in R$
+
+\newt{1}{
+    For every regular language $L$ there is an NFA $M$ such that $L=L(M)$.
+
+    The converse is also true.
+}
+
+\newt{2}{
+    For every NFA $M$ there is a DFA $M'$ such that $L(M)=L(M')$.
+}
+
+\np
+
+\section{Left / Right Quotients}
+
+Left quotient of $L_1$ and $L_2$
+
+$L_2\setminus L_1=\{y\mid \exists x\in L_2. (xy\in L_1)\}$
+
+Right quotient of $L_1$ and $L_2$
+
+$L_1 \,/\, L_2 = \{x\mid \exists y\in L_2. (xy\in L_1)\}$
+
+\neweg{\hfill
+
+    $L_1=\{o^i1^j\mid i,j\in\Z^+\}$
+
+    $L_2=\{o^i 1\mid i\in\N\}$
+
+    $L_2\setminus L_1=\{1^j\mid j\in\N\}$
+}
+
+\newcl{1}{
+    If $L_1$ and $L_2$ are regular, so are $L_2 \setminus L_1$ and $L_1\setminus L_2$.
+}
+
+\newp{
+    Let $M_1=(Q_1,\Si,\de_1, q_1, F_1)$, $M_2=(Q_2,\Si,\de_2,q_2,F_2)$ be DFAs such that $L_1=L(M_1)$ and $L_2=L(M_2)$
+}
+
+Intuitively,
+
+\fig{img/2024-04-03-15-36-41.png}
+
+Formally, let $M=(Q,\Si,\De,(q_1,q_2), F_1)$ where $Q=Q_1\times Q_2 \cup Q_1$;
+
+For all $q\in Q_1,p\in Q_2$
+
+$\de((q,p),\la)=\{(\de_1(q,a),\de_2(p,a))\mid a\in\Si\}\cup\{q\mid p\in F_2\}$ ($\{q\}$ or $\nil$)
+
+$\de((q,p),a)=\nil$ for all $a\in\Si$, for all $p\in Q_2, q\in Q_1$
+
+For all $q\in Q_1$, $a\in\Si$
+
+$\de(q,a)=\{\de(q,a)\}$
+
+$\de(q,\la)=\nil$
+
+Now we need to prove $L(M)=L_2\setminus L_1$
+
+\indenv{
+
+    For the forward subset,
+
+    Let $y\in L_2\setminus L_1$, then $\exists x\in L_2$ such that $xy\in L_1$ by definition of left quotient
+
+    In $M_2$ there is a path from $q_2$ to a state $p\in F_2$ labelled by $x$
+
+    In $M_1$ there is a path from $q_1$ to $\de_1^*(q_1,x)=q$
+
+    In $Q_1\times Q_2$, there is a paht from $(q_1,q_2)$ to $(q,p)$ labelled by $\la$ by construction.
+
+    Since $p\in F_2$ there is a $\la$-transition from $(q,p)$ to $q$ by construction.
+
+    Since $xy\in L_1$, $\de_1^*(q,y)=\de_1^*(\de_1^*(q_1,x),y)=\de_1^*(q_1,xy)\in F_1$
+
+    So $y\in L(M)$
+
+    \fig{img/2024-04-03-15-42-21.png}
+
+    Conversely, for the backward subset,
+
+    Suppose $y\in L(M)$
+
+    Then there is a path from $(q_1,q_2)$ to a state $q'\in F_1$ that is labelled by $y$
+
+    The only way to get from $Q_1\times Q_2$ to $Q_1$ is by a $\la$-transition from a state $(q,p)\in Q_1\times Q_2$ to $q\in Q_1$ where $p\in F_2$
+
+    All the edges between states in $Q_1\times Q_2$ are labelled by $\la$
+    
+    So by definition of $\de$, there exists a string $x\in\Si^*$ such that $q=\de_1^*(q,x)$ and $p=\de_2^*(q_2,x)$, since $p\in F_2$, $x\in L(M_1)=L_1$
+
+    Edges between states in $Q_1$ are labelled by letters, $\de_1^*(q,y)=\de^*(q,y)=q'\in F_1$
+
+    $\de_1^*(q,xy)=\de_1^*(\de_1^*(q_1,x),y)=\de_1^*(q,y)=q'\in F_1$, so $xy\in L_1$, hence $y\in L_2\setminus L_1$
+
+}
+
+\np
+\section{Generalized Transition Graph GTG} 
+
+A generalized transition graph is a 5-tuple $G=(Q \T{ (finite set of states)},\Si\T{ (finite alphabet)},\de,q_0\subseteq Q,F\subseteq Q)$
+
+$S: Q\times Q\to R$ where $R$ is the set of regular expressions over $\Si$.
+
+$L(G)=\{x\in\Si^*\mid \substack{\T{there is a  path from $q_0$ to $f$ and $x$ is in the language }\\\T{described by the concatenation of the labels on the edges of the path}}\}$
+
+\fig{img/2024-04-03-16-07-46.png}
+
+\newl{1}{
+    For any NFA $M=(Q,\Si,\de,q_0,F)$, there is a GTG $G=(Q\cup\{f\},\Si, \de', q_0, f)$ such that $L(M)=L(G)$
+}
+
+\fig{img/2024-04-03-16-08-05.png}
+
+\newt{3}{
+    For every GTG $G$, there is a regular expression $r$ such that $L(G)=L(r)$ (Converse of Theorem 1)
+}
+
+\newp{[Proof of Theorem 3 by Induction on number of states in $G$]
+
+    Define the predicate $P(n)=$``For every GTG $G$ with $n$ states, there is a regular expression $r$ such that $L(G)=L(r)$''
+
+    Base Cases:
+
+    \fig{img/2024-04-03-16-14-16.png}
+
+    Inductive Case:
+    \indenv{
+        Let $n\ge 3$ and assume $P(n-1)$
+
+        $G=(Q,\Si,\de,q_0,f)$
+
+        Let $q_x\in Q-\{q_0,f\}$
+
+        $G'=(Q',\Si,\de',q_0,f)$
+
+        where $Q'=Q-\{q_x\}$
+
+        $\de'$ is defined as follows:
+
+        $G'$ has $n-1$ states.
+
+        Let $q_i, q_j\in Q'$,
+
+        \fig{img/2024-04-03-16-23-00.png}
+
+        \newcl{2}{
+            For all $q,q'\in Q$, and all $x\in \Si^*$,
+
+            there exists a path from $q$ to $q'$ labelled by $r$ in $G$ such that $x\in L(r)$
+
+            if and only if 
+
+            there is a path from $q$ to $q'$ labelled by $r'$ in $G'$ such that $x\in L(r')$
+        }
+
+        In particular of $q: q_0$ and $q'$ = $f$, then $L(G)=L(G')$
+
+        By $P(n-2)$ there is regular expression $r'$ such that $L(G')=L(r')$
+
+        By induction, $P(n)$ is true.
+    }
+
+}
+
+\np
+\section{Are all languages Regular?}
+
+$S=\{a^i b^i\mid i\in\Z^+\}$
+
+\indenv{
+    Suppose $S$ is regularm then there is a DFA $M=(Q,\Si,\de,q_0,F)$ such that $S=L(M)$
+
+    Let $n=|Q|$ be the number of states in $M$, let $q_i=\de^*(q_0,a^i)$
+
+    \fig{img/2024-04-03-16-35-30.png}
+
+    By pigeonhole principle, there exists $0\le i < j\le n$ such that $q_i=q_j$
+
+    \begin{align*}
+        \de^*(q_0, a^i b^j) &= \de^*(\de^*(q_0,a^i), b^j)\\
+        &= \de^*(\de^*(q_0,a^j), b^j)\\
+        &= \de^*(q_0,a^j b^j)\in F\\
+    \end{align*}
+
+    Since $a^j b^j\in S\in L(M)$
+
+    This is a contradiction since $a^ib^j\notin S$.
+}
+
+\newl[Pumping Lemma]{3}{
+    For every regular language $s\subseteq \Si^*$, $\exists n\in\Z^+. \forall x\in S$. \[[(|x|\ge n)\iimplies \exists u\in\Si^*. \exists v\in\Si^*. \exists w\in\Si^*. [v\ne\la\aand (|uv|\le n) \aand x=uvw \aand \forall k\in\N. uv^kw\in S]]\]
+}
+
+\newp{[Proof of Pumping Lemma]\hfill
+
+    Since $S$ is regular it is accepted by a DFA $M=(Q,\Si,\de,q_0,F)$, i.e. $S=L(M)$.
+
+    Let $n=|Q|$
+
+    Let $x\in S$ such that $|x|=m\ge n$.
+
+    Consider the states \begin{align*}
+        q_0& \\
+        q_1&=\de(q_0,x_1) \\
+        q_i&=\de(q_{i-1},x_i) \T{ for } 1\le i\le n
+    \end{align*}
+
+    By the pigeonhole principle, there exists $0\le i < j \le n$ such that $q_i=q_j$
+
+    \fig{img/2024-04-03-16-45-44.png}
+
+    Since $i< j$, $v\ne\la$
+
+    Since $j\le n$, $|uv|\le n$
+
+    $\de^*(q_0, uv^k)=q_j$ for all $k\in\ge 0$
+
+    So \begin{align*}
+        \de^*(q_0, uv^kw)&=\de^*(\de^*(q_0,uv^k), w)\\
+        &=\de^*(q_j, w)\\
+        &=\de^*(\de^*(q_0, uv), w)\\
+        &=\de^*(q_0, uvw)\in F \T{ since }uvw=x\in S
+    \end{align*}
+}
+
+\newt{4}{
+    $T=\{a^m b^n\mid m\ne n\}$ is not regular.
+}
+
+\newp{[Proof of Pumpping Lemma]\hfill
+
+    \indenv{
+        Suppose $T$ is regular, then by pumping lemma there exists $n\in \N$ such that $\forall x\in T [(|x|\ge n)\iimplies \exists u\in\{a,b\}^*. \exists v\in\{a,b\}^*. \exists w\in\{a,b\}^*.[v\ne \la\aand |uv|\le n\aand (x=uvw)\aand uv^kw\in T\T{ for all }k\in\N]]$
+
+        Consider $x=a^{n!}b^{(n+1)!}$ where $n\ge 1$
+
+        $x\in T$ since $n!\ne (n+1)!$ for $n\ge 1$.
+
+        There exists $u,v,w\in\{a,b\}^*$ such that $v\ne \la$, $|uv|\le n$, $x=uvw$ and $\forall k\in\N$, $(uv^kw)\in T$.
+
+        Note that $u=a^i$ and $v=a^j$ for some $i\ge0$, $j\ge1$ such that $i+j\le n$.
+
+        Let $k=1+n(n!)/j\in\Z^+$, $1\le j\le n$
+
+        We claim that $uv^kw\notin T$ since $a^mb^{(n+1)!}$ where $m=n!+(k-1)j$.
+
+        $i+j-k+n!-i-j= n!+ n(n!) = (n+1)n!=(n+1)!$ since $k-1=n(n^i)/j$
+
+        So $uv^k w\notin T$, this is a contradiction.
+    }
+
+}
+
+\end{document}

@@ -215,7 +215,7 @@ We can see $1$ is in both $M_1$ and $M$, thus not works for NFA.
     $\de_1^*(q_0,x)\cap (Q_1-F_1)\neq\nil$ and $\de_1^*(q_1,x)\cap F_1\neq\nil$, for an NFA both can be true.
 }
 
-[insert pic here]
+\fig{img/2024-03-29-14-29-40.png}
 
 \newp{[proof of union]
     More formally, let $q_0$ be a new state,
@@ -261,7 +261,7 @@ For difference,
 
 For concatenation,
 
-[insert fig here]
+\fig{img/2024-03-29-14-30-04.png}
 
 \newp{[Proof of concatenation]\hfill
 
@@ -300,7 +300,7 @@ $L_1=\{aab,c\}$
 
 $L_1^+=\{aab,c,aabc,caab,cc,aabaab\}$
 
-[insert fig here]
+\fig{img/2024-03-29-14-30-20.png}
 
 $L(M)=(Q,\Si,q_1,\de,F_1)$
 
@@ -320,13 +320,13 @@ $L_1^*=\ds\bigcup_{i\ge0}L^i=L_1^+\cup\{\la\}$
 
 $L_1^*=L_1^+$ if and only if $\la\in L_1$
 
-[insert fig here]
+\fig{img/2024-03-29-14-33-36.png}
 
 Is $L(M)=\bra{L(M_1)}^*$ true?
 
 \tbf{\underline{Not always:}}
 
-[insert fig here]
+\fig{img/2024-03-29-14-31-36.png}
 
 $M_1 a,aa\notin L(M_1)$ so $aa\notin L(M_1)^*$
 
@@ -334,7 +334,7 @@ $aa\in L(M)$
 
 $L(M)\neq L(M_1)^*$
 
-To resolve this, [insert fig here]
+To resolve this, \fig{img/2024-03-29-14-32-37.png}
 
 \section{Regular Expressions}
 
@@ -352,7 +352,7 @@ Constructor Cases:
     If $r, r'\in R$, then $r\cd r', r+r', r^*\in R$
 }
 
-Here $R$ is the set of regular expressions over $\Si$.
+Here $R$ is the set of \underline{regular expressions} over $\Si$.
 
 If $r\in R$, then $L(r)\subseteq \Si^*$ is the function $L: R\to P(\Si^*)$,
 \begin{align*}
@@ -363,6 +363,8 @@ If $r\in R$, then $L(r)\subseteq \Si^*$ is the function $L: R\to P(\Si^*)$,
     L(r+r')&=L(r)\cup L(r')\\
     L(r^*)&=L(r)^*
 \end{align*}
+
+\fig{img/2024-03-29-14-35-36.png}
 
 This is regular expression, we can also talk about generalized regular expressions.
 
@@ -381,6 +383,14 @@ $abc+cc$ means $((a\cd (b\cd c)) + (c\cd c))$
 A language $A$ is \underline{\tbf{regular}} if and only if $A=L(r)$ for some $r\in R$.
 
 $r_1$ and $r_2$ are equivalent if $L(r_1)=L(r_2)$.
+
+\newr{
+    For strings over $\{a,b,c\}$ that start with $ab$: \begin{align*}
+        L(a\cd &b\cd (a+b+c)^*)&\ne\qquad\qquad\qquad L(a\cd &b\cd (a\cd b\cd c)^*)\\
+        &\Dar & &\Dar\\
+        L(a\cd &b\cd\overline{\ph})& \{ab,abab&c,ababcabc,...\}
+    \end{align*}
+}
 
 \newt{2}{
     Every regular language can be accepted by a finite automaton (FA).

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  28 MAR 2024 10:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  29 MAR 2024 14:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1000,6 +1000,48 @@ LaTeX Warning: Label `fig:' multiply defined.
 
 LaTeX Warning: Label `fig:' multiply defined.
 
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
 )
 \openout1 = `"Lecture 15.aux"'.
 
@@ -1226,21 +1268,71 @@ File: img/2024-03-27-16-15-30.png Graphic file (type png)
 <use img/2024-03-27-16-15-30.png>
 Package pdftex.def Info: img/2024-03-27-16-15-30.png  used on input line 208.
 (pdftex.def)             Requested size: 271.00098pt x 104.94475pt.
+<img/2024-03-29-14-29-40.png, id=110, 1290.32062pt x 883.80188pt>
+File: img/2024-03-29-14-29-40.png Graphic file (type png)
+<use img/2024-03-29-14-29-40.png>
+Package pdftex.def Info: img/2024-03-29-14-29-40.png  used on input line 218.
+(pdftex.def)             Requested size: 270.99501pt x 185.61736pt.
 File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
 <use LatexTemplate/clsfiles/nightsky.png>
-Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 253.
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 238.
 (pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
- [4 <./img/2024-03-27-16-12-01.png> <./img/2024-03-27-16-15-30.png>]
+ [4 <./img/2024-03-27-16-12-01.png> <./img/2024-03-27-16-15-30.png> <./img/2024-03-29-14-29-40.png>]
+<img/2024-03-29-14-30-04.png, id=117, 1558.32187pt x 831.105pt>
+File: img/2024-03-29-14-30-04.png Graphic file (type png)
+<use img/2024-03-29-14-30-04.png>
+Package pdftex.def Info: img/2024-03-29-14-30-04.png  used on input line 264.
+(pdftex.def)             Requested size: 270.9984pt x 144.53247pt.
 File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
 <use LatexTemplate/clsfiles/nightsky.png>
-Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 321.
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 289.
 (pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
- [5]
+ [5 <./img/2024-03-29-14-30-04.png>]
+<img/2024-03-29-14-30-20.png, id=123, 1112.65688pt x 671.50874pt>
+File: img/2024-03-29-14-30-20.png Graphic file (type png)
+<use img/2024-03-29-14-30-20.png>
+Package pdftex.def Info: img/2024-03-29-14-30-20.png  used on input line 303.
+(pdftex.def)             Requested size: 271.0159pt x 163.56305pt.
+<img/2024-03-29-14-33-36.png, id=124, 883.04906pt x 599.99156pt>
+File: img/2024-03-29-14-33-36.png Graphic file (type png)
+<use img/2024-03-29-14-33-36.png>
+Package pdftex.def Info: img/2024-03-29-14-33-36.png  used on input line 323.
+(pdftex.def)             Requested size: 271.00711pt x 184.13696pt.
 File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
 <use LatexTemplate/clsfiles/nightsky.png>
-Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 392.
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 324.
 (pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
- [6] 
+ [6 <./img/2024-03-29-14-30-20.png>]
+<img/2024-03-29-14-31-36.png, id=131, 1245.15187pt x 639.89063pt>
+File: img/2024-03-29-14-31-36.png Graphic file (type png)
+<use img/2024-03-29-14-31-36.png>
+Package pdftex.def Info: img/2024-03-29-14-31-36.png  used on input line 329.
+(pdftex.def)             Requested size: 271.00833pt x 139.27272pt.
+<img/2024-03-29-14-32-37.png, id=132, 919.93687pt x 503.63156pt>
+File: img/2024-03-29-14-32-37.png Graphic file (type png)
+<use img/2024-03-29-14-32-37.png>
+Package pdftex.def Info: img/2024-03-29-14-32-37.png  used on input line 337.
+(pdftex.def)             Requested size: 271.01405pt x 148.37021pt.
+File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
+<use LatexTemplate/clsfiles/nightsky.png>
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 348.
+(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
+ [7 <./img/2024-03-29-14-33-36.png> <./img/2024-03-29-14-31-36.png> <./img/2024-03-29-14-32-37.png>]
+<img/2024-03-29-14-35-36.png, id=139, 1400.98407pt x 779.16093pt>
+File: img/2024-03-29-14-35-36.png Graphic file (type png)
+<use img/2024-03-29-14-35-36.png>
+Package pdftex.def Info: img/2024-03-29-14-35-36.png  used on input line 367.
+(pdftex.def)             Requested size: 270.99962pt x 150.71713pt.
+File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
+<use LatexTemplate/clsfiles/nightsky.png>
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 397.
+(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
+ [8 <./img/2024-03-29-14-35-36.png>]
+File: LatexTemplate/clsfiles/nightsky.png Graphic file (type png)
+<use LatexTemplate/clsfiles/nightsky.png>
+Package pdftex.def Info: LatexTemplate/clsfiles/nightsky.png  used on input line 402.
+(pdftex.def)             Requested size: 614.37013pt x 795.01817pt.
+ [9] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./Lecture 15.aux)
  ***********
@@ -1255,18 +1347,18 @@ Package rerunfilecheck Info: File `"Lecture 15".out' has not changed.
 (rerunfilecheck)             Checksum: AD5223D9FF52F360090C9446D4CF4072;1086.
  ) 
 Here is how much of TeX's memory you used:
- 39364 strings out of 474272
- 754930 string characters out of 5744472
+ 39426 strings out of 474272
+ 756795 string characters out of 5744472
  1946533 words of memory out of 5000000
- 60815 multiletter control sequences out of 15000+600000
+ 60873 multiletter control sequences out of 15000+600000
  600209 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  118i,13n,121p,2900b,1413s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-orns.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/starfont/starfont.pfb>
-Output written on "Lecture 15.pdf" (6 pages, 1768060 bytes).
+Output written on "Lecture 15.pdf" (9 pages, 4048951 bytes).
 PDF statistics:
- 210 PDF objects out of 1000 (max. 8388607)
- 141 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 23253 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 157 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
+ 23288 words of extra memory for PDF output out of 24883 (max. 10000000)
 
